@@ -19,12 +19,38 @@ class ViewController: UIViewController {
             if success {
                 if let result = data["result"] as? NSDictionary {
                     if let payload  = result["data"] as? NSArray {
-                        
-                        println(payload)
+                        //Loop through all the customers
+                        for rawItem in payload {
+                            if let customer = rawItem as? NSDictionary{
+                                //retreive and loop through all the customers chats
+                                if let chats = customer["chats"] as? NSArray {
+                                    for rawChat in chats {
+                                        if let chatFrame = rawChat as? NSDictionary {
+                                            //get all messages within a chat
+                                            if let chatMessages = rawChat["chat"] as? NSArray {
+                                                
+                                                for rawChatMessage in chatMessages {
+                                                    if let chatMessage  = rawChatMessage as? NSDictionary {
+                                                        if let message = chatMessage["message"] as? String {
+                                                            println(message)
+                                                        }
+                                                    }
+                                                }
+                                                
+                                            } else {
+                                                println("Something else")
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     } else {
                         println("Filed")
                     }
                 }
+            } else {
+                println("Failed to gather data")
             }
         })
     }
