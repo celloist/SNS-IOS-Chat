@@ -59,6 +59,13 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
             return 0
         }
     }
+     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println("===========")
+        
+        //ToDo change screen on click to chat
+        
+    }
+    
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //ask for a reusable cell from the tableview, the tableview will create a new one if it doesn't have any
         
