@@ -22,27 +22,24 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
         super.viewDidLoad()
         
         
-          self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         self.tableView.dataSource = self
         if let id = customer?.id {
-            
-        
-                var url:String = "https://frozen-inlet-5594.herokuapp.com/customers/" + id + "/chats"
-        println(url)
+            var url:String = "https://frozen-inlet-5594.herokuapp.com/customers/" + id + "/chats"
+            println(url)
 
-        chatModel.getData(url, callback: {(success : Bool, data: [String:AnyObject]) in
-            if success {
-                println("-")
-                self.chats = self.request.getChats(data,customer : self.customer!)
-                           self.tableView.reloadData()
-                
-            }
-          
-        });
-            self.tableView.reloadData()
-    }
-    
-    
+            chatModel.getData(url, callback: {(success : Bool, data: [String:AnyObject]) in
+                if success {
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.chats = self.request.getChats(data,customer : self.customer!)
+                        self.tableView.reloadData()
+                    }
+                    
+                }
+              
+            });
+                //self.tableView.reloadData()
+        }
     }
     
     override func didReceiveMemoryWarning() {
