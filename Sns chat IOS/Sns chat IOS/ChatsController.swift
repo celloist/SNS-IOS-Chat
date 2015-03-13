@@ -12,7 +12,7 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
 {
     private let request  = Request()
     private let chatModel = RestFull()
-    private var chats:[chat]?
+    private var chats:[Chat]?
     
     var customer:Customer?
 
@@ -22,25 +22,24 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
         super.viewDidLoad()
         
         
-          self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         self.tableView.dataSource = self
-        if let id = customer?.id {
+            if let id = customer?.id {
             
         
                 var url:String = "https://frozen-inlet-5594.herokuapp.com/customers/" + id + "/chats"
-        println(url)
-
-        chatModel.getData(url, callback: {(success : Bool, data: [String:AnyObject]) in
-            if success {
-                println("-")
-                self.chats = self.request.getChats(data,customer : self.customer!)
-                           self.tableView.reloadData()
-                
-            }
-          
-        });
-            self.tableView.reloadData()
-    }
+           
+                chatModel.getData(url, callback: {(success : Bool, data: [String:AnyObject]) in
+                    if success {
+                        println("-")
+                        self.chats = self.request.getChats(data,customer : self.customer!)
+                        self.tableView.reloadData()
+                   
+                    }
+              
+            });
+           
+        }
     
     
     }
@@ -49,9 +48,9 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+  
      func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        println("-------------------")
+        
         if let count = chats?.count {
             println(count)
             return count
@@ -60,22 +59,32 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
         }
     }
      func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        println("===========")
         
+       let vc : ChatController! = self.storyboard?.instantiateViewControllerWithIdentifier("Chat") as ChatController
         //ToDo change screen on click to chat
+        vc.customer = self.customer
+        vc.chat = self.chats?[indexPath.row]
+        self.showViewController(vc as UIViewController, sender: vc)
         
     }
+    
+    
+
+    
+    
     
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //ask for a reusable cell from the tableview, the tableview will create a new one if it doesn't have any
         
         var cell = self.tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-        println("-+-")
+     
         // Get the corresponding candy from our candies array
         if  var chat = self.chats{
-            println("-+-1")
+       
             
             // Configure the cell
+            
+            
             cell.textLabel!.text = chat[indexPath.row].customer.name + " : " + chat[indexPath.row].messages[0].text
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }

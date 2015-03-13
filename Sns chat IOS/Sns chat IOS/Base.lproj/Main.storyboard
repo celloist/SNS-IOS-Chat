@@ -103,5 +103,52 @@
             </objects>
             <point key="canvasLocation" x="950" y="242"/>
         </scene>
+        <!--Chat Controller-->
+        <scene sceneID="DDi-IY-58H">
+            <objects>
+                <viewController storyboardIdentifier="Chat" id="o4o-q1-HqN" customClass="ChatController" customModule="Sns_chat_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Sa-h6-aT7"/>
+                        <viewControllerLayoutGuide type="bottom" id="op4-HY-xEw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JKD-KU-P1n">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3mx-Lb-mmU">
+                                <rect key="frame" x="16" y="378" width="184" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="473" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="103" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="rZc-GL-htG">
+                                <rect key="frame" x="-5" y="0.0" width="325" height="362"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="o4o-q1-HqN" id="4un-kO-nAl"/>
+                                    <outlet property="delegate" destination="o4o-q1-HqN" id="CPo-F0-bZa"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GtH-nX-U3l">
+                                <rect key="frame" x="253" y="378" width="67" height="30"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="SendMessage:" destination="o4o-q1-HqN" eventType="touchUpInside" id="QTk-Hw-qBc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="chatField" destination="3mx-Lb-mmU" id="cEj-fd-xDR"/>
+                        <outlet property="tableView" destination="rZc-GL-htG" id="RGw-ms-7Hd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LlH-3r-oQa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1383" y="242"/>
+        </scene>
     </scenes>
 </document>

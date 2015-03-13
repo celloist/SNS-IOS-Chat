@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         chatModel.getData("https://frozen-inlet-5594.herokuapp.com/customers", callback: {(success : Bool, data: [String:AnyObject]) in
             if success {
                 
-            self.customer = self.request.getCustomers(data)[7];
+            self.customer = self.request.getCustomers(data)[0];
                 self.label.text = self.customer?.name;
             }
 

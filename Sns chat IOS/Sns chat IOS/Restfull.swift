@@ -33,10 +33,12 @@ class RestFull {
         var request = NSMutableURLRequest(URL: NSURL(string: url)!)
         var err: NSError?
         request.HTTPMethod = method
-
-        
-        if params.length > 0 {
+        println("params = \(params)")
+       
+        if params.count > 0 {
+            println("heyo")
             request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: NSJSONWritingOptions.PrettyPrinted, error: &err)
+            println(request.HTTPBody)
         }
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")

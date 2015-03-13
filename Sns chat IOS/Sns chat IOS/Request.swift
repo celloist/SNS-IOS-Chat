@@ -16,15 +16,15 @@ class Request{
         
                 if let result = data["result"] as? NSDictionary {
                     if let payload  = result["data"] as? NSArray {
-                         println("cust")
+                      
                         //Loop through all the customers
                         for rawItem in payload {
                                  if let customer = rawItem as? NSDictionary{
-                                     println("ab")
+                                   
                                 
                                  if let name:String = customer["name"] as? String
                                  {
-                                     println("ac")
+                                  
                                     if let id:String = customer["_id"] as? String
                                     {/* adding chats to customer not necesary ?yet?
                                         
@@ -48,7 +48,7 @@ class Request{
                                         }
                                     */
                                     
-                                         println("a")
+                                       
                                      customers.append(Customer(_name:name,_id:id));
                                     
                                     }
@@ -66,45 +66,45 @@ class Request{
      
       return customers;
     }
-    func getChats(data:[String:AnyObject],customer:Customer)->[chat]
+    func getChats(data:[String:AnyObject],customer:Customer)->[Chat]
     {
-        var chats:[chat] = [chat]()
+        var chats:[Chat] = [Chat]()
         if let result = data["result"] as? NSDictionary {
-            println("\(result)")
+          
             if let payload  = result["data"] as? NSArray {
-                println("2-")
+               
                 for rawItem in payload {
-                    println("3-")
+                   
                     if let chatid = rawItem["_id"] as? String{
                     var _messages:[Message] = [Message]()
-                    println(" 2- \(rawItem)")
+                   
                     if let messages = rawItem["messages"] as? NSArray{
-                         println("message1111s")
                         
                         var user:User?
                         for message in messages{
-                            println("messages")
+                        
                             var text:String = ""
                             if var _text = message["text"] as? String{
                                 text = _text
                             }
                             
-                                if let id = message["_id"] as? String{
-                                    println("test")
-                                        if id == customer.id {
-                                            println("test1")
+                                if let employee = message["employee"] as? Bool{
+                                   
+                                    if !employee  {
+                                           
 
                                             text = "\(customer.name) : \(text)"
                                             user = customer
                                         }else{
                                             //TODO get medewerker
-                                            println("test2")
-
+                                           
                                             text = "employee : \(text)"
+                                        user = nil
+                                          
                                     
                                         }
                                         if let time = message["timeStamp"] as? String{
-                                            println("test3")
+                                           
 
                                             _messages.append(Message(_user: user,_text: text,_time: time))
                                         
@@ -117,8 +117,8 @@ class Request{
                         }
                         
                         }
-                        println("append")
-                       chats.append(chat(id: chatid ,_customer: customer ,_messages: _messages))
+                       
+                       chats.append(Chat(id: chatid ,_customer: customer ,_messages: _messages))
                      
                     }
               

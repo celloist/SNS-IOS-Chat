@@ -8,7 +8,7 @@
 
 import Foundation
 
-class chat : MainModel{
+class Chat : MainModel{
  //   let category:String
     let customer:Customer
   //  let employees:[Employees]; TODO

@@ -14,6 +14,9 @@
 		9EDEE9D81AA4542400500660 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EDEE9D61AA4542400500660 /* LaunchScreen.xib */; };
 		9EDEE9E41AA4542400500660 /* Sns_chat_IOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEE9E31AA4542400500660 /* Sns_chat_IOSTests.swift */; };
 		9EDEE9EF1AA454EC00500660 /* Restfull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEE9EE1AA454EC00500660 /* Restfull.swift */; };
+		CE4E09261AB0617D00F5A023 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E09251AB0617D00F5A023 /* ChatController.swift */; };
+		CE4E09281AB06ED000F5A023 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E09271AB06ED000F5A023 /* MessageCell.swift */; };
+		CE4E092A1AB0784600F5A023 /* ViewTableMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE4E09291AB0784600F5A023 /* ViewTableMessageCell.xib */; };
 		CE9CB2701AAB222800FA028D /* ChatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CB26F1AAB222800FA028D /* ChatsController.swift */; };
 		CEDEEE941AA9D4E900DB5157 /* customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE931AA9D4E900DB5157 /* customer.swift */; };
 		CEDEEE961AA9D65400DB5157 /* chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE951AA9D65400DB5157 /* chat.swift */; };
@@ -45,6 +48,9 @@
 		9EDEE9E21AA4542400500660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EDEE9E31AA4542400500660 /* Sns_chat_IOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sns_chat_IOSTests.swift; sourceTree = "<group>"; };
 		9EDEE9EE1AA454EC00500660 /* Restfull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restfull.swift; sourceTree = "<group>"; };
+		CE4E09251AB0617D00F5A023 /* ChatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
+		CE4E09271AB06ED000F5A023 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		CE4E09291AB0784600F5A023 /* ViewTableMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewTableMessageCell.xib; sourceTree = "<group>"; };
 		CE9CB26F1AAB222800FA028D /* ChatsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsController.swift; sourceTree = "<group>"; };
 		CEDEEE931AA9D4E900DB5157 /* customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customer.swift; sourceTree = "<group>"; };
 		CEDEEE951AA9D65400DB5157 /* chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chat.swift; sourceTree = "<group>"; };
@@ -97,10 +103,13 @@
 				9EDEE9CD1AA4542400500660 /* AppDelegate.swift */,
 				9EDEE9CF1AA4542400500660 /* ViewController.swift */,
 				9EDEE9D11AA4542400500660 /* Main.storyboard */,
+				CE4E09291AB0784600F5A023 /* ViewTableMessageCell.xib */,
 				CE9CB26F1AAB222800FA028D /* ChatsController.swift */,
 				9EDEE9D41AA4542400500660 /* Images.xcassets */,
 				9EDEE9D61AA4542400500660 /* LaunchScreen.xib */,
 				9EDEE9CB1AA4542400500660 /* Supporting Files */,
+				CE4E09251AB0617D00F5A023 /* ChatController.swift */,
+				CE4E09271AB06ED000F5A023 /* MessageCell.swift */,
 			);
 			path = "Sns chat IOS";
 			sourceTree = "<group>";
@@ -225,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EDEE9D31AA4542400500660 /* Main.storyboard in Resources */,
+				CE4E092A1AB0784600F5A023 /* ViewTableMessageCell.xib in Resources */,
 				9EDEE9D81AA4542400500660 /* LaunchScreen.xib in Resources */,
 				9EDEE9D51AA4542400500660 /* Images.xcassets in Resources */,
 			);
@@ -244,10 +254,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE4E09261AB0617D00F5A023 /* ChatController.swift in Sources */,
 				CEDEEE961AA9D65400DB5157 /* chat.swift in Sources */,
 				9EDEE9D01AA4542400500660 /* ViewController.swift in Sources */,
 				CEDEEE981AA9D6CA00DB5157 /* MainModel.swift in Sources */,
 				9EDEE9EF1AA454EC00500660 /* Restfull.swift in Sources */,
+				CE4E09281AB06ED000F5A023 /* MessageCell.swift in Sources */,
 				CEDEEE9C1AA9DD9900DB5157 /* User.swift in Sources */,
 				9EDEE9CE1AA4542400500660 /* AppDelegate.swift in Sources */,
 				CEDEEE941AA9D4E900DB5157 /* customer.swift in Sources */,
