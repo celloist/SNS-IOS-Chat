@@ -10,17 +10,17 @@ import Foundation
 
 class Customer : User{
     
-   
-  //  var chats:[chat]
+    
+    //  var chats:[chat]
     
     init(_name:String,_id:String
         //,_chats:[chat]
         ){
-      
-     // chats = _chats
-        
-        super.init(_id:_id,_name:_name)
-        
+            
+            // chats = _chats
+            
+            super.init(_id:_id,_name:_name)
+            
     }
     
 }

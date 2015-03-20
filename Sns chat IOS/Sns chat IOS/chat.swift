@@ -8,10 +8,10 @@
 
 import Foundation
 
-class chat : MainModel{
- //   let category:String
+class Chat : MainModel{
+    //   let category:String
     let customer:Customer
-  //  let employees:[Employees]; TODO
+    //  let employees:[Employees]; TODO
     var messages:[Message]
     
     init(id:String
@@ -22,8 +22,8 @@ class chat : MainModel{
         ){
             customer = _customer;
             messages = _messages;
-        //category = _category;
-        super.init(_id:id);
+            //category = _category;
+            super.init(_id:id);
     }
     
     
