@@ -18,7 +18,6 @@ class Message{
         text = _text;
         time = _time;
         
-        
     }
     
 }

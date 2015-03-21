@@ -10,8 +10,6 @@ import UIKit
 
 
 class ChatTableViewController: UITableViewController {
-    // let requestModel = RestFull()
-    
     var timer = NSTimer()
     private let chatModel = RestFull()
     var chat:Chat?
@@ -19,24 +17,17 @@ class ChatTableViewController: UITableViewController {
     var customer:Customer?
     
     @IBAction func chatField(sender: UITextField) {
-        var url:String = "https://frozen-inlet-5594.herokuapp.com/customers/\(self.customer!.id)/chats/\(chat!.id)/messages"
-        println(url)
-        println(sender.text)
+        var url:String = "https://quiet-ocean-2107.herokuapp.com/customers/\(self.customer!.id)/chats/\(chat!.id)/messages"
         var param: [String:AnyObject] = ["message": "\(sender.text)"]
-        
-        
-        // var param:[AnyObject] = "\"message\":\"\(chatField.text)\""
         chatModel.postData(url, params: param, callback: {(success : Bool, data: [String:AnyObject]) in
             dispatch_async(dispatch_get_main_queue()) {
-                
                 if success {
                     
                 }
             }
         });
-        
-        
     }
+    
     func getData(){
         
         var url:String = "https://frozen-inlet-5594.herokuapp.com/customers/" + self.customer!.id  + "/chats"
@@ -44,36 +35,11 @@ class ChatTableViewController: UITableViewController {
         chatModel.getData(url, callback: {(success : Bool, data: [String:AnyObject]) in
             dispatch_async(dispatch_get_main_queue()) {
                 if success {
-                    println("-")
-                    
                     self.chat = self.request.getChats(data,customer : self.customer!)[0]
                     self.tableView.reloadData()
-                    
                 }
             }
         });
-        
-        
-        
-        
-        
-        
-        
-        
-        /*
-        var url = "https://frozen-inlet-5594.herokuapp.com/customers/" + self.customer!.id + "/chats" + self.chat.id + "/messages"
-        chatModel.getData(url, callback: {(success : Bool, data: [String:AnyObject]) in
-        dispatch_async(dispatch_get_main_queue()) {
-        if success {
-        println("-")
-        self.chats = self.request.getChats(data,customer : self.customer!)
-        self.tableView.reloadData()
-        
-        }
-        }
-        });
-        */
-        
     }
     
     override func viewDidLoad() {
@@ -87,32 +53,23 @@ class ChatTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        
-        
         self.tableView.reloadData()
         
         
         timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("implementUpdateUITimerAndChangefTheName"), userInfo: nil, repeats: true)
     }
     
-    
-    
     func implementUpdateUITimerAndChangefTheName () {
         println("Called timer:::")
         getData()
     }
     // MARK: - Table view data source
-    
-    
-    
     private struct Storyboard {
         static let CellReuseIdentifier = "Message"
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         if let count = chat?.messages.count {
-            println(count)
             return count
         }else{
             return 0
@@ -121,23 +78,13 @@ class ChatTableViewController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> MessageTableViewCell {
-        //ask for a reusable cell from the tableview, the tableview will create a new one if it doesn't have any
-        
         let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as MessageTableViewCell
-        
-        
-        
-        // Get the corresponding candy from our candies array
+      
         if  var chat = self.chat{
-            
-            
-            
             // Configure the cell
             cell.timestamp.text = chat.messages[indexPath.row].time
             cell.chatMessage.text = chat.messages[indexPath.row].text
-            
         }
-        
         return cell
     }
     

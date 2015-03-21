@@ -15,7 +15,6 @@ class MessageTableViewCell: UITableViewCell {
         }
     }
     
-    
     @IBOutlet weak var chatMessage: UILabel!
     @IBOutlet weak var timestamp: UILabel!
     
