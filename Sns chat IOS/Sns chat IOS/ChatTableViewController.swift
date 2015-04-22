@@ -12,35 +12,11 @@ import UIKit
 class ChatTableViewController: UITableViewController {
     var timer = NSTimer()
     private let chatModel = RestFull()
-    var chat:Chat?
     private let request  = Request()
+    private var chatFactory:ChatFactory?
+        
+    var chat:Chat?
     var customer:Customer?
-    
-    @IBAction func chatField(sender: UITextField) {
-        var url:String = "https://quiet-ocean-2107.herokuapp.com/customers/\(self.customer!.id)/chats/\(chat!.id)/messages"
-        var param: [String:AnyObject] = ["message": "\(sender.text)"]
-        chatModel.postData(url, params: param, callback: {(success : Bool, data: [String:AnyObject]) in
-            dispatch_async(dispatch_get_main_queue()) {
-                if success {
-                    
-                }
-            }
-        });
-    }
-    
-    func getData(){
-        
-        var url:String = "https://frozen-inlet-5594.herokuapp.com/customers/" + self.customer!.id  + "/chats"
-        
-        chatModel.getData(url, callback: {(success : Bool, data: [String:AnyObject]) in
-            dispatch_async(dispatch_get_main_queue()) {
-                if success {
-                    self.chat = self.request.getChats(data,customer : self.customer!)[0]
-                    self.tableView.reloadData()
-                }
-            }
-        });
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,12 +32,43 @@ class ChatTableViewController: UITableViewController {
         self.tableView.reloadData()
         
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: Selector("implementUpdateUITimerAndChangefTheName"), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("updateUI"), userInfo: nil, repeats: true)
+    }
+
+    @IBAction func chatField(sender: UITextField) {
+        var url:String = BaseRequest.concat("customers/\(self.customer!.id)/chats/\(chat!.id)/messages")
+        var param: [String:AnyObject] = ["message": "\(sender.text)"]
+        chatModel.postData(url, params: param, callback: {(success : Bool, data: [String:AnyObject]) in
+            dispatch_async(dispatch_get_main_queue()) {
+                if success {
+                    self.getData()
+                }
+            }
+        });
     }
     
-    func implementUpdateUITimerAndChangefTheName () {
-        println("Called timer:::")
+    func getData(){
+        var url = BaseRequest.concat("customers/\(self.customer!.id)/chats/\(chat!.id)/messages")
+        
+        if chatFactory == nil {
+            chatFactory = ChatFactory(customer: customer!)
+        }
+        
+        chatModel.getData(url) { (success, data) in
+            dispatch_async(dispatch_get_main_queue()) {
+                if success {
+                    if let result = data["result"] as? NSDictionary {
+                        self.chat = self.chatFactory!.createChatFromJson(result["data"]!)
+                        self.tableView.reloadData()
+                    }
+                }
+            }
+        }
+    }
+    
+    func updateUI () {
         getData()
+        
     }
     // MARK: - Table view data source
     private struct Storyboard {
@@ -71,20 +78,21 @@ class ChatTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         if let count = chat?.messages.count {
             return count
-        }else{
+        } else {
             return 0
         }
     }
     
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> MessageTableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as MessageTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! MessageTableViewCell
       
         if  var chat = self.chat{
             // Configure the cell
             cell.timestamp.text = chat.messages[indexPath.row].time
             cell.chatMessage.text = chat.messages[indexPath.row].text
         }
+        
         return cell
     }
     
@@ -126,14 +134,10 @@ class ChatTableViewController: UITableViewController {
     }
     */
     
-    /*
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     }
-    */
-    
 }

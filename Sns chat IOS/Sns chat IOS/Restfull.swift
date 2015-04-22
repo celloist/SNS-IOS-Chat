@@ -8,6 +8,8 @@
 import Foundation
 
 class RestFull {
+    var asynch = true
+    
     func getData (url : String, callback: (success : Bool, data: [String:AnyObject]) -> ()) {
         getData(url, params: [String:AnyObject](), callback: callback)
     }
@@ -33,31 +35,32 @@ class RestFull {
         var request = NSMutableURLRequest(URL: NSURL(string: url)!)
         var err: NSError?
         request.HTTPMethod = method
-        println("params = \(params)")
+        //println("params = \(params)")
         
         if params.count > 0 {
-            println("heyo")
+            //println("heyo")
             request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: NSJSONWritingOptions.PrettyPrinted, error: &err)
-            println(request.HTTPBody)
+            //println(request.HTTPBody)
         }
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
-            
-            if ((error) != nil) {
-                callback(success: false, data : ["error" : error])
-            } else {
-                var returnData:[String:AnyObject] = ["response" : response]
-                
-                var jsonError: NSError?
-                if let result = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &jsonError) as? NSDictionary {
-                    
-                    returnData["result"] = result
-                    callback(success: true, data : returnData)
+        if asynch {
+            NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {(response, data, error) in
+                if ((error) != nil) {
+                    callback(success: false, data : ["error" : error])
                 } else {
-                    callback(success: false, data : returnData)
+                    var returnData:[String:AnyObject] = ["response" : response]
+                    
+                    var jsonError: NSError?
+                    if let result = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &jsonError) as? NSDictionary {
+                        
+                        returnData["result"] = result
+                        callback(success: true, data : returnData)
+                    } else {
+                        callback(success: false, data : returnData)
+                    }
                 }
             }
         }

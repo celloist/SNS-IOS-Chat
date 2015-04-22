@@ -9,14 +9,18 @@
 import Foundation
 
 class Message{
-    let user:User?;
-    let time:String;
-    let text:String;
+    let user:User?
+    let time:String
+    let text:String
     
     init(_user:User?,_text:String,_time:String){
-        user = _user?;
-        text = _text;
-        time = _time;
+        if _user != nil {
+            user = _user!
+        } else {
+            user = nil
+        }
+        text = _text
+        time = _time
         
     }
     

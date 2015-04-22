@@ -31,49 +31,52 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
         self.tableView.dataSource = self
       
         if let id = customer?.id {        
-            var url:String = "https://quiet-ocean-2107.herokuapp.com/customers/" + id + "/chats"
+            var url = BaseRequest.concat("customers/" + id + "/chats")
+            
             chatModel.getData(url, callback: {(success : Bool, data: [String:AnyObject]) in
                 dispatch_async(dispatch_get_main_queue()) {
                     if success {
-                        self.chats = self.request.getChats(data,customer : self.customer!)
-                        self.tableView.reloadData()
+                        let chatFactory = ChatFactory(customer: self.customer!)
                         
+                        if let result = data["result"] as? NSDictionary {
+                            let chats = chatFactory.createChatsFromJson(result["data"]!)
+                            self.chats = chats
+                            self.tableView.reloadData()
+                        }
                     }
                 }
             });
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         
         if let count = chats?.count {
-            println(count)
+           
             return count
-        }else{
-            return 0
         }
+        
+        return 0
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let vc : ChatTableViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("Chat") as ChatTableViewController
+        let vc : ChatTableViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("Chat") as! ChatTableViewController
         
         vc.customer = self.customer
         vc.chat = self.chats?[indexPath.row]
+        
         self.showViewController(vc as UITableViewController, sender: vc)
         
     }
+    
     private struct Storyboard {
         static let CellReuseIdentifier = "Cell"
     }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell = self.tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as UITableViewCell
+        var cell = self.tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
         if  var chat = self.chats{
             // Configure the cell
             cell.textLabel!.text = chat[indexPath.row].messages[0].text
@@ -81,6 +84,16 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
         }
         
         return cell
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "startChat" {
+            if let startChatController = segue.destinationViewController as? StartChatViewController {
+                
+                startChatController.customer = customer
+            }
+        }
     }
     
 }

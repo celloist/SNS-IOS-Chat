@@ -8,23 +8,42 @@
 
 import Foundation
 
-class Chat : MainModel{
+class Chat : RestFull {
+    let id:String
     //   let category:String
     let customer:Customer
+    let category:Category
     //  let employees:[Employees]; TODO
-    var messages:[Message]
+    var messages = [Message]()
     
-    init(id:String
-        //,_category:String
-        ,_customer:Customer
-        //,_employees:[Employees]
-        ,_messages:[Message]
-        ){
-            customer = _customer;
-            messages = _messages;
-            //category = _category;
-            super.init(_id:id);
+    init(id:String, customer: Customer, category : Category){
+        self.id = id
+        self.customer = customer
+        self.category = category
+    }
+
+    func getMessages (url: String, callback: (success : Bool, data: [Message]) -> ()) {
+        let secondurayCallback = callback
+        
+        getData(url, callback : {(success : Bool, data: [String:AnyObject]) in
+            var returnData = [Message]()
+            
+            if success {
+                let chatMessageFactory = ChatMessageFactory(customer: self.customer)
+                returnData = chatMessageFactory.createMessagesFromJson(data["result"]!)
+            }
+            
+            secondurayCallback(success: success, data: returnData)
+        })
     }
     
+    func appendMessages (messages: [Message]) {
+        for message in messages {
+            self.messages.append(message)
+        }
+    }
     
+    func appendMessage (message: Message) {
+        self.messages.append(message)
+    }
 }

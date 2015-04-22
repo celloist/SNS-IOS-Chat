@@ -6,8 +6,10 @@
 //  Copyright (c) 2015 Mark Jan Kamminga. All rights reserved.
 //
 
-import Cocoa
+import Foundation
 
 class UserFactory: NSObject {
-
+    func createUserFronJson (data: AnyObject) -> User? {
+        return nil
+    }
 }

@@ -8,16 +8,12 @@
 
 import Foundation
 
-class User: MainModel{
-    
+class User: RestFull {
+    let id:String
     let name:String
     
-    init(_id:String,_name:String){
-        name = _name
-        
-        
-        
-        super.init(_id:_id);
+    init(id:String, name:String){
+        self.name = name
+        self.id = id
     }
-    
 }

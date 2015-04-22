@@ -6,8 +6,14 @@
 //  Copyright (c) 2015 Mark Jan Kamminga. All rights reserved.
 //
 
-import Cocoa
+import Foundation
 
 class StartUp: NSObject {
-
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
+    func setupUser () {
+        if let userID = defaults.stringForKey("userID") {
+            
+        }
+    }
 }
