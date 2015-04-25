@@ -31,7 +31,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
     {
-        println(NSData);
+       
+            
+        
+            // default value is not set or not an NSDate
+        
+        let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
+        var tokenString = ""
+        
+        for var i = 0; i < deviceToken.length; i++ {
+            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+        }
+        
+        println("tokenString: \(tokenString)");
+        
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setValue(tokenString, forKey: "deviceToken")
+        userDefaults.synchronize()
+        
+  
+        
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
