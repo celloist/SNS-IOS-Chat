@@ -31,6 +31,9 @@ class ChatTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.tableView.reloadData()
         
+        // Scrolls to the bottom of the list
+        tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: chat!.messages.count - 1, inSection: 0), atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+
         
         timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("updateUI"), userInfo: nil, repeats: true)
     }
@@ -86,7 +89,8 @@ class ChatTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> MessageTableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! MessageTableViewCell
-      
+        
+        
         if  var chat = self.chat{
             // Configure the cell
             if chat.messages[indexPath.row].isEmployee {
