@@ -24,6 +24,7 @@
 		9EDEE9EF1AA454EC00500660 /* Restfull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEE9EE1AA454EC00500660 /* Restfull.swift */; };
 		9EE0B9B11ACD50AA006CFDBF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0B9B01ACD50AA006CFDBF /* Category.swift */; };
 		CE9CB2701AAB222800FA028D /* ChatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CB26F1AAB222800FA028D /* ChatsController.swift */; };
+		CEB958CA1AF12EB300397B36 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB958C91AF12EB300397B36 /* MenuViewController.swift */; };
 		CEDEEE941AA9D4E900DB5157 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE931AA9D4E900DB5157 /* Customer.swift */; };
 		CEDEEE961AA9D65400DB5157 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE951AA9D65400DB5157 /* Chat.swift */; };
 		CEDEEE981AA9D6CA00DB5157 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE971AA9D6CA00DB5157 /* MainModel.swift */; };
@@ -64,6 +65,7 @@
 		CE9CB26F1AAB222800FA028D /* ChatsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsController.swift; sourceTree = "<group>"; };
 		CEB958C11AF0E1D500397B36 /* snsioschat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snsioschat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB958C21AF0E1D500397B36 /* snsioschatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snsioschatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEB958C91AF12EB300397B36 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		CEDEEE931AA9D4E900DB5157 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		CEDEEE951AA9D65400DB5157 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		CEDEEE971AA9D6CA00DB5157 /* MainModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				9D5FE5BF1ABC4815008A07CA /* ChatTableViewController.swift */,
 				CE9CB26F1AAB222800FA028D /* ChatsController.swift */,
 				9EDEE9CF1AA4542400500660 /* StartViewController.swift */,
+				CEB958C91AF12EB300397B36 /* MenuViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				CEDEEE9C1AA9DD9900DB5157 /* User.swift in Sources */,
 				9E55FB8B1AD6915D004F72EB /* CategoryFactory.swift in Sources */,
 				9E8AC09E1ABF6C15001635C1 /* StartChatViewController.swift in Sources */,
+				CEB958CA1AF12EB300397B36 /* MenuViewController.swift in Sources */,
 				9EDEE9CE1AA4542400500660 /* AppDelegate.swift in Sources */,
 				CEDEEE941AA9D4E900DB5157 /* Customer.swift in Sources */,
 				CEDEEE9E1AA9E15A00DB5157 /* Request.swift in Sources */,

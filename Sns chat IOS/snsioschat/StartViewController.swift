@@ -28,12 +28,12 @@ class StartViewController: UIViewController {
             if let Id : String = userDefaults.valueForKey("id") as? String{
                 customer = Customer(_name: Username, _id: Id);
                 
-                let vc : ChatsController! = self.storyboard?.instantiateViewControllerWithIdentifier("Chats") as! ChatsController
+                let vc : MenuViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("Menu") as! MenuViewController
             
                 vc.customer = self.customer
             
             
-                self.showViewController(vc as ChatsController, sender: vc)
+                self.showViewController(vc as MenuViewController, sender: vc)
 
             }
         }
@@ -106,8 +106,6 @@ class StartViewController: UIViewController {
                     self.customer = customer
                     userDefaults.setValue(customer?.id, forKey: "id")
                      userDefaults.synchronize()
-
-                 
                 }
             }
         }
@@ -116,7 +114,7 @@ class StartViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        var dest = segue.destinationViewController as! ChatsController
+        var dest = segue.destinationViewController as! MenuViewController
         dest.customer = self.customer
     }
 }

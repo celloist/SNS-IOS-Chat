@@ -21,7 +21,6 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
         super.viewDidLoad()
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Storyboard.CellReuseIdentifier)
  
-     
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         

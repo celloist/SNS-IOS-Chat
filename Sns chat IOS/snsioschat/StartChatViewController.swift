@@ -30,6 +30,7 @@ class StartChatViewController: UIViewController, UIPickerViewDataSource,UIPicker
         categoriesPicker.delegate = self
         //questionTextbox.delegate = self
         
+        
         restfull.getData(BaseRequest.concat("categories"), callback: {( success : Bool, data: [String:AnyObject]) in
             
             dispatch_async(dispatch_get_main_queue()) {
@@ -84,8 +85,8 @@ class StartChatViewController: UIViewController, UIPickerViewDataSource,UIPicker
         let category = Category(id: categoryId , name: categoryName)
         activityIndicator.hidden = false
         activityIndicator.startAnimating()
-//        let url = BaseRequest.concat("customers/\(customer!.id)/chats")
-        let url = BaseRequest.concat("customers/5540ae18fe79030300000002/chats")
+        let url = BaseRequest.concat("customers/\(customer!.id)/chats")
+//        let url = BaseRequest.concat("customers/5540ae18fe79030300000002/chats")
         restfull.postData(url, params: ["category" : categoryId, "message" : questionTextbox.text]) {( success, data) in
             
             if success {

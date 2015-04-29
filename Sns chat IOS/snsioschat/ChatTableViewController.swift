@@ -55,18 +55,6 @@ class ChatTableViewController: UITableViewController {
             });
         }
     }
-
-    @IBAction func chatField(sender: UITextField) {
-        var url:String = BaseRequest.concat("customers/\(self.customer!.id)/chats/\(chat!.id)/messages")
-        var param: [String:AnyObject] = ["message": "\(sender.text)"]
-        chatModel.postData(url, params: param, callback: {(success : Bool, data: [String:AnyObject]) in
-            dispatch_async(dispatch_get_main_queue()) {
-                if success {
-                    self.getData()
-                }
-            }
-        });
-    }
     
     func getData(){
         var url = BaseRequest.concat("customers/\(self.customer!.id)/chats/\(chat!.id)/messages")

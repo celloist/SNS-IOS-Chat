@@ -359,11 +359,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "snsioschat/StartChatViewController.swift"
-            timestampString = "451995114.051825"
+            timestampString = "452033723.21122"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "startNewChat(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -375,28 +375,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "snsioschat/StartChatViewController.swift"
-            timestampString = "451995114.855846"
+            timestampString = "452033723.21122"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
             landmarkName = "startNewChat(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "snsioschat/ChatTableViewController.swift"
-            timestampString = "452010836.454629"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "chatField(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
