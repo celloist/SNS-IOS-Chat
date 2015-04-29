@@ -81,6 +81,7 @@ class ChatMessageFactory {
     
     func createMessageFromJson (data: AnyObject) -> Message? {
         var user:User?
+        var isEmployee:Bool! = data["isEmployee"] as? Bool
         
         if var text = data["text"] as? String {
             if let employee = data["isEmployee"] as? Bool {
@@ -94,7 +95,7 @@ class ChatMessageFactory {
                 }
                 
                 if let time = data["timeStamp"] as? String{
-                     return Message(_user: user,_text: text,_time: time)
+                    return Message(_user: user,_text: text,_time: time, _isEmployee: isEmployee)
                 }
             }
         }

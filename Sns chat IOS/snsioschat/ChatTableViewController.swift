@@ -89,8 +89,15 @@ class ChatTableViewController: UITableViewController {
       
         if  var chat = self.chat{
             // Configure the cell
+            if chat.messages[indexPath.row].isEmployee {
             cell.timestamp.text = chat.messages[indexPath.row].time
             cell.chatMessage.text = chat.messages[indexPath.row].text
+            }else{
+                cell.timestamp.textAlignment = NSTextAlignment.Right
+                cell.chatMessage.textAlignment = NSTextAlignment.Right
+                cell.timestamp.text = chat.messages[indexPath.row].time
+                cell.chatMessage.text = chat.messages[indexPath.row].text
+            }
         }
         
         return cell

@@ -12,8 +12,9 @@ class Message{
     let user:User?
     let time:String
     let text:String
+    let isEmployee:Bool
     
-    init(_user:User?,_text:String,_time:String){
+    init(_user:User?,_text:String,_time:String, _isEmployee:Bool){
         if _user != nil {
             user = _user!
         } else {
@@ -21,6 +22,7 @@ class Message{
         }
         text = _text
         time = _time
+        isEmployee = _isEmployee
         
     }
     

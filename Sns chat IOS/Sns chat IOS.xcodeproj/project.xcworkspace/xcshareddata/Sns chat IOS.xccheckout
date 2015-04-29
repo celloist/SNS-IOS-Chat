@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>57C12356-A464-46F3-A22E-319D0DC61EEB</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Sns chat IOS</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>64FD3269DFD981617081708B9809A00113964203</key>
 		<string>https://github.com/celloist/SNS-IOS-Chat.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Sns chat IOS/Sns chat IOS.xcodeproj</string>
+	<string>Sns chat IOS/Sns chat IOS.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>64FD3269DFD981617081708B9809A00113964203</key>
