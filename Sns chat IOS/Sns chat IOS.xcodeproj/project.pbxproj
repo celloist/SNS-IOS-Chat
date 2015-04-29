@@ -57,19 +57,19 @@
 		9EDEE9CF1AA4542400500660 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		9EDEE9D41AA4542400500660 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9EDEE9D71AA4542400500660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		9EDEE9DD1AA4542400500660 /* snsioschatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = snsioschatTests.xctest; path = "/Users/user/Desktop/IOS project blok 12/SNS-IOS-Chat/Sns chat IOS/build/Debug-iphoneos/snsioschatTests.xctest"; sourceTree = "<absolute>"; };
 		9EDEE9E21AA4542400500660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EDEE9E31AA4542400500660 /* Sns_chat_IOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sns_chat_IOSTests.swift; sourceTree = "<group>"; };
 		9EDEE9EE1AA454EC00500660 /* Restfull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restfull.swift; sourceTree = "<group>"; };
 		9EE0B9B01ACD50AA006CFDBF /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		CE9CB26F1AAB222800FA028D /* ChatsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsController.swift; sourceTree = "<group>"; };
+		CEB958C11AF0E1D500397B36 /* snsioschat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snsioschat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEB958C21AF0E1D500397B36 /* snsioschatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snsioschatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEDEEE931AA9D4E900DB5157 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		CEDEEE951AA9D65400DB5157 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		CEDEEE971AA9D6CA00DB5157 /* MainModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		CEDEEE991AA9D9A000DB5157 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		CEDEEE9B1AA9DD9900DB5157 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CEDEEE9D1AA9E15A00DB5157 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		CEFD218F1AEA77B70069EBB8 /* snsioschat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = snsioschat.app; path = "/Users/user/Desktop/IOS project blok 12/SNS-IOS-Chat/Sns chat IOS/build/Debug-iphoneos/snsioschat.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +125,8 @@
 			children = (
 				9EDEE9CA1AA4542400500660 /* snsioschat */,
 				9EDEE9E01AA4542400500660 /* snsioschatTests */,
+				CEB958C11AF0E1D500397B36 /* snsioschat.app */,
+				CEB958C21AF0E1D500397B36 /* snsioschatTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,7 +204,7 @@
 			);
 			name = snsioschat;
 			productName = snsioschat;
-			productReference = CEFD218F1AEA77B70069EBB8 /* snsioschat.app */;
+			productReference = CEB958C11AF0E1D500397B36 /* snsioschat.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9EDEE9DC1AA4542400500660 /* snsioschatTests */ = {
@@ -220,7 +222,7 @@
 			);
 			name = snsioschatTests;
 			productName = snsioschatTests;
-			productReference = 9EDEE9DD1AA4542400500660 /* snsioschatTests.xctest */;
+			productReference = CEB958C21AF0E1D500397B36 /* snsioschatTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */

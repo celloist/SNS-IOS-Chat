@@ -18,6 +18,8 @@ class ChatTableViewController: UITableViewController {
     var chat:Chat?
     var customer:Customer?
     
+    @IBOutlet weak var sendMessageContent: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,6 +38,22 @@ class ChatTableViewController: UITableViewController {
 
         
         timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("updateUI"), userInfo: nil, repeats: true)
+    }
+    
+    
+    @IBAction func sendMessage(sender: UIButton) {
+        if sendMessageContent.text != "" {
+            var url:String = BaseRequest.concat("customers/\(self.customer!.id)/chats/\(chat!.id)/messages")
+            var param: [String:AnyObject] = ["message": "\(sendMessageContent.text)"]
+            chatModel.postData(url, params: param, callback: {(success : Bool, data: [String:AnyObject]) in
+                dispatch_async(dispatch_get_main_queue()) {
+                    if success {
+                        self.getData()
+                        self.sendMessageContent.text = ""
+                    }
+                }
+            });
+        }
     }
 
     @IBAction func chatField(sender: UITextField) {

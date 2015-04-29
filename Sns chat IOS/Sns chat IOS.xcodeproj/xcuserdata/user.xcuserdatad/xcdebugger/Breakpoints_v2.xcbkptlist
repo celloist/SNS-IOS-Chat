@@ -391,11 +391,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "snsioschat/ChatTableViewController.swift"
-            timestampString = "452004753.440068"
+            timestampString = "452010836.454629"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "chatField(_:)"
             landmarkType = "5">
          </BreakpointContent>

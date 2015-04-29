@@ -384,7 +384,7 @@
         <scene sceneID="wWw-Kr-vRT">
             <objects>
                 <tableViewController storyboardIdentifier="Chat" id="gLv-pd-Pc0" customClass="ChatTableViewController" customModule="snsioschat" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="111" sectionHeaderHeight="22" sectionFooterHeight="22" id="Mgu-5Y-LCf">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="85" sectionHeaderHeight="22" sectionFooterHeight="22" id="Mgu-5Y-LCf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -399,17 +399,43 @@
                                 <navigationItem title="Chat" id="0XN-sT-0E3"/>
                             </items>
                         </navigationBar>
-                        <textField key="tableFooterView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="jZw-O1-v6Z">
-                            <rect key="frame" x="0.0" y="123" width="600" height="30"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="XK8-Hr-9pN">
+                            <rect key="frame" x="0.0" y="130" width="600" height="69"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <connections>
-                                <action selector="chatField:" destination="gLv-pd-Pc0" eventType="editingDidEndOnExit" id="fhX-bc-rM3"/>
-                            </connections>
-                        </textField>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myZ-vl-IU3">
+                                    <rect key="frame" x="526" y="8" width="66" height="61"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="66" id="264-eO-C2g"/>
+                                    </constraints>
+                                    <state key="normal" title="Verstuur">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="sendMessage:" destination="gLv-pd-Pc0" eventType="touchUpInside" id="ykl-zA-hJs"/>
+                                    </connections>
+                                </button>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CuG-Ye-vBc">
+                                    <rect key="frame" x="8" y="8" width="510" height="61"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="myZ-vl-IU3" firstAttribute="top" secondItem="XK8-Hr-9pN" secondAttribute="topMargin" id="BIi-qq-Esy"/>
+                                <constraint firstAttribute="trailing" secondItem="myZ-vl-IU3" secondAttribute="trailing" constant="8" id="DAe-fb-1N5"/>
+                                <constraint firstItem="myZ-vl-IU3" firstAttribute="leading" secondItem="CuG-Ye-vBc" secondAttribute="trailing" constant="8" id="Jaa-IN-lnH"/>
+                                <constraint firstItem="myZ-vl-IU3" firstAttribute="top" secondItem="CuG-Ye-vBc" secondAttribute="top" id="SDN-Rp-U9I"/>
+                                <constraint firstItem="CuG-Ye-vBc" firstAttribute="leading" secondItem="XK8-Hr-9pN" secondAttribute="leadingMargin" id="aGG-9d-G99"/>
+                                <constraint firstAttribute="bottom" secondItem="myZ-vl-IU3" secondAttribute="bottom" id="ig1-0f-986"/>
+                                <constraint firstItem="myZ-vl-IU3" firstAttribute="bottom" secondItem="CuG-Ye-vBc" secondAttribute="bottom" id="m0P-ts-BuP"/>
+                                <constraint firstItem="myZ-vl-IU3" firstAttribute="leading" secondItem="CuG-Ye-vBc" secondAttribute="trailing" constant="8" symbolic="YES" id="ySt-pc-ZHJ"/>
+                            </constraints>
+                        </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Message" rowHeight="111" id="DTb-TV-bbS" customClass="MessageTableViewCell" customModule="snsioschat" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Message" rowHeight="64" id="DTb-TV-bbS" customClass="MessageTableViewCell" customModule="snsioschat" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DTb-TV-bbS" id="RbY-zu-L0b">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -420,8 +446,8 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGz-SL-0Gj">
-                                            <rect key="frame" x="8" y="23" width="584" height="25"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGz-SL-0Gj">
+                                            <rect key="frame" x="8" y="19" width="584" height="25"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
@@ -431,12 +457,16 @@
                                         <constraint firstItem="UtX-Aa-zFj" firstAttribute="leading" secondItem="RbY-zu-L0b" secondAttribute="leadingMargin" id="0ef-W0-sRY"/>
                                         <constraint firstItem="DGz-SL-0Gj" firstAttribute="leading" secondItem="UtX-Aa-zFj" secondAttribute="leading" id="IQQ-AU-Fph"/>
                                         <constraint firstItem="UtX-Aa-zFj" firstAttribute="trailing" secondItem="RbY-zu-L0b" secondAttribute="trailingMargin" id="RPa-CY-Reh"/>
-                                        <constraint firstItem="DGz-SL-0Gj" firstAttribute="top" secondItem="UtX-Aa-zFj" secondAttribute="bottom" id="Xes-Kn-bXD"/>
+                                        <constraint firstItem="DGz-SL-0Gj" firstAttribute="top" secondItem="UtX-Aa-zFj" secondAttribute="bottom" constant="-4" id="Xes-Kn-bXD"/>
                                         <constraint firstItem="UtX-Aa-zFj" firstAttribute="top" secondItem="RbY-zu-L0b" secondAttribute="topMargin" id="d8h-ho-xBA"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="DGz-SL-0Gj" secondAttribute="bottom" id="e0w-oP-VgW"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="DGz-SL-0Gj" secondAttribute="bottom" constant="11" id="e0w-oP-VgW"/>
                                         <constraint firstItem="DGz-SL-0Gj" firstAttribute="trailing" secondItem="UtX-Aa-zFj" secondAttribute="trailing" id="ldH-ax-hSd"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES"/>
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
                                 <connections>
                                     <outlet property="ChatMessage" destination="DGz-SL-0Gj" id="uF8-TD-33T"/>
                                     <outlet property="chatMessage" destination="DGz-SL-0Gj" id="efS-Cc-oJU"/>
@@ -449,10 +479,31 @@
                             <outlet property="delegate" destination="gLv-pd-Pc0" id="SMQ-Gq-PQn"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="sendMessageContent" destination="CuG-Ye-vBc" id="Bi0-dI-7du"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sbK-eg-jhG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="965" y="452"/>
+            <point key="canvasLocation" x="962" y="455"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pZJ-V8-IJZ">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="WiO-5I-M5X" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pwp-KM-vPA"/>
+                        <viewControllerLayoutGuide type="bottom" id="3uU-Ru-FY5"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="84p-vp-Rcf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5g3-0O-Syc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
 </document>
