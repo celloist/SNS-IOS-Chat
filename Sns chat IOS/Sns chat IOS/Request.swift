@@ -9,7 +9,7 @@
 import Foundation
 
 public struct BaseRequest {
-    static let BASE_URI = "http://snsauthentication.herokuapp.com/"
+    static var BASE_URI = "http://snsauthentication.herokuapp.com/"
     //static let BASE_URI = "https://quiet-ocean-2107.herokuapp.com/"
     
     public static func concat (part: String) -> String  {
