@@ -85,7 +85,7 @@ class ChatMessageFactory {
         
         if var text = data["text"] as? String {
             if let employee = data["isEmployee"] as? Bool {
-                if !employee  {
+         	       if !employee  {
                     text = "\(customer.name) : \(text)"
                     user = customer
                 } else {

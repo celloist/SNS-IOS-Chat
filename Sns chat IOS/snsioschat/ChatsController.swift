@@ -91,7 +91,7 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
         if segue.identifier == "startChat" {
             if let startChatController = segue.destinationViewController as? StartChatViewController {
                 
-                startChatController.customer = customer
+                startChatController.customer = self.customer
             }
         }
     }

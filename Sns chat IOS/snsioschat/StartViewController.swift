@@ -89,7 +89,7 @@ class StartViewController: UIViewController {
         
         if let deviceToken: String = userDefaults.valueForKey("deviceToken") as? String  {
              params["registrationId"] = deviceToken
-            params["OS"] = "IOS"
+            params["os"] = "IOS"
         }
         else {
             // no device Token
@@ -104,7 +104,11 @@ class StartViewController: UIViewController {
                     let customer = self.customerFactory.createCustomerFromJson(result["data"]!)
                     
                     self.customer = customer
+                     println("id: \(customer?.id)");
                     userDefaults.setValue(customer?.id, forKey: "id")
+                    userDefaults.setValue(customer?.name, forKey: "name")
+
+                    
                      userDefaults.synchronize()
 
                  

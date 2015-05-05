@@ -175,25 +175,6 @@
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nf8-gD-PXj">
                                 <rect key="frame" x="16" y="136" width="288" height="162"/>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dD-dj-qDb">
-                                <rect key="frame" x="16" y="372" width="64" height="24"/>
-                                <color key="backgroundColor" red="0.33725490200000002" green="0.1529411765" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
-                                <state key="normal" title="Verstuur">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="startNewChat:" destination="sZa-MA-urg" eventType="touchUpInside" id="aqy-IY-PMj"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nPY-If-61C">
-                                <rect key="frame" x="16" y="334" width="288" height="30"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="CbS-Jj-j4J">
                                 <rect key="frame" x="150" y="372" width="20" height="20"/>
                             </activityIndicatorView>
@@ -213,6 +194,25 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nPY-If-61C">
+                                <rect key="frame" x="16" y="334" width="288" height="30"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dD-dj-qDb">
+                                <rect key="frame" x="16" y="274" width="64" height="24"/>
+                                <color key="backgroundColor" red="0.33725490200000002" green="0.1529411765" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <inset key="contentEdgeInsets" minX="2" minY="2" maxX="2" maxY="2"/>
+                                <state key="normal" title="Verstuur">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startNewChat:" destination="sZa-MA-urg" eventType="touchUpInside" id="aqy-IY-PMj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -227,9 +227,9 @@
                             <constraint firstItem="A5m-mb-DV4" firstAttribute="top" secondItem="fpG-tu-vdi" secondAttribute="bottom" id="IiK-2F-tAh"/>
                             <constraint firstItem="A5m-mb-DV4" firstAttribute="leading" secondItem="2dD-dj-qDb" secondAttribute="leading" id="L5c-ob-bIs"/>
                             <constraint firstItem="nf8-gD-PXj" firstAttribute="top" secondItem="A5m-mb-DV4" secondAttribute="bottom" constant="8" symbolic="YES" id="PLd-Hz-7dg"/>
-                            <constraint firstItem="2dD-dj-qDb" firstAttribute="top" secondItem="nPY-If-61C" secondAttribute="bottom" constant="8" symbolic="YES" id="QHK-FZ-Rb5"/>
+                            <constraint firstItem="2dD-dj-qDb" firstAttribute="top" secondItem="nPY-If-61C" secondAttribute="bottom" constant="-90" id="QHK-FZ-Rb5"/>
                             <constraint firstItem="2dD-dj-qDb" firstAttribute="leading" secondItem="HHB-Mf-Mdl" secondAttribute="leadingMargin" id="QWS-Yq-8Oc"/>
-                            <constraint firstItem="CbS-Jj-j4J" firstAttribute="top" secondItem="2dD-dj-qDb" secondAttribute="top" id="WId-lV-47N"/>
+                            <constraint firstItem="CbS-Jj-j4J" firstAttribute="top" secondItem="2dD-dj-qDb" secondAttribute="top" constant="98" id="WId-lV-47N"/>
                             <constraint firstItem="0Wg-rw-Jnl" firstAttribute="top" secondItem="fpG-tu-vdi" secondAttribute="bottom" id="YtZ-nz-YRL"/>
                             <constraint firstItem="A5m-mb-DV4" firstAttribute="leading" secondItem="nPY-If-61C" secondAttribute="leading" id="cES-kg-8nP"/>
                             <constraint firstItem="nPY-If-61C" firstAttribute="leading" secondItem="HHB-Mf-Mdl" secondAttribute="leadingMargin" id="cnE-Ez-FbS"/>
@@ -420,8 +420,8 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGz-SL-0Gj">
-                                            <rect key="frame" x="8" y="23" width="584" height="25"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGz-SL-0Gj">
+                                            <rect key="frame" x="8" y="23" width="584" height="79"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>

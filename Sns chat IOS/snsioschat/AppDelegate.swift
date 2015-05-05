@@ -52,10 +52,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   
         
     }
+    func application(application: UIApplication, willFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?) -> Bool {
+        
+        // caled when application was not in background or foreground when recieved notification
+        var vs:UIViewController = self.window!.rootViewController!;
+        
+        let vc : ChatTableViewController! = vs.storyboard?.instantiateViewControllerWithIdentifier("Chat") as! ChatTableViewController
+        var userDefaults = NSUserDefaults.standardUserDefaults();
+        
+        //vc.customer = Customer(_name: userDefaults.valueForKey("name") as! String,_id: userDefaults.valueForKey("id") as! String)
+       // vc.chatid = 0; //TODO change to use nsobject
+        
+        vs.showViewController(vc as UITableViewController, sender: vc)
+
+
+        return true
+    }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
-       
+        var vs:UIViewController = self.window!.rootViewController!;
+      
+        let vc : ChatTableViewController! = vs.storyboard?.instantiateViewControllerWithIdentifier("Chat") as! ChatTableViewController
+        var userDefaults = NSUserDefaults.standardUserDefaults();
+        
+        vc.customer = Customer(_name: userDefaults.valueForKey("name") as! String,_id: userDefaults.valueForKey("id") as! String)
+        vc.chatid = 0; //TODO change to use nsobject
+        
+        vs.showViewController(vc as UITableViewController, sender: vc)
+
     }
+    
     
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

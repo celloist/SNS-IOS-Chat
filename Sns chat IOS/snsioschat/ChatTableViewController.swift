@@ -14,6 +14,7 @@ class ChatTableViewController: UITableViewController {
     private let chatModel = RestFull()
     private let request  = Request()
     private var chatFactory:ChatFactory?
+    var chatid:Int?
         
     var chat:Chat?
     var customer:Customer?
@@ -30,13 +31,21 @@ class ChatTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.tableView.reloadData()
+        if(chat == nil){
+            getData()
+            
+            
+            
+            
+        }
         
         
-        timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("updateUI"), userInfo: nil, repeats: true)
+        
+//        timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("updateUI"), userInfo: nil, repeats: true)
     }
 
     @IBAction func chatField(sender: UITextField) {
-        var url:String = BaseRequest.concat("customers/\(self.customer!.id)/chats/\(chat!.id)/messages")
+        var url:String = BaseRequest.concat("customers/\(self.customer!.id)/chats/\(chatid!)/messages")
         var param: [String:AnyObject] = ["message": "\(sender.text)"]
         chatModel.postData(url, params: param, callback: {(success : Bool, data: [String:AnyObject]) in
             dispatch_async(dispatch_get_main_queue()) {
@@ -48,7 +57,7 @@ class ChatTableViewController: UITableViewController {
     }
     
     func getData(){
-        var url = BaseRequest.concat("customers/\(self.customer!.id)/chats/\(chat!.id)/messages")
+        var url = BaseRequest.concat("customers/\(self.customer!.id)/chats/\(chatid!)/messages")
         
         if chatFactory == nil {
             chatFactory = ChatFactory(customer: customer!)

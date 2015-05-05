@@ -84,8 +84,10 @@ class StartChatViewController: UIViewController, UIPickerViewDataSource,UIPicker
         let category = Category(id: categoryId , name: categoryName)
         activityIndicator.hidden = false
         activityIndicator.startAnimating()
-//        let url = BaseRequest.concat("customers/\(customer!.id)/chats")
-        let url = BaseRequest.concat("customers/5540ae18fe79030300000002/chats")
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        var id  = userDefaults.valueForKey("id") as! String;
+        println(" id \(id) ");
+        let url = BaseRequest.concat("customers/\(id)/chats");
         restfull.postData(url, params: ["category" : categoryId, "message" : questionTextbox.text]) {( success, data) in
             
             if success {
