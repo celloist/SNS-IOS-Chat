@@ -25,6 +25,7 @@
 		9EE0B9B11ACD50AA006CFDBF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0B9B01ACD50AA006CFDBF /* Category.swift */; };
 		CE9CB2701AAB222800FA028D /* ChatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CB26F1AAB222800FA028D /* ChatsController.swift */; };
 		CEB958CA1AF12EB300397B36 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB958C91AF12EB300397B36 /* MenuViewController.swift */; };
+		CEB958CE1AFF668800397B36 /* logo-new.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB958CD1AFF668800397B36 /* logo-new.png */; };
 		CEDEEE941AA9D4E900DB5157 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE931AA9D4E900DB5157 /* Customer.swift */; };
 		CEDEEE961AA9D65400DB5157 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE951AA9D65400DB5157 /* Chat.swift */; };
 		CEDEEE981AA9D6CA00DB5157 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE971AA9D6CA00DB5157 /* MainModel.swift */; };
@@ -66,6 +67,7 @@
 		CEB958C11AF0E1D500397B36 /* snsioschat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snsioschat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB958C21AF0E1D500397B36 /* snsioschatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snsioschatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB958C91AF12EB300397B36 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		CEB958CD1AFF668800397B36 /* logo-new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-new.png"; sourceTree = "<group>"; };
 		CEDEEE931AA9D4E900DB5157 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		CEDEEE951AA9D65400DB5157 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		CEDEEE971AA9D6CA00DB5157 /* MainModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				9EDEE9D41AA4542400500660 /* Images.xcassets */,
 				9EDEE9D61AA4542400500660 /* LaunchScreen.xib */,
 				9EDEE9CB1AA4542400500660 /* Supporting Files */,
+				CEB958CD1AFF668800397B36 /* logo-new.png */,
 				9E5515CD1AD6CF650077BD44 /* StartUp.swift */,
 			);
 			path = snsioschat;
@@ -273,6 +276,7 @@
 				9E4C16651AC0045C0086A791 /* Main.storyboard in Resources */,
 				9EDEE9D81AA4542400500660 /* LaunchScreen.xib in Resources */,
 				9EDEE9D51AA4542400500660 /* Images.xcassets in Resources */,
+				CEB958CE1AFF668800397B36 /* logo-new.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

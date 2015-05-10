@@ -11,9 +11,12 @@ import UIKit
 class MenuViewController: UIViewController {
     var customer:Customer?
     
+    @IBOutlet weak var logo: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        logo.image = UIImage(named: "logo-new.png");
         navigationItem.setHidesBackButton(true, animated: true)
     }
     
