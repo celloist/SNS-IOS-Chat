@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9EDEE9C71AA4542400500660"
-               BuildableName = "Sns chat IOS.app"
-               BlueprintName = "Sns chat IOS"
+               BuildableName = "snsioschat.app"
+               BlueprintName = "snsioschat"
                ReferencedContainer = "container:Sns chat IOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,8 +29,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9EDEE9DC1AA4542400500660"
-               BuildableName = "Sns chat IOSTests.xctest"
-               BlueprintName = "Sns chat IOSTests"
+               BuildableName = "snsioschatTests.xctest"
+               BlueprintName = "snsioschatTests"
                ReferencedContainer = "container:Sns chat IOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,8 +47,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "9EDEE9DC1AA4542400500660"
-               BuildableName = "Sns chat IOSTests.xctest"
-               BlueprintName = "Sns chat IOSTests"
+               BuildableName = "snsioschatTests.xctest"
+               BlueprintName = "snsioschatTests"
                ReferencedContainer = "container:Sns chat IOS.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -57,8 +57,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9EDEE9C71AA4542400500660"
-            BuildableName = "Sns chat IOS.app"
-            BlueprintName = "Sns chat IOS"
+            BuildableName = "snsioschat.app"
+            BlueprintName = "snsioschat"
             ReferencedContainer = "container:Sns chat IOS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -72,12 +72,13 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9EDEE9C71AA4542400500660"
-            BuildableName = "Sns chat IOS.app"
-            BlueprintName = "Sns chat IOS"
+            BuildableName = "snsioschat.app"
+            BlueprintName = "snsioschat"
             ReferencedContainer = "container:Sns chat IOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -90,12 +91,13 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "9EDEE9C71AA4542400500660"
-            BuildableName = "Sns chat IOS.app"
-            BlueprintName = "Sns chat IOS"
+            BuildableName = "snsioschat.app"
+            BlueprintName = "snsioschat"
             ReferencedContainer = "container:Sns chat IOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
