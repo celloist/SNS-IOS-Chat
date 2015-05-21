@@ -9,18 +9,24 @@
 import UIKit
 
 
-class ChatTableViewController: UITableViewController {
+class ChatTableViewController: UITableViewController,UITextFieldDelegate {
     var timer = NSTimer()
     private let chatModel = RestFull()
-    private let request  = Request()
+    private let request  = RestFull()
     private var chatFactory:ChatFactory?
-    var chatid:Int?
-        
+    
     var chat:Chat?
     var customer:Customer?
     
+    @IBOutlet weak var sendMessageContent: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let customer = ServiceLocator.sharedInstance.getService("customer") as? Customer {
+            self.customer = customer
+        }
+        
+        self.sendMessageContent.delegate = self
         
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -31,33 +37,36 @@ class ChatTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.tableView.reloadData()
-        if(chat == nil){
-            getData()
-            
-            
-            
-            
-        }
+        
+        // Scrolls to the bottom of the list
+        tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: chat!.messages.count - 1, inSection: 0), atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
         
         
-        
-//        timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("updateUI"), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("updateUI"), userInfo: nil, repeats: true)
     }
-
-    @IBAction func chatField(sender: UITextField) {
-        var url:String = BaseRequest.concat("customers/\(self.customer!.id)/chats/\(chatid!)/messages")
-        var param: [String:AnyObject] = ["message": "\(sender.text)"]
-        chatModel.postData(url, params: param, callback: {(success : Bool, data: [String:AnyObject]) in
-            dispatch_async(dispatch_get_main_queue()) {
-                if success {
-                    self.getData()
+    
+    
+    @IBAction func sendMessage(sender: UIButton?) {
+        if sendMessageContent.text != "" {
+            self.view.endEditing(true)
+            sendMessageContent.resignFirstResponder()
+            
+            var url:String = BaseRequest.concat("customers/\(self.customer!.id)/chats/\(chat!.id)/messages")
+            var param: [String:AnyObject] = ["message": "\(sendMessageContent.text)"]
+            self.sendMessageContent.text = ""
+            chatModel.postData(url, params: param, callback: {(success : Bool, data: [String:AnyObject]) in
+                dispatch_async(dispatch_get_main_queue()) {
+                    if success {
+                        self.getData()
+                        self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: self.chat!.messages.count - 1, inSection: 0), atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+                    }
                 }
-            }
-        });
+            });
+        }
     }
     
     func getData(){
-        var url = BaseRequest.concat("customers/\(self.customer!.id)/chats/\(chatid!)/messages")
+        var url = BaseRequest.concat("customers/\(self.customer!.id)/chats/\(chat!.id)/messages")
         
         if chatFactory == nil {
             chatFactory = ChatFactory(customer: customer!)
@@ -67,7 +76,7 @@ class ChatTableViewController: UITableViewController {
             dispatch_async(dispatch_get_main_queue()) {
                 if success {
                     if let result = data["result"] as? NSDictionary {
-                        self.chat = self.chatFactory!.createChatFromJson(result["data"]!)
+                        self.chat = self.chatFactory!.createChatFromJson(result["data"]!, category: nil)
                         self.tableView.reloadData()
                     }
                 }
@@ -95,21 +104,19 @@ class ChatTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> MessageTableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! MessageTableViewCell
-      
+        
+        
         if  var chat = self.chat{
             // Configure the cell
-            if chat.messages[indexPath.row].isEmployee {
-            cell.timestamp.text = chat.messages[indexPath.row].time
-            cell.chatMessage.text = chat.messages[indexPath.row].text
-            }else{
-                cell.timestamp.textAlignment = NSTextAlignment.Right
-                cell.chatMessage.textAlignment = NSTextAlignment.Right
-                cell.timestamp.text = chat.messages[indexPath.row].time
-                cell.chatMessage.text = chat.messages[indexPath.row].text
-            }
+            cell.message = chat.messages[indexPath.row]
         }
         
         return cell
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        sendMessage(nil)
+        return true
     }
     
     /*

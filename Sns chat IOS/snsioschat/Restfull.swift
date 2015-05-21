@@ -36,7 +36,6 @@ class RestFull {
         var err: NSError?
         request.HTTPMethod = method
         //println("params = \(params)")
-        
         if params.count > 0 {
             //println("heyo")
             request.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: NSJSONWritingOptions.PrettyPrinted, error: &err)

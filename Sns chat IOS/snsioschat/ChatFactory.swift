@@ -18,24 +18,29 @@ class ChatFactory: NSObject {
         self.customer = customer
     }
     
-    func createChatFromJson (data: AnyObject) -> Chat? {
+    func createChatFromJson (data: AnyObject, category: Category?) -> Chat? {
         if let result = data as? NSDictionary {
             if let id = result["_id"] as? String {
+                //Default to the passed category
+                var parsedCategory = category
+                //if any rawjson category is found, use this as the new category
                 if let rawCategory = result["category"] as? NSDictionary {
-                    if let category = categoryFactory.createCategoryFromJson(rawCategory) {
-                        let chat =  Chat(id: id, customer: customer, category: category)
-                        
-                        if result["messages"] != nil {
-                            //Parse the messages from the data object
-                            let parsedMessages = chatMessageFactory.createMessagesFromJson(result["messages"]!)
-                            //return the chat object
-                            chat.appendMessages( parsedMessages )
-                        }
-                        
-                        return chat
-                        
-                    }
+                    parsedCategory = categoryFactory.createCategoryFromJson(rawCategory)
                 }
+                //if parsedCategory
+                if let category = parsedCategory {
+                    let chat =  Chat(id: id, customer: customer, category: category)
+                    
+                    if result["messages"] != nil {
+                        //Parse the messages from the data object
+                        let parsedMessages = chatMessageFactory.createMessagesFromJson(result["messages"]!)
+                        //return the chat object
+                        chat.appendMessages( parsedMessages )
+                    }
+                    
+                    return chat
+                }
+
             }
         }
         
@@ -46,7 +51,7 @@ class ChatFactory: NSObject {
         var chats = [Chat]()
         if let payload  = data as? NSArray {
             for rawItem in payload {
-                if let chat = createChatFromJson(rawItem) {
+                if let chat = createChatFromJson(rawItem, category: nil) {
                     chats.append( chat )
                 }
             }
@@ -85,7 +90,7 @@ class ChatMessageFactory {
         
         if var text = data["text"] as? String {
             if let employee = data["isEmployee"] as? Bool {
-         	       if !employee  {
+                if !employee  {
                     text = "\(customer.name) : \(text)"
                     user = customer
                 } else {

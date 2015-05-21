@@ -8,14 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		9D5FE5C01ABC4815008A07CA /* ChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5FE5BF1ABC4815008A07CA /* ChatTableViewController.swift */; };
-		9D5FE5C21ABC4925008A07CA /* MessageTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5FE5C11ABC4925008A07CA /* MessageTableView.swift */; };
+		9D5FE5C21ABC4925008A07CA /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5FE5C11ABC4925008A07CA /* MessageTableViewCell.swift */; };
+		9E1CE9B81B0A166C0069C476 /* DateText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1CE9B71B0A166C0069C476 /* DateText.swift */; };
+		9E1CE9BB1B0A19140069C476 /* nl_nl.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E1CE9BA1B0A19140069C476 /* nl_nl.plist */; };
 		9E4C16651AC0045C0086A791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E4C16631AC0045C0086A791 /* Main.storyboard */; };
 		9E5515CC1AD6CEA30077BD44 /* CustomerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5515CB1AD6CEA30077BD44 /* CustomerFactory.swift */; };
 		9E5515CE1AD6CF650077BD44 /* StartUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5515CD1AD6CF650077BD44 /* StartUp.swift */; };
 		9E55FB891AD6760A004F72EB /* ChatFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E55FB881AD6760A004F72EB /* ChatFactory.swift */; };
 		9E55FB8B1AD6915D004F72EB /* CategoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E55FB8A1AD6915D004F72EB /* CategoryFactory.swift */; };
 		9E55FB8E1AD69D70004F72EB /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E55FB8D1AD69D70004F72EB /* UserFactory.swift */; };
+		9E66BFE91B0241A100D90AD5 /* MenuThemeUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66BFE81B0241A100D90AD5 /* MenuThemeUIButton.swift */; };
+		9E7CCAFB1B034CD60047435C /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CCAFA1B034CD60047435C /* ServiceLocator.swift */; };
 		9E8AC09E1ABF6C15001635C1 /* StartChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8AC09D1ABF6C15001635C1 /* StartChatViewController.swift */; };
+		9EA6CC241B0133E2006EAD24 /* mainconfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9EA6CC231B0133E2006EAD24 /* mainconfig.plist */; };
+		9EA6CC281B013455006EAD24 /* ThemeUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA6CC271B013455006EAD24 /* ThemeUIButton.swift */; };
+		9EA6CC2A1B013477006EAD24 /* ThemeUINavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA6CC291B013477006EAD24 /* ThemeUINavigationViewController.swift */; };
+		9EA6CC2C1B014ABC006EAD24 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA6CC2B1B014ABC006EAD24 /* MenuViewController.swift */; };
+		9EA6CC2F1B015112006EAD24 /* logo-new.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA6CC2E1B015112006EAD24 /* logo-new.png */; };
 		9EDEE9CE1AA4542400500660 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEE9CD1AA4542400500660 /* AppDelegate.swift */; };
 		9EDEE9D01AA4542400500660 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEE9CF1AA4542400500660 /* StartViewController.swift */; };
 		9EDEE9D51AA4542400500660 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EDEE9D41AA4542400500660 /* Images.xcassets */; };
@@ -44,20 +53,30 @@
 
 /* Begin PBXFileReference section */
 		9D5FE5BF1ABC4815008A07CA /* ChatTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewController.swift; sourceTree = "<group>"; };
-		9D5FE5C11ABC4925008A07CA /* MessageTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableView.swift; sourceTree = "<group>"; };
+		9D5FE5C11ABC4925008A07CA /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		9E1CE9B71B0A166C0069C476 /* DateText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateText.swift; sourceTree = "<group>"; };
+		9E1CE9BA1B0A19140069C476 /* nl_nl.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = nl_nl.plist; sourceTree = "<group>"; };
 		9E4C16641AC0045C0086A791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E5515CB1AD6CEA30077BD44 /* CustomerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerFactory.swift; sourceTree = "<group>"; };
 		9E5515CD1AD6CF650077BD44 /* StartUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUp.swift; sourceTree = "<group>"; };
 		9E55FB881AD6760A004F72EB /* ChatFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatFactory.swift; sourceTree = "<group>"; };
 		9E55FB8A1AD6915D004F72EB /* CategoryFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryFactory.swift; sourceTree = "<group>"; };
 		9E55FB8D1AD69D70004F72EB /* UserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
+		9E66BFE81B0241A100D90AD5 /* MenuThemeUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuThemeUIButton.swift; sourceTree = "<group>"; };
+		9E7CCAFA1B034CD60047435C /* ServiceLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		9E8AC09D1ABF6C15001635C1 /* StartChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartChatViewController.swift; sourceTree = "<group>"; };
+		9EA6CC211B01333B006EAD24 /* snsioschat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snsioschat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EA6CC221B01333B006EAD24 /* snsioschatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snsioschatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EA6CC231B0133E2006EAD24 /* mainconfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mainconfig.plist; sourceTree = "<group>"; };
+		9EA6CC271B013455006EAD24 /* ThemeUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeUIButton.swift; sourceTree = "<group>"; };
+		9EA6CC291B013477006EAD24 /* ThemeUINavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeUINavigationViewController.swift; sourceTree = "<group>"; };
+		9EA6CC2B1B014ABC006EAD24 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		9EA6CC2E1B015112006EAD24 /* logo-new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-new.png"; sourceTree = "<group>"; };
 		9EDEE9CC1AA4542400500660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EDEE9CD1AA4542400500660 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EDEE9CF1AA4542400500660 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		9EDEE9D41AA4542400500660 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9EDEE9D71AA4542400500660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		9EDEE9DD1AA4542400500660 /* snsioschatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = snsioschatTests.xctest; path = "/Users/user/Desktop/IOS project blok 12/SNS-IOS-Chat/Sns chat IOS/build/Debug-iphoneos/snsioschatTests.xctest"; sourceTree = "<absolute>"; };
 		9EDEE9E21AA4542400500660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EDEE9E31AA4542400500660 /* Sns_chat_IOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sns_chat_IOSTests.swift; sourceTree = "<group>"; };
 		9EDEE9EE1AA454EC00500660 /* Restfull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restfull.swift; sourceTree = "<group>"; };
@@ -69,7 +88,6 @@
 		CEDEEE991AA9D9A000DB5157 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		CEDEEE9B1AA9DD9900DB5157 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CEDEEE9D1AA9E15A00DB5157 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		CEFD218F1AEA77B70069EBB8 /* snsioschat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = snsioschat.app; path = "/Users/user/Desktop/IOS project blok 12/SNS-IOS-Chat/Sns chat IOS/build/Debug-iphoneos/snsioschat.app"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +108,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9E1CE9B61B0A15C90069C476 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9E1CE9B71B0A166C0069C476 /* DateText.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		9E1CE9B91B0A18D30069C476 /* language */ = {
+			isa = PBXGroup;
+			children = (
+				9E1CE9BA1B0A19140069C476 /* nl_nl.plist */,
+			);
+			name = language;
+			sourceTree = "<group>";
+		};
 		9E55FB8C1AD691B2004F72EB /* Factories */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,10 +138,12 @@
 		9E8AC09F1ABF6C1C001635C1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9EA6CC2B1B014ABC006EAD24 /* MenuViewController.swift */,
+				9EA6CC291B013477006EAD24 /* ThemeUINavigationViewController.swift */,
+				9EDEE9CF1AA4542400500660 /* StartViewController.swift */,
 				9E8AC09D1ABF6C15001635C1 /* StartChatViewController.swift */,
 				9D5FE5BF1ABC4815008A07CA /* ChatTableViewController.swift */,
 				CE9CB26F1AAB222800FA028D /* ChatsController.swift */,
-				9EDEE9CF1AA4542400500660 /* StartViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -115,9 +151,19 @@
 		9E8AC0A01ABF6C41001635C1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9D5FE5C11ABC4925008A07CA /* MessageTableView.swift */,
+				9EA6CC271B013455006EAD24 /* ThemeUIButton.swift */,
+				9D5FE5C11ABC4925008A07CA /* MessageTableViewCell.swift */,
+				9E66BFE81B0241A100D90AD5 /* MenuThemeUIButton.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		9EA6CC2D1B0150FE006EAD24 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				9EA6CC2E1B015112006EAD24 /* logo-new.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 		9EDEE9BF1AA4542400500660 = {
@@ -125,21 +171,25 @@
 			children = (
 				9EDEE9CA1AA4542400500660 /* snsioschat */,
 				9EDEE9E01AA4542400500660 /* snsioschatTests */,
+				9EA6CC211B01333B006EAD24 /* snsioschat.app */,
+				9EA6CC221B01333B006EAD24 /* snsioschatTests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
 		9EDEE9CA1AA4542400500660 /* snsioschat */ = {
 			isa = PBXGroup;
 			children = (
+				9E1CE9B61B0A15C90069C476 /* Helpers */,
+				9EDEE9CD1AA4542400500660 /* AppDelegate.swift */,
 				9E4C16631AC0045C0086A791 /* Main.storyboard */,
 				9E8AC0A01ABF6C41001635C1 /* Views */,
 				9E8AC09F1ABF6C1C001635C1 /* Controllers */,
 				9EDEE9ED1AA4546900500660 /* Models */,
-				9EDEE9CD1AA4542400500660 /* AppDelegate.swift */,
 				9EDEE9D41AA4542400500660 /* Images.xcassets */,
 				9EDEE9D61AA4542400500660 /* LaunchScreen.xib */,
 				9EDEE9CB1AA4542400500660 /* Supporting Files */,
 				9E5515CD1AD6CF650077BD44 /* StartUp.swift */,
+				9E7CCAFA1B034CD60047435C /* ServiceLocator.swift */,
 			);
 			path = snsioschat;
 			sourceTree = "<group>";
@@ -147,6 +197,9 @@
 		9EDEE9CB1AA4542400500660 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9E1CE9B91B0A18D30069C476 /* language */,
+				9EA6CC2D1B0150FE006EAD24 /* images */,
+				9EA6CC231B0133E2006EAD24 /* mainconfig.plist */,
 				9EDEE9CC1AA4542400500660 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -202,7 +255,7 @@
 			);
 			name = snsioschat;
 			productName = snsioschat;
-			productReference = CEFD218F1AEA77B70069EBB8 /* snsioschat.app */;
+			productReference = 9EA6CC211B01333B006EAD24 /* snsioschat.app */;
 			productType = "com.apple.product-type.application";
 		};
 		9EDEE9DC1AA4542400500660 /* snsioschatTests */ = {
@@ -220,7 +273,7 @@
 			);
 			name = snsioschatTests;
 			productName = snsioschatTests;
-			productReference = 9EDEE9DD1AA4542400500660 /* snsioschatTests.xctest */;
+			productReference = 9EA6CC221B01333B006EAD24 /* snsioschatTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -265,7 +318,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E1CE9BB1B0A19140069C476 /* nl_nl.plist in Resources */,
 				9E4C16651AC0045C0086A791 /* Main.storyboard in Resources */,
+				9EA6CC2F1B015112006EAD24 /* logo-new.png in Resources */,
+				9EA6CC241B0133E2006EAD24 /* mainconfig.plist in Resources */,
 				9EDEE9D81AA4542400500660 /* LaunchScreen.xib in Resources */,
 				9EDEE9D51AA4542400500660 /* Images.xcassets in Resources */,
 			);
@@ -285,19 +341,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9D5FE5C21ABC4925008A07CA /* MessageTableView.swift in Sources */,
+				9D5FE5C21ABC4925008A07CA /* MessageTableViewCell.swift in Sources */,
 				9E5515CE1AD6CF650077BD44 /* StartUp.swift in Sources */,
+				9E1CE9B81B0A166C0069C476 /* DateText.swift in Sources */,
+				9E66BFE91B0241A100D90AD5 /* MenuThemeUIButton.swift in Sources */,
 				CEDEEE961AA9D65400DB5157 /* Chat.swift in Sources */,
+				9EA6CC2A1B013477006EAD24 /* ThemeUINavigationViewController.swift in Sources */,
+				9EA6CC281B013455006EAD24 /* ThemeUIButton.swift in Sources */,
 				9EDEE9D01AA4542400500660 /* StartViewController.swift in Sources */,
 				CEDEEE981AA9D6CA00DB5157 /* MainModel.swift in Sources */,
 				9E5515CC1AD6CEA30077BD44 /* CustomerFactory.swift in Sources */,
 				9EDEE9EF1AA454EC00500660 /* Restfull.swift in Sources */,
 				9E55FB8E1AD69D70004F72EB /* UserFactory.swift in Sources */,
 				CEDEEE9C1AA9DD9900DB5157 /* User.swift in Sources */,
+				9E7CCAFB1B034CD60047435C /* ServiceLocator.swift in Sources */,
 				9E55FB8B1AD6915D004F72EB /* CategoryFactory.swift in Sources */,
 				9E8AC09E1ABF6C15001635C1 /* StartChatViewController.swift in Sources */,
 				9EDEE9CE1AA4542400500660 /* AppDelegate.swift in Sources */,
 				CEDEEE941AA9D4E900DB5157 /* Customer.swift in Sources */,
+				9EA6CC2C1B014ABC006EAD24 /* MenuViewController.swift in Sources */,
 				CEDEEE9E1AA9E15A00DB5157 /* Request.swift in Sources */,
 				9E55FB891AD6760A004F72EB /* ChatFactory.swift in Sources */,
 				CEDEEE9A1AA9D9A000DB5157 /* Message.swift in Sources */,

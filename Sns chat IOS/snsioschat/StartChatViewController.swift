@@ -25,6 +25,10 @@ class StartChatViewController: UIViewController, UIPickerViewDataSource,UIPicker
     // MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let customer = ServiceLocator.sharedInstance.getService("customer") as? Customer {
+            self.customer = customer
+        }
+
         activityIndicator.hidden = true
         categoriesPicker.dataSource = self
         categoriesPicker.delegate = self
@@ -81,42 +85,27 @@ class StartChatViewController: UIViewController, UIPickerViewDataSource,UIPicker
     @IBAction func startNewChat(sender: UIButton) {
         let categoryId = categoryKeys[selectedCategory];
         let categoryName = categories[selectedCategory];
-        let category = Category(id: categoryId , name: categoryName)
+        var category:Category? = Category(id: categoryId , name: categoryName)
         activityIndicator.hidden = false
         activityIndicator.startAnimating()
-        var userDefaults = NSUserDefaults.standardUserDefaults()
-        var id  = userDefaults.valueForKey("id") as! String;
-        println(" id \(id) ");
-        let url = BaseRequest.concat("customers/\(id)/chats");
+        let url = BaseRequest.concat("customers/\(customer!.id)/chats")
+
         restfull.postData(url, params: ["category" : categoryId, "message" : questionTextbox.text]) {( success, data) in
             
             if success {
                 let chatFactory = ChatFactory(customer: self.customer!)
                 
                 if let baseData = data["result"] as? NSDictionary {
-                    if let result = baseData["data"] as? NSDictionary {
-                       if let id = result["_id"] as? String {
-                            let chat =  Chat(id: id, customer: self.customer!, category: category)
+                    if let chat = chatFactory.createChatFromJson(baseData, category: category) {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            self.activityIndicator.stopAnimating()
+                            self.activityIndicator.hidden = true
                             
-                            if result["messages"] != nil {
-                                let chatMessageFactory =  ChatMessageFactory(customer: self.customer!)
-                                //Parse the messages from the data object
-                                let parsedMessages = chatMessageFactory.createMessagesFromJson(result["messages"]!)
-                                //return the chat object
-                                chat.appendMessages( parsedMessages )
-                            }
+                            let vc : ChatTableViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("Chat") as! ChatTableViewController
                             
-                            dispatch_async(dispatch_get_main_queue()) {
-                                self.activityIndicator.stopAnimating()
-                                self.activityIndicator.hidden = true
-                                
-                                let vc : ChatTableViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("Chat") as! ChatTableViewController
-                                
-                                vc.customer = self.customer
-                                vc.chat = chat
-                                self.showViewController(vc as UITableViewController, sender: vc)
-                                
-                            }
+                            vc.chat = chat
+                            self.showViewController(vc as UITableViewController, sender: vc)
+                            
                         }
                     }
                 }

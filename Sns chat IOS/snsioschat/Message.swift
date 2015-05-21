@@ -15,8 +15,8 @@ class Message{
     let isEmployee:Bool
     
     init(_user:User?,_text:String,_time:String, _isEmployee:Bool){
-        if _user != nil {
-            user = _user!
+        if let unwrappedUser = _user {
+            user = unwrappedUser
         } else {
             user = nil
         }
@@ -25,5 +25,4 @@ class Message{
         isEmployee = _isEmployee
         
     }
-    
 }

@@ -22,21 +22,6 @@ class Chat : RestFull {
         self.category = category
     }
 
-    func getMessages (url: String, callback: (success : Bool, data: [Message]) -> ()) {
-        let secondurayCallback = callback
-        
-        getData(url, callback : {(success : Bool, data: [String:AnyObject]) in
-            var returnData = [Message]()
-            
-            if success {
-                let chatMessageFactory = ChatMessageFactory(customer: self.customer)
-                returnData = chatMessageFactory.createMessagesFromJson(data["result"]!)
-            }
-            
-            secondurayCallback(success: success, data: returnData)
-        })
-    }
-    
     func appendMessages (messages: [Message]) {
         for message in messages {
             self.messages.append(message)

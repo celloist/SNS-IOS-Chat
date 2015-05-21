@@ -10,7 +10,6 @@ import UIKit
 
 class ChatsController : UIViewController , UITableViewDataSource , UITableViewDelegate
 {
-    private let request  = Request()
     private let chatModel = RestFull()
     private var chats:[Chat]?
     var customer:Customer?
@@ -19,8 +18,12 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let customer = ServiceLocator.sharedInstance.getService("customer") as? Customer {
+            self.customer = customer
+        }
+        
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Storyboard.CellReuseIdentifier)
- 
+        
      
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -86,14 +89,14 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
         return cell
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "startChat" {
             if let startChatController = segue.destinationViewController as? StartChatViewController {
                 
-                startChatController.customer = self.customer
+                startChatController.customer = customer
             }
         }
-    }
+    }*/
     
 }
