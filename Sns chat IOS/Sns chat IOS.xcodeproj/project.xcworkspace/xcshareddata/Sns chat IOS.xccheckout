@@ -11,7 +11,7 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>64FD3269DFD981617081708B9809A00113964203</key>
-		<string>https://github.com/celloist/SNS-IOS-Chat</string>
+		<string>https://github.com/celloist/SNS-IOS-Chat.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Sns chat IOS/Sns chat IOS.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/celloist/SNS-IOS-Chat</string>
+	<string>https://github.com/celloist/SNS-IOS-Chat.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>64FD3269DFD981617081708B9809A00113964203</string>
 			<key>IDESourceControlWCCName</key>
-			<string>SNS-IOS-Chat-markjan</string>
+			<string>SNS-IOS-Chat-new-master</string>
 		</dict>
 	</array>
 </dict>

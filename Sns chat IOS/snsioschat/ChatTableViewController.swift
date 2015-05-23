@@ -14,6 +14,7 @@ class ChatTableViewController: UITableViewController,UITextFieldDelegate {
     private let chatModel = RestFull()
     private let request  = RestFull()
     private var chatFactory:ChatFactory?
+    var chatid:String?
     
     var chat:Chat?
     var customer:Customer?
@@ -39,7 +40,7 @@ class ChatTableViewController: UITableViewController,UITextFieldDelegate {
         self.tableView.reloadData()
         
         // Scrolls to the bottom of the list
-        tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: chat!.messages.count - 1, inSection: 0), atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
+       // tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: chat!.messages.count - 1, inSection: 0), atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
         
         
         timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("updateUI"), userInfo: nil, repeats: true)
