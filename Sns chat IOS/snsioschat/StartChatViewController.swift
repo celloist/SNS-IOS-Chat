@@ -32,7 +32,7 @@ class StartChatViewController: UIViewController, UIPickerViewDataSource,UIPicker
         activityIndicator.hidden = true
         categoriesPicker.dataSource = self
         categoriesPicker.delegate = self
-        //questionTextbox.delegate = self
+        questionTextbox.delegate = self
         
         restfull.getData(BaseRequest.concat("categories"), callback: {( success : Bool, data: [String:AnyObject]) in
             
@@ -79,6 +79,12 @@ class StartChatViewController: UIViewController, UIPickerViewDataSource,UIPicker
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         selectedCategory = row
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        
+        return true
     }
     
     

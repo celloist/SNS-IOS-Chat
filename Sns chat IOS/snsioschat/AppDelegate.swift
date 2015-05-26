@@ -99,14 +99,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
         var tokenString = ""
         
-        for var i = 0; i < deviceToken.length; i++ {
-            tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
-        }
+        var characterSet: NSCharacterSet = NSCharacterSet( charactersInString: "<>" )
         
-        println("tokenString: \(tokenString)");
+        var deviceTokenString: String = ( deviceToken.description as NSString )
+            .stringByTrimmingCharactersInSet( characterSet )
+            .stringByReplacingOccurrencesOfString( " ", withString: "" ) as String
+        
+
+        
+        //for var i = 0; i < deviceToken.length; i++ {
+         //   tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
+        //}
+        
+        println("tokenString: \(deviceTokenString)");
         
         var userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.setValue(tokenString, forKey: "deviceToken")
+        userDefaults.setValue(deviceTokenString, forKey: "deviceToken")
         userDefaults.synchronize()
         
         
@@ -171,6 +179,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var t = ServiceLocator.sharedInstance.getService("customer") as? Customer
             
             if (application.applicationState == UIApplicationState.Active) {
+                
+        
                 println("active")
                 
                 var  localNotification  = UILocalNotification()

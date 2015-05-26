@@ -42,7 +42,7 @@ class StartViewController: UIViewController {
         
         if let deviceToken: String = userDefaults.valueForKey("deviceToken") as? String  {
             params["registrationId"] = deviceToken
-            params["OS"] = "IOS"
+            params["os"] = "IOS"
         }
         else {
             // no device Token
