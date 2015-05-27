@@ -42,8 +42,22 @@ class ChatTableViewController: UITableViewController,UITextFieldDelegate {
         // Scrolls to the bottom of the list
        // tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: chat!.messages.count - 1, inSection: 0), atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
         
+        //custom back button
+        navigationController?.setNavigationBarHidden(false, animated:true)
+        var myBackButton:UIButton = UIButton.buttonWithType(UIButtonType.Custom) as! UIButton
+        myBackButton.addTarget(self, action: "toChats:", forControlEvents: UIControlEvents.TouchUpInside)
+        myBackButton.setTitle("All Chats", forState: UIControlState.Normal)
+        myBackButton.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        myBackButton.sizeToFit()
+        var myCustomBackButtonItem:UIBarButtonItem = UIBarButtonItem(customView: myBackButton)
+        self.navigationItem.leftBarButtonItem  = myCustomBackButtonItem
+        
         
         timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("updateUI"), userInfo: nil, repeats: true)
+    }
+    
+    func toChats(sender:UIBarButtonItem){
+        performSegueWithIdentifier("ToAllChats", sender: self)
     }
     
     
