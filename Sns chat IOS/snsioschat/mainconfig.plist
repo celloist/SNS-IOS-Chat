@@ -46,7 +46,24 @@
 		<key>THEME</key>
 		<integer>1</integer>
 	</dict>
-	<key>API_URL</key>
-	<string>http://stark-atoll-9491.herokuapp.com/</string>
+	<key>API</key>
+	<dict>
+		<key>URL</key>
+		<string>http://192.168.2.2:8080/</string>
+		<key>AUTH</key>
+		<dict>
+			<key>ENABLED</key>
+			<integer>1</integer>
+			<key>TYPE</key>
+			<string>BASIC</string>
+			<key>SETTINGS</key>
+			<dict>
+				<key>username</key>
+				<string>sns</string>
+				<key>password</key>
+				<string>JH(5t7ywq4ufh974H$(U)t84w</string>
+			</dict>
+		</dict>
+	</dict>
 </dict>
 </plist>

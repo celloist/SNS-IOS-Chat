@@ -11,22 +11,17 @@ import UIKit
 
 class ChatTableViewController: UITableViewController,UITextFieldDelegate {
     var timer = NSTimer()
-    private let chatModel = RestFull()
-    private let request  = RestFull()
+    private let chatModel = ServiceLocator.sharedInstance.createFactoryService("RestFull") as! RestFull
+    private var customer = ServiceLocator.sharedInstance.getService("customer") as? Customer
     private var chatFactory:ChatFactory?
-    var chatid:String?
     
     var chat:Chat?
-    var customer:Customer?
+    
     
     @IBOutlet weak var sendMessageContent: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let customer = ServiceLocator.sharedInstance.getService("customer") as? Customer {
-            self.customer = customer
-        }
-        
         self.sendMessageContent.delegate = self
         
         tableView.estimatedRowHeight = tableView.rowHeight
@@ -82,7 +77,7 @@ class ChatTableViewController: UITableViewController,UITextFieldDelegate {
     
     func getData(){
         var url = BaseRequest.concat("customers/\(self.customer!.id)/chats/\(chat!.id)/messages")
-        
+        //Lazy init. 
         if chatFactory == nil {
             chatFactory = ChatFactory(customer: customer!)
         }

@@ -11,7 +11,7 @@ import UIKit
 class StartViewController: UIViewController {
     
     private let customerFactory  = CustomerFactory()
-    private let chatModel = RestFull()
+    private var chatModel:RestFull?
     
     @IBOutlet weak var Username: UITextField!
     @IBOutlet weak var MainButton: UIButton!
@@ -21,14 +21,12 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var userDefaults = NSUserDefaults.standardUserDefaults()
         
-        
-        if let Username: String = userDefaults.valueForKey("username") as? String, let Id : String = userDefaults.valueForKey("id") as? String{
-            
-            self.customer = Customer(_name: Username, _id: Id)
-            self.segue()
+        if let customer = ServiceLocator.sharedInstance.getService("customer") as? Customer {
+            segue()
         }
+        
+        chatModel = ServiceLocator.sharedInstance.createFactoryService("RestFull") as? RestFull
     }
     
     @IBAction func ButtonOnPressed(sender: UIButton) {
@@ -49,7 +47,7 @@ class StartViewController: UIViewController {
             params["registrationId"] = "NoDeviceToken"
             
         }
-        self.chatModel.postData(BaseRequest.concat("customers"), params: params)  {(success, data) in
+        self.chatModel?.postData(BaseRequest.concat("customers"), params: params)  {(success, data) in
             if success {
                 if let result = data["result"] as? NSDictionary {
                     let customer = self.customerFactory.createCustomerFromJson(result["data"]!)
@@ -57,6 +55,9 @@ class StartViewController: UIViewController {
                     self.customer = customer
                     userDefaults.setValue(customer?.id, forKey: "id")
                     userDefaults.synchronize()
+                    
+                    
+                    ServiceLocator.sharedInstance.registerService("customer", service: self.customer!)
                     self.segue()
 
                 }
@@ -67,8 +68,6 @@ class StartViewController: UIViewController {
     }
     
     func segue () {
-        ServiceLocator.sharedInstance.registerService("customer", service: self.customer!)
-        
         let vc : MenuViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("Menu") as! MenuViewController
         self.showViewController(vc as MenuViewController, sender: vc)
     }

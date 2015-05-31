@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let notificationSetting:UIUserNotificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: nil)
         
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSetting)
+        //Register current user to the shared instance object
+        registerCurrentUser()
         
         //Read the main config file
         if let path = NSBundle.mainBundle().pathForResource("mainconfig", ofType: "plist") {
@@ -38,7 +40,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     return returnValue
                 }
                 //Extract some key config settings
-                if let nav = config["NAVIGATION_BAR"] as? NSDictionary, let button = config["BUTTON"] as? NSDictionary, let apiUrl = config["API_URL"] as? String {
+                if  let nav = config["NAVIGATION_BAR"] as? NSDictionary,
+                    let button = config["BUTTON"] as? NSDictionary,
+                    let api = config["API"] as? NSDictionary {
                     //Navigation props
                     if let navBackground = nav["BACKGROUND"] as? NSDictionary, let navText = nav["TEXT_COLOUR"] as? NSDictionary, let navBarStyle = nav["THEME"] as? Int {
                         
@@ -74,8 +78,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             ThemeUIButton.DefaultStyle.TextColor = buttonTextColour
                         }
                     }
-                    //The base api request url, used in every restfull request to the api
-                    BaseRequest.BASE_URI = apiUrl
+                    //API
+                    var restfullFactorySet = false
+                    if let apiUrl = api["URL"] as? String,
+                        let auth = api["AUTH"] as? NSDictionary {
+                        //The base api request url, used in every restfull request to the api
+                        BaseRequest.BASE_URI = apiUrl
+                        //Auth is enbaled
+                        if let authEabled = auth["ENABLED"] as? Int {
+                            //Auth enabled, set the resftfull factory with the auth type set in the config
+                            if authEabled == 1 {
+                                //attempt to extract the type and settings
+                                if let type = auth["TYPE"] as? String,
+                                   let settings = auth["SETTINGS"] as? [String:String] {
+                                    
+                                    if let auth = AuthFactory.create(type) {
+                                        auth.setSettings(settings);
+                                        ServiceLocator.sharedInstance.registerFactory("RestFull", factory: { (sl) -> AnyObject in
+                                            let restfull = RestFull()
+                                            restfull.setAuthentication(auth)
+                                            
+                                            return restfull
+                                        })
+                                        
+                                        restfullFactorySet = true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    //default fallback, auth isn't enabled
+                    if !restfullFactorySet {
+                        ServiceLocator.sharedInstance.registerFactory("RestFull", factory: { (sl) -> AnyObject in
+                            return RestFull()
+                        })
+                    }
                 }
 
             }
@@ -84,13 +121,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     
     }
-     func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
-        UIApplication.sharedApplication().registerForRemoteNotifications()
+    
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
         
+        UIApplication.sharedApplication().registerForRemoteNotifications()
     }
     
-     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData)
-    {
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData){
         
         
         
@@ -116,43 +153,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var userDefaults = NSUserDefaults.standardUserDefaults()
         userDefaults.setValue(deviceTokenString, forKey: "deviceToken")
         userDefaults.synchronize()
-        
-        
-        
     }
-     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
-        if let customer = ServiceLocator.sharedInstance.getService("customer") as? Customer
-        {
-            
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        if let customer = ServiceLocator.sharedInstance.getService("customer") as? Customer{
             var dict:NSDictionary = notification.userInfo!
             // make sure this is not called when localnotifation is recieved but when tapped
-            if notification.fireDate?.timeIntervalSinceNow < -1
-            {
-                if let chatId = dict["ChatId"] as? String
-                {
+            if notification.fireDate?.timeIntervalSinceNow < -1{
+                if let chatId = dict["ChatId"] as? String{
                     var url = BaseRequest.concat("customers/\(customer.id)/chats/\(chatId)/messages")
                     let chatModel = RestFull()
                     chatModel.getData(url) {(success, data) in
-                        dispatch_async(dispatch_get_main_queue())
-                            {
-                                if success
-                                {
+                        dispatch_async(dispatch_get_main_queue()){
+                                if success{
                                     let chatFactory = ChatFactory(customer: customer)
                                     
-                                    if let result = data["result"] as? NSDictionary
-                                    {
-                                        
-                                        if let chat = chatFactory.createChatFromJson(result["data"]!,category:nil)
-                                        {
-                                            
-                                            
+                                    if let result = data["result"] as? NSDictionary{
+                                        if let chat = chatFactory.createChatFromJson(result["data"]!,category:nil) {
                                             var vs:UIViewController = self.window!.rootViewController!
-                                            
                                             let vc : ChatTableViewController! = vs.storyboard?.instantiateViewControllerWithIdentifier("Chat") as! ChatTableViewController
                                             var userDefaults = NSUserDefaults.standardUserDefaults()
                                             
-                                            
-                                            vc.customer = customer
                                             vc.chat = chat
                                             
                                             
@@ -173,16 +194,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
  
     
     func application(application: UIApplication, didReceiveRemoteNotification: [NSObject : AnyObject]){
-            println("did recieve")
-        
-        
-            var t = ServiceLocator.sharedInstance.getService("customer") as? Customer
-            
-            if (application.applicationState == UIApplicationState.Active) {
-                
-        
-                println("active")
-                
+        registerCurrentUser();
+        if application.applicationState == UIApplicationState.Active {
                 var  localNotification  = UILocalNotification()
                 localNotification.userInfo = didReceiveRemoteNotification;
                 
@@ -196,38 +209,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 localNotification.soundName = UILocalNotificationDefaultSoundName;
                 UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
                 
-            } else if let customer = ServiceLocator.sharedInstance.getService("customer") as? Customer {
-                println("not active")
-                
-                var dict:NSDictionary = didReceiveRemoteNotification;
+        } else if let customer = ServiceLocator.sharedInstance.getService("customer") as? Customer {
+                    var dict:NSDictionary = didReceiveRemoteNotification;
                 // make sure this is not called when localnotifation is recieved but when tapped
              
-                    if let chatId = dict["ChatId"] as? String
-                    {
+                    if let chatId = dict["ChatId"] as? String {
                         var url = BaseRequest.concat("customers/\(customer.id)/chats/\(chatId)/messages")
                         let chatModel = RestFull()
+                        
                         chatModel.getData(url) {(success, data) in
                             dispatch_async(dispatch_get_main_queue()){
-                                if success
-                                {
+                                if success {
                                     let chatFactory = ChatFactory(customer: customer)
                                     
-                                    if let result = data["result"] as? NSDictionary
-                                    {
-                                        
-                                        if let chat = chatFactory.createChatFromJson(result["data"]!,category:nil)
-                                        {
-                                            
-                                            
+                                    if let result = data["result"] as? NSDictionary {
+                                        if let chat = chatFactory.createChatFromJson(result["data"]!,category:nil) {
                                             var vs:UIViewController = self.window!.rootViewController!
                                             
                                             let vc : ChatTableViewController! = vs.storyboard?.instantiateViewControllerWithIdentifier("Chat") as! ChatTableViewController
                                             var userDefaults = NSUserDefaults.standardUserDefaults()
                                             
-                                            
-                                            vc.customer = customer
                                             vc.chat = chat
-                                            
                                             
                                             //TODO change to use nsobject
                                             vs.showViewController(vc as UITableViewController, sender: vc)
@@ -243,6 +245,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 //TODO update Model
             }
         
+    }
+    
+    private func registerCurrentUser () {
+        var userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        
+        if let Username: String = userDefaults.valueForKey("username") as? String, let Id : String = userDefaults.valueForKey("id") as? String{
+            ServiceLocator.sharedInstance.registerService("customer", service: Customer(_name: Username, _id: Id))
+        }
+
     }
 
     

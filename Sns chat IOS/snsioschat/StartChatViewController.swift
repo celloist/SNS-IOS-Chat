@@ -18,17 +18,14 @@ class StartChatViewController: UIViewController, UIPickerViewDataSource,UIPicker
     private var categoryKeys:[String] = []
     
     private var selectedCategory:Int = 0
-    var customer:Customer?
+    private var customer = ServiceLocator.sharedInstance.getService("customer") as? Customer
+    private let restfull = ServiceLocator.sharedInstance.createFactoryService("RestFull") as! RestFull
     private var chat:Chat?
     
-    private let restfull = RestFull()
     // MARK: - lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let customer = ServiceLocator.sharedInstance.getService("customer") as? Customer {
-            self.customer = customer
-        }
-
+        
         activityIndicator.hidden = true
         categoriesPicker.dataSource = self
         categoriesPicker.delegate = self
@@ -91,7 +88,7 @@ class StartChatViewController: UIViewController, UIPickerViewDataSource,UIPicker
     @IBAction func startNewChat(sender: UIButton) {
         let categoryId = categoryKeys[selectedCategory];
         let categoryName = categories[selectedCategory];
-        var category:Category? = Category(id: categoryId , name: categoryName)
+        var category = Category(id: categoryId , name: categoryName)
         activityIndicator.hidden = false
         activityIndicator.startAnimating()
         let url = BaseRequest.concat("customers/\(customer!.id)/chats")
@@ -102,7 +99,7 @@ class StartChatViewController: UIViewController, UIPickerViewDataSource,UIPicker
                 let chatFactory = ChatFactory(customer: self.customer!)
                 
                 if let baseData = data["result"] as? NSDictionary {
-                    if let chat = chatFactory.createChatFromJson(baseData, category: category) {
+                    if let chat = chatFactory.createChatFromJson(baseData["data"]!, category: category) {
                         dispatch_async(dispatch_get_main_queue()) {
                             self.activityIndicator.stopAnimating()
                             self.activityIndicator.hidden = true

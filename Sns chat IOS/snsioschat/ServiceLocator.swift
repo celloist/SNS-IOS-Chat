@@ -15,13 +15,20 @@ class ServiceLocator: NSObject {
         }
         return Static.instance
     }
+    
+    typealias ServiceFactory = (sl: ServiceLocator) -> AnyObject
 
-    private var services = [String:AnyObject]()
+    private var services  = [String:AnyObject]()
+    private var factories = [String: ServiceFactory]()
     
     func registerService (name: String, service: AnyObject) {
         let key = name
         
         services[key] = service
+    }
+    
+    func registerFactory (name: String, factory: (sl: ServiceLocator) -> AnyObject) {
+        factories[name] = factory
     }
     
     func unregisterServive (name:String) -> Bool {
@@ -39,5 +46,15 @@ class ServiceLocator: NSObject {
         }
         
         return nil
+    }
+    
+    func createFactoryService (name: String) -> AnyObject? {
+        let key = name
+        if let factory = factories[key] {
+            return factory(sl: self)
+        }
+        
+        return nil
+
     }
 }
