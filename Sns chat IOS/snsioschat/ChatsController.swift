@@ -10,18 +10,15 @@ import UIKit
 
 class ChatsController : UIViewController , UITableViewDataSource , UITableViewDelegate
 {
-    private let chatModel = RestFull()
+    private var chatModel = ServiceLocator.sharedInstance.createFactoryService("RestFull") as! RestFull
+    private var customer  = ServiceLocator.sharedInstance.getService("customer") as? Customer
     private var chats:[Chat]?
-    var customer:Customer?
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let customer = ServiceLocator.sharedInstance.getService("customer") as? Customer {
-            self.customer = customer
-        }
-        
+        //Restfull model
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Storyboard.CellReuseIdentifier)
         
      
@@ -66,7 +63,6 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
         
         let vc : ChatTableViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("Chat") as! ChatTableViewController
         
-        vc.customer = self.customer
         vc.chat = self.chats?[indexPath.row]
         
         self.showViewController(vc as UITableViewController, sender: vc)

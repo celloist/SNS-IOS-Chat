@@ -11,15 +11,19 @@
 		9D5FE5C21ABC4925008A07CA /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5FE5C11ABC4925008A07CA /* MessageTableViewCell.swift */; };
 		9E1CE9B81B0A166C0069C476 /* DateText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1CE9B71B0A166C0069C476 /* DateText.swift */; };
 		9E1CE9BB1B0A19140069C476 /* nl_nl.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E1CE9BA1B0A19140069C476 /* nl_nl.plist */; };
+		9E1F3C6A1B15B07F007E4FEF /* BasicAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F3C691B15B07F007E4FEF /* BasicAuth.swift */; };
+		9E1F3C6D1B15B10B007E4FEF /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F3C6C1B15B10B007E4FEF /* Auth.swift */; };
+		9E1F3C6F1B15B593007E4FEF /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F3C6E1B15B593007E4FEF /* Config.swift */; };
+		9E1F3C761B15E41A007E4FEF /* AuthFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F3C751B15E41A007E4FEF /* AuthFactory.swift */; };
 		9E4C16651AC0045C0086A791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E4C16631AC0045C0086A791 /* Main.storyboard */; };
 		9E5515CC1AD6CEA30077BD44 /* CustomerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5515CB1AD6CEA30077BD44 /* CustomerFactory.swift */; };
-		9E5515CE1AD6CF650077BD44 /* StartUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5515CD1AD6CF650077BD44 /* StartUp.swift */; };
 		9E55FB891AD6760A004F72EB /* ChatFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E55FB881AD6760A004F72EB /* ChatFactory.swift */; };
 		9E55FB8B1AD6915D004F72EB /* CategoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E55FB8A1AD6915D004F72EB /* CategoryFactory.swift */; };
 		9E55FB8E1AD69D70004F72EB /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E55FB8D1AD69D70004F72EB /* UserFactory.swift */; };
 		9E66BFE91B0241A100D90AD5 /* MenuThemeUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66BFE81B0241A100D90AD5 /* MenuThemeUIButton.swift */; };
 		9E7CCAFB1B034CD60047435C /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CCAFA1B034CD60047435C /* ServiceLocator.swift */; };
 		9E8AC09E1ABF6C15001635C1 /* StartChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8AC09D1ABF6C15001635C1 /* StartChatViewController.swift */; };
+		9E9BC1021B1BA28900BFA234 /* Restfull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9BC1011B1BA28900BFA234 /* Restfull.swift */; };
 		9EA6CC241B0133E2006EAD24 /* mainconfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9EA6CC231B0133E2006EAD24 /* mainconfig.plist */; };
 		9EA6CC281B013455006EAD24 /* ThemeUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA6CC271B013455006EAD24 /* ThemeUIButton.swift */; };
 		9EA6CC2A1B013477006EAD24 /* ThemeUINavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA6CC291B013477006EAD24 /* ThemeUINavigationViewController.swift */; };
@@ -30,7 +34,7 @@
 		9EDEE9D51AA4542400500660 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EDEE9D41AA4542400500660 /* Images.xcassets */; };
 		9EDEE9D81AA4542400500660 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9EDEE9D61AA4542400500660 /* LaunchScreen.xib */; };
 		9EDEE9E41AA4542400500660 /* Sns_chat_IOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEE9E31AA4542400500660 /* Sns_chat_IOSTests.swift */; };
-		9EDEE9EF1AA454EC00500660 /* Restfull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEE9EE1AA454EC00500660 /* Restfull.swift */; };
+		9EDEE9EF1AA454EC00500660 /* BasicRestFull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEE9EE1AA454EC00500660 /* BasicRestFull.swift */; };
 		9EE0B9B11ACD50AA006CFDBF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0B9B01ACD50AA006CFDBF /* Category.swift */; };
 		CE9CB2701AAB222800FA028D /* ChatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CB26F1AAB222800FA028D /* ChatsController.swift */; };
 		CEDEEE941AA9D4E900DB5157 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE931AA9D4E900DB5157 /* Customer.swift */; };
@@ -56,15 +60,19 @@
 		9D5FE5C11ABC4925008A07CA /* MessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		9E1CE9B71B0A166C0069C476 /* DateText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateText.swift; sourceTree = "<group>"; };
 		9E1CE9BA1B0A19140069C476 /* nl_nl.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = nl_nl.plist; sourceTree = "<group>"; };
+		9E1F3C691B15B07F007E4FEF /* BasicAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicAuth.swift; path = Auth/BasicAuth.swift; sourceTree = "<group>"; };
+		9E1F3C6C1B15B10B007E4FEF /* Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Auth.swift; path = Auth/Auth.swift; sourceTree = "<group>"; };
+		9E1F3C6E1B15B593007E4FEF /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		9E1F3C751B15E41A007E4FEF /* AuthFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthFactory.swift; sourceTree = "<group>"; };
 		9E4C16641AC0045C0086A791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E5515CB1AD6CEA30077BD44 /* CustomerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerFactory.swift; sourceTree = "<group>"; };
-		9E5515CD1AD6CF650077BD44 /* StartUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartUp.swift; sourceTree = "<group>"; };
 		9E55FB881AD6760A004F72EB /* ChatFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatFactory.swift; sourceTree = "<group>"; };
 		9E55FB8A1AD6915D004F72EB /* CategoryFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryFactory.swift; sourceTree = "<group>"; };
 		9E55FB8D1AD69D70004F72EB /* UserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
 		9E66BFE81B0241A100D90AD5 /* MenuThemeUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuThemeUIButton.swift; sourceTree = "<group>"; };
 		9E7CCAFA1B034CD60047435C /* ServiceLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		9E8AC09D1ABF6C15001635C1 /* StartChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartChatViewController.swift; sourceTree = "<group>"; };
+		9E9BC1011B1BA28900BFA234 /* Restfull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restfull.swift; sourceTree = "<group>"; };
 		9EA6CC211B01333B006EAD24 /* snsioschat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = snsioschat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EA6CC221B01333B006EAD24 /* snsioschatTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = snsioschatTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EA6CC231B0133E2006EAD24 /* mainconfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mainconfig.plist; sourceTree = "<group>"; };
@@ -79,7 +87,7 @@
 		9EDEE9D71AA4542400500660 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		9EDEE9E21AA4542400500660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EDEE9E31AA4542400500660 /* Sns_chat_IOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sns_chat_IOSTests.swift; sourceTree = "<group>"; };
-		9EDEE9EE1AA454EC00500660 /* Restfull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Restfull.swift; sourceTree = "<group>"; };
+		9EDEE9EE1AA454EC00500660 /* BasicRestFull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicRestFull.swift; sourceTree = "<group>"; };
 		9EE0B9B01ACD50AA006CFDBF /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		CE9CB26F1AAB222800FA028D /* ChatsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsController.swift; sourceTree = "<group>"; };
 		CEDEEE931AA9D4E900DB5157 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
@@ -111,6 +119,10 @@
 		9E1CE9B61B0A15C90069C476 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				9E1F3C721B15BFFA007E4FEF /* Http */,
+				9E1F3C6E1B15B593007E4FEF /* Config.swift */,
+				9E7CCAFA1B034CD60047435C /* ServiceLocator.swift */,
+				CEDEEE9D1AA9E15A00DB5157 /* Request.swift */,
 				9E1CE9B71B0A166C0069C476 /* DateText.swift */,
 			);
 			name = Helpers;
@@ -124,6 +136,25 @@
 			name = language;
 			sourceTree = "<group>";
 		};
+		9E1F3C6B1B15B092007E4FEF /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				9E1F3C691B15B07F007E4FEF /* BasicAuth.swift */,
+				9E1F3C6C1B15B10B007E4FEF /* Auth.swift */,
+			);
+			name = Auth;
+			sourceTree = "<group>";
+		};
+		9E1F3C721B15BFFA007E4FEF /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				9E1F3C6B1B15B092007E4FEF /* Auth */,
+				9EDEE9EE1AA454EC00500660 /* BasicRestFull.swift */,
+				9E9BC1011B1BA28900BFA234 /* Restfull.swift */,
+			);
+			name = Http;
+			sourceTree = "<group>";
+		};
 		9E55FB8C1AD691B2004F72EB /* Factories */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +162,7 @@
 				9E55FB881AD6760A004F72EB /* ChatFactory.swift */,
 				9E55FB8D1AD69D70004F72EB /* UserFactory.swift */,
 				9E5515CB1AD6CEA30077BD44 /* CustomerFactory.swift */,
+				9E1F3C751B15E41A007E4FEF /* AuthFactory.swift */,
 			);
 			name = Factories;
 			sourceTree = "<group>";
@@ -188,8 +220,6 @@
 				9EDEE9D41AA4542400500660 /* Images.xcassets */,
 				9EDEE9D61AA4542400500660 /* LaunchScreen.xib */,
 				9EDEE9CB1AA4542400500660 /* Supporting Files */,
-				9E5515CD1AD6CF650077BD44 /* StartUp.swift */,
-				9E7CCAFA1B034CD60047435C /* ServiceLocator.swift */,
 			);
 			path = snsioschat;
 			sourceTree = "<group>";
@@ -226,13 +256,11 @@
 			isa = PBXGroup;
 			children = (
 				9E55FB8C1AD691B2004F72EB /* Factories */,
-				9EDEE9EE1AA454EC00500660 /* Restfull.swift */,
 				CEDEEE931AA9D4E900DB5157 /* Customer.swift */,
 				CEDEEE951AA9D65400DB5157 /* Chat.swift */,
 				CEDEEE971AA9D6CA00DB5157 /* MainModel.swift */,
 				CEDEEE991AA9D9A000DB5157 /* Message.swift */,
 				CEDEEE9B1AA9DD9900DB5157 /* User.swift */,
-				CEDEEE9D1AA9E15A00DB5157 /* Request.swift */,
 				9EE0B9B01ACD50AA006CFDBF /* Category.swift */,
 			);
 			name = Models;
@@ -341,19 +369,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E1F3C761B15E41A007E4FEF /* AuthFactory.swift in Sources */,
 				9D5FE5C21ABC4925008A07CA /* MessageTableViewCell.swift in Sources */,
-				9E5515CE1AD6CF650077BD44 /* StartUp.swift in Sources */,
 				9E1CE9B81B0A166C0069C476 /* DateText.swift in Sources */,
+				9E1F3C6F1B15B593007E4FEF /* Config.swift in Sources */,
 				9E66BFE91B0241A100D90AD5 /* MenuThemeUIButton.swift in Sources */,
 				CEDEEE961AA9D65400DB5157 /* Chat.swift in Sources */,
 				9EA6CC2A1B013477006EAD24 /* ThemeUINavigationViewController.swift in Sources */,
+				9E1F3C6A1B15B07F007E4FEF /* BasicAuth.swift in Sources */,
 				9EA6CC281B013455006EAD24 /* ThemeUIButton.swift in Sources */,
 				9EDEE9D01AA4542400500660 /* StartViewController.swift in Sources */,
 				CEDEEE981AA9D6CA00DB5157 /* MainModel.swift in Sources */,
+				9E9BC1021B1BA28900BFA234 /* Restfull.swift in Sources */,
 				9E5515CC1AD6CEA30077BD44 /* CustomerFactory.swift in Sources */,
-				9EDEE9EF1AA454EC00500660 /* Restfull.swift in Sources */,
+				9EDEE9EF1AA454EC00500660 /* BasicRestFull.swift in Sources */,
 				9E55FB8E1AD69D70004F72EB /* UserFactory.swift in Sources */,
 				CEDEEE9C1AA9DD9900DB5157 /* User.swift in Sources */,
+				9E1F3C6D1B15B10B007E4FEF /* Auth.swift in Sources */,
 				9E7CCAFB1B034CD60047435C /* ServiceLocator.swift in Sources */,
 				9E55FB8B1AD6915D004F72EB /* CategoryFactory.swift in Sources */,
 				9E8AC09E1ABF6C15001635C1 /* StartChatViewController.swift in Sources */,

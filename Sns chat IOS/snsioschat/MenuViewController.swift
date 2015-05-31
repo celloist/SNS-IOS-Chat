@@ -9,17 +9,13 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-    var customer:Customer?
+    private var customer = ServiceLocator.sharedInstance.getService("customer") as? Customer
     
     @IBOutlet weak var logo: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let customer = ServiceLocator.sharedInstance.getService("customer") as? Customer {
-            self.customer = customer
-        }
-       
         //logo.image = UIImage(named: "logo-new.png");
         navigationItem.setHidesBackButton(true, animated: true)
     }
