@@ -107,7 +107,9 @@ class StartChatViewController: UIViewController, UIPickerViewDataSource,UIPicker
                             let vc : ChatTableViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("Chat") as! ChatTableViewController
                             
                             vc.chat = chat
+                            
                             self.showViewController(vc as UITableViewController, sender: vc)
+                            self.navigationController?.viewControllers.removeAtIndex((self.navigationController?.viewControllers.count)! - 2)
                             
                         }
                     }
