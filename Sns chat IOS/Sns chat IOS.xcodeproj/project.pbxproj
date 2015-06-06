@@ -36,6 +36,10 @@
 		9EDEE9E41AA4542400500660 /* Sns_chat_IOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEE9E31AA4542400500660 /* Sns_chat_IOSTests.swift */; };
 		9EDEE9EF1AA454EC00500660 /* BasicRestFull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEE9EE1AA454EC00500660 /* BasicRestFull.swift */; };
 		9EE0B9B11ACD50AA006CFDBF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0B9B01ACD50AA006CFDBF /* Category.swift */; };
+		CE3411431B1DC0550062FEFA /* FaqController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3411421B1DC0550062FEFA /* FaqController.swift */; };
+		CE3411451B1DC4970062FEFA /* FaqFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3411441B1DC4970062FEFA /* FaqFactory.swift */; };
+		CE3411471B1DC5180062FEFA /* FaqQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3411461B1DC5180062FEFA /* FaqQuestion.swift */; };
+		CE3FC2E51B2323A800E0E207 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3FC2E41B2323A700E0E207 /* QuestionViewController.swift */; };
 		CE9CB2701AAB222800FA028D /* ChatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CB26F1AAB222800FA028D /* ChatsController.swift */; };
 		CEDEEE941AA9D4E900DB5157 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE931AA9D4E900DB5157 /* Customer.swift */; };
 		CEDEEE961AA9D65400DB5157 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE951AA9D65400DB5157 /* Chat.swift */; };
@@ -89,6 +93,10 @@
 		9EDEE9E31AA4542400500660 /* Sns_chat_IOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sns_chat_IOSTests.swift; sourceTree = "<group>"; };
 		9EDEE9EE1AA454EC00500660 /* BasicRestFull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicRestFull.swift; sourceTree = "<group>"; };
 		9EE0B9B01ACD50AA006CFDBF /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		CE3411421B1DC0550062FEFA /* FaqController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqController.swift; sourceTree = "<group>"; };
+		CE3411441B1DC4970062FEFA /* FaqFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaqFactory.swift; path = ../../../../Documents/FaqFactory.swift; sourceTree = "<group>"; };
+		CE3411461B1DC5180062FEFA /* FaqQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaqQuestion.swift; path = ../../../../Documents/FaqQuestion.swift; sourceTree = "<group>"; };
+		CE3FC2E41B2323A700E0E207 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		CE9CB26F1AAB222800FA028D /* ChatsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsController.swift; sourceTree = "<group>"; };
 		CEDEEE931AA9D4E900DB5157 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		CEDEEE951AA9D65400DB5157 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
@@ -163,6 +171,7 @@
 				9E55FB8D1AD69D70004F72EB /* UserFactory.swift */,
 				9E5515CB1AD6CEA30077BD44 /* CustomerFactory.swift */,
 				9E1F3C751B15E41A007E4FEF /* AuthFactory.swift */,
+				CE3411441B1DC4970062FEFA /* FaqFactory.swift */,
 			);
 			name = Factories;
 			sourceTree = "<group>";
@@ -170,12 +179,14 @@
 		9E8AC09F1ABF6C1C001635C1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CE3411421B1DC0550062FEFA /* FaqController.swift */,
 				9EA6CC2B1B014ABC006EAD24 /* MenuViewController.swift */,
 				9EA6CC291B013477006EAD24 /* ThemeUINavigationViewController.swift */,
 				9EDEE9CF1AA4542400500660 /* StartViewController.swift */,
 				9E8AC09D1ABF6C15001635C1 /* StartChatViewController.swift */,
 				9D5FE5BF1ABC4815008A07CA /* ChatTableViewController.swift */,
 				CE9CB26F1AAB222800FA028D /* ChatsController.swift */,
+				CE3FC2E41B2323A700E0E207 /* QuestionViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -262,6 +273,7 @@
 				CEDEEE991AA9D9A000DB5157 /* Message.swift */,
 				CEDEEE9B1AA9DD9900DB5157 /* User.swift */,
 				9EE0B9B01ACD50AA006CFDBF /* Category.swift */,
+				CE3411461B1DC5180062FEFA /* FaqQuestion.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -369,6 +381,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE3411451B1DC4970062FEFA /* FaqFactory.swift in Sources */,
+				CE3411431B1DC0550062FEFA /* FaqController.swift in Sources */,
 				9E1F3C761B15E41A007E4FEF /* AuthFactory.swift in Sources */,
 				9D5FE5C21ABC4925008A07CA /* MessageTableViewCell.swift in Sources */,
 				9E1CE9B81B0A166C0069C476 /* DateText.swift in Sources */,
@@ -395,9 +409,11 @@
 				CEDEEE9E1AA9E15A00DB5157 /* Request.swift in Sources */,
 				9E55FB891AD6760A004F72EB /* ChatFactory.swift in Sources */,
 				CEDEEE9A1AA9D9A000DB5157 /* Message.swift in Sources */,
+				CE3411471B1DC5180062FEFA /* FaqQuestion.swift in Sources */,
 				CE9CB2701AAB222800FA028D /* ChatsController.swift in Sources */,
 				9D5FE5C01ABC4815008A07CA /* ChatTableViewController.swift in Sources */,
 				9EE0B9B11ACD50AA006CFDBF /* Category.swift in Sources */,
+				CE3FC2E51B2323A800E0E207 /* QuestionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
