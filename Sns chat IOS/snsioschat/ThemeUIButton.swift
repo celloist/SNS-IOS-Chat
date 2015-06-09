@@ -9,16 +9,11 @@
 import UIKit
 
 class ThemeUIButton: UIButton {
-    struct DefaultStyle {
-        static var BackgroundColor = UIColor.whiteColor()
-        static var TextColor = UIColor.blackColor()
-    }
-
     required init(coder decoder: NSCoder) {
         super.init(coder: decoder)
         
-        self.backgroundColor = DefaultStyle.BackgroundColor
-        self.tintColor = DefaultStyle.TextColor
+        self.backgroundColor = Styles.DefaultTheme["backgroundColour"]
+        self.tintColor = Styles.DefaultTheme["textColour"]
         setCustomPadding()
     }
     

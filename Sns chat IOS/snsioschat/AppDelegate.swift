@@ -14,8 +14,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-   
-    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let notificationTypes:UIUserNotificationType = UIUserNotificationType.Alert | UIUserNotificationType.Badge |
@@ -27,94 +25,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         registerCurrentUser()
         
         //Read the main config file
-        if let path = NSBundle.mainBundle().pathForResource("mainconfig", ofType: "plist") {
-            if let config = NSDictionary(contentsOfFile: path) {
+        if let mainConfigPath = NSBundle.mainBundle().pathForResource("mainconfig", ofType: "plist"),
+            let coloursConfigPath = NSBundle.mainBundle().pathForResource("colours", ofType: "plist") {
                 
-                func createUiColourFromConfig (data: NSDictionary) -> UIColor? {
-                    var returnValue:UIColor?
+            if let config = NSDictionary(contentsOfFile: mainConfigPath),
+                let coloursConfig = NSDictionary(contentsOfFile: coloursConfigPath) {
+               
+                    let parsedColoursConfig = parseColoursConfig(coloursConfig)
                     
-                    if let red = data["r"] as? CGFloat, let green = data["g"] as? CGFloat, let blue = data["b"] as? CGFloat {
-                        returnValue = UIColor(red: (red / 255.0), green: (green / 255.0), blue: (blue / 255.0), alpha: 1)
-                    }
-                    
-                    return returnValue
-                }
-                //Extract some key config settings
-                if  let nav = config["NAVIGATION_BAR"] as? NSDictionary,
-                    let button = config["BUTTON"] as? NSDictionary,
-                    let api = config["API"] as? NSDictionary {
-                    //Navigation props
-                    if let navBackground = nav["BACKGROUND"] as? NSDictionary, let navText = nav["TEXT_COLOUR"] as? NSDictionary, let navBarStyle = nav["THEME"] as? Int {
-                        
-                        //Navigation background
-                        if let navBackgroundColour = createUiColourFromConfig(navBackground) {
-                            UINavigationBar.appearance().barTintColor = navBackgroundColour
-                        }
-                        //Navigation text colour
-                        if let navTextColour = createUiColourFromConfig(navText) {
-                            UINavigationBar.appearance().tintColor = navTextColour
-                            UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : navTextColour]
-                        }
-                        //Barstyles
-                        let barStyles:[Int:UIStatusBarStyle] = [
-                            0 : UIStatusBarStyle.Default,
-                            1 : UIStatusBarStyle.LightContent
-                        ]
-                        
-                        if navBarStyle >= 0 && navBarStyle <= barStyles.count {
-                            ThemeUINavigationViewController.DefaultStyle.StatusBar = barStyles[navBarStyle]!
-                        }
-                        
-                    }
-                    //Button props
-                    if let buttonBackground = button["BACKGROUND"] as? NSDictionary, let buttonText = button["TEXT_COLOUR"] as? NSDictionary {
-                        //Default button style
-                        if let buttonBackgroundStyle = createUiColourFromConfig(buttonBackground) {
-                            ThemeUIButton.DefaultStyle.BackgroundColor = buttonBackgroundStyle
-                        }
-
-                        //Default button style
-                        if let buttonTextColour = createUiColourFromConfig(buttonText) {
-                            ThemeUIButton.DefaultStyle.TextColor = buttonTextColour
-                        }
-                    }
-                    //API
-                    var restfullFactorySet = false
-                    if let apiUrl = api["URL"] as? String,
-                        let auth = api["AUTH"] as? NSDictionary {
-                        //The base api request url, used in every restfull request to the api
-                        BaseRequest.BASE_URI = apiUrl
-                        //Auth is enbaled
-                        if let authEabled = auth["ENABLED"] as? Int {
-                            //Auth enabled, set the resftfull factory with the auth type set in the config
-                            if authEabled == 1 {
-                                //attempt to extract the type and settings
-                                if let type = auth["TYPE"] as? String,
-                                   let settings = auth["SETTINGS"] as? [String:String] {
-                                    
-                                    if let auth = AuthFactory.create(type) {
-                                        auth.setSettings(settings);
-                                        ServiceLocator.sharedInstance.registerFactory("RestFull", factory: { (sl) -> AnyObject in
-                                            let restfull = RestFull()
-                                            restfull.setAuthentication(auth)
-                                            
-                                            return restfull
-                                        })
-                                        
-                                        restfullFactorySet = true
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    //default fallback, auth isn't enabled
-                    if !restfullFactorySet {
-                        ServiceLocator.sharedInstance.registerFactory("RestFull", factory: { (sl) -> AnyObject in
-                            return RestFull()
-                        })
-                    }
-                }
-
+                    parseMainConfig(config, parsedColoursConfig)
             }
         }
         
