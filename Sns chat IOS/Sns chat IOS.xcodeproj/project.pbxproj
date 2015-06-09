@@ -37,10 +37,10 @@
 		9EDEE9EF1AA454EC00500660 /* BasicRestFull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEE9EE1AA454EC00500660 /* BasicRestFull.swift */; };
 		9EE0B9B11ACD50AA006CFDBF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0B9B01ACD50AA006CFDBF /* Category.swift */; };
 		CE3411431B1DC0550062FEFA /* FaqController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3411421B1DC0550062FEFA /* FaqController.swift */; };
-		CE3411451B1DC4970062FEFA /* FaqFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3411441B1DC4970062FEFA /* FaqFactory.swift */; };
-		CE3411471B1DC5180062FEFA /* FaqQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3411461B1DC5180062FEFA /* FaqQuestion.swift */; };
 		CE3FC2E51B2323A800E0E207 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3FC2E41B2323A700E0E207 /* QuestionViewController.swift */; };
 		CE9CB2701AAB222800FA028D /* ChatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CB26F1AAB222800FA028D /* ChatsController.swift */; };
+		CEAD52301B270BA000DD6254 /* FaqFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD522E1B270BA000DD6254 /* FaqFactory.swift */; };
+		CEAD52311B270BA000DD6254 /* FaqQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD522F1B270BA000DD6254 /* FaqQuestion.swift */; };
 		CEDEEE941AA9D4E900DB5157 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE931AA9D4E900DB5157 /* Customer.swift */; };
 		CEDEEE961AA9D65400DB5157 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE951AA9D65400DB5157 /* Chat.swift */; };
 		CEDEEE981AA9D6CA00DB5157 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE971AA9D6CA00DB5157 /* MainModel.swift */; };
@@ -94,10 +94,10 @@
 		9EDEE9EE1AA454EC00500660 /* BasicRestFull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicRestFull.swift; sourceTree = "<group>"; };
 		9EE0B9B01ACD50AA006CFDBF /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		CE3411421B1DC0550062FEFA /* FaqController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqController.swift; sourceTree = "<group>"; };
-		CE3411441B1DC4970062FEFA /* FaqFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaqFactory.swift; path = ../../../../Documents/FaqFactory.swift; sourceTree = "<group>"; };
-		CE3411461B1DC5180062FEFA /* FaqQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaqQuestion.swift; path = ../../../../Documents/FaqQuestion.swift; sourceTree = "<group>"; };
 		CE3FC2E41B2323A700E0E207 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		CE9CB26F1AAB222800FA028D /* ChatsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsController.swift; sourceTree = "<group>"; };
+		CEAD522E1B270BA000DD6254 /* FaqFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqFactory.swift; sourceTree = "<group>"; };
+		CEAD522F1B270BA000DD6254 /* FaqQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqQuestion.swift; sourceTree = "<group>"; };
 		CEDEEE931AA9D4E900DB5157 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		CEDEEE951AA9D65400DB5157 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		CEDEEE971AA9D6CA00DB5157 /* MainModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
@@ -166,12 +166,12 @@
 		9E55FB8C1AD691B2004F72EB /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				CEAD522E1B270BA000DD6254 /* FaqFactory.swift */,
 				9E55FB8A1AD6915D004F72EB /* CategoryFactory.swift */,
 				9E55FB881AD6760A004F72EB /* ChatFactory.swift */,
 				9E55FB8D1AD69D70004F72EB /* UserFactory.swift */,
 				9E5515CB1AD6CEA30077BD44 /* CustomerFactory.swift */,
 				9E1F3C751B15E41A007E4FEF /* AuthFactory.swift */,
-				CE3411441B1DC4970062FEFA /* FaqFactory.swift */,
 			);
 			name = Factories;
 			sourceTree = "<group>";
@@ -268,12 +268,12 @@
 			children = (
 				9E55FB8C1AD691B2004F72EB /* Factories */,
 				CEDEEE931AA9D4E900DB5157 /* Customer.swift */,
+				CEAD522F1B270BA000DD6254 /* FaqQuestion.swift */,
 				CEDEEE951AA9D65400DB5157 /* Chat.swift */,
 				CEDEEE971AA9D6CA00DB5157 /* MainModel.swift */,
 				CEDEEE991AA9D9A000DB5157 /* Message.swift */,
 				CEDEEE9B1AA9DD9900DB5157 /* User.swift */,
 				9EE0B9B01ACD50AA006CFDBF /* Category.swift */,
-				CE3411461B1DC5180062FEFA /* FaqQuestion.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -381,7 +381,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE3411451B1DC4970062FEFA /* FaqFactory.swift in Sources */,
 				CE3411431B1DC0550062FEFA /* FaqController.swift in Sources */,
 				9E1F3C761B15E41A007E4FEF /* AuthFactory.swift in Sources */,
 				9D5FE5C21ABC4925008A07CA /* MessageTableViewCell.swift in Sources */,
@@ -403,13 +402,14 @@
 				9E7CCAFB1B034CD60047435C /* ServiceLocator.swift in Sources */,
 				9E55FB8B1AD6915D004F72EB /* CategoryFactory.swift in Sources */,
 				9E8AC09E1ABF6C15001635C1 /* StartChatViewController.swift in Sources */,
+				CEAD52311B270BA000DD6254 /* FaqQuestion.swift in Sources */,
 				9EDEE9CE1AA4542400500660 /* AppDelegate.swift in Sources */,
 				CEDEEE941AA9D4E900DB5157 /* Customer.swift in Sources */,
 				9EA6CC2C1B014ABC006EAD24 /* MenuViewController.swift in Sources */,
 				CEDEEE9E1AA9E15A00DB5157 /* Request.swift in Sources */,
 				9E55FB891AD6760A004F72EB /* ChatFactory.swift in Sources */,
 				CEDEEE9A1AA9D9A000DB5157 /* Message.swift in Sources */,
-				CE3411471B1DC5180062FEFA /* FaqQuestion.swift in Sources */,
+				CEAD52301B270BA000DD6254 /* FaqFactory.swift in Sources */,
 				CE9CB2701AAB222800FA028D /* ChatsController.swift in Sources */,
 				9D5FE5C01ABC4815008A07CA /* ChatTableViewController.swift in Sources */,
 				9EE0B9B11ACD50AA006CFDBF /* Category.swift in Sources */,
