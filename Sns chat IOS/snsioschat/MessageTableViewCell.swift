@@ -22,30 +22,21 @@ class MessageTableViewCell: UITableViewCell {
     
     func updateUI() {
         if let message = self.message {
-            /*var dateString = message.time
-            var dateFormatter = NSDateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z"
-            let date = NSDate()
-            let calendar = NSCalendar.currentCalendar()
-            var hour = {() -> Date in
-                components
-            }
-            let components = calendar.components(.CalendarUnitDay | .CalendarUnitHour | .CalendarUnitMinute, fromDate: date)
-            let hour = components.hour
-            let minutes = components.minute
+            let formattedDate = DateText(rawDate: message.time)
             
-            var dateThen = dateFormatter.dateFromString(dateString)
-            println(dateThen)
+            timestamp.text = formattedDate.getFormattedDate()
+            chatMessage.textColor = UIColor.whiteColor()
             
-            timestamp.text = message.time
             if message.isEmployee {
                 view.backgroundColor = UIColor.blueColor()
+            } else if message.system  {
+                view.backgroundColor = UIColor.grayColor()
             } else {
-                view.backgroundColor = UIColor.orangeColor()
+                view.backgroundColor = UIColor.yellowColor()
             }
-            */
+            
             chatMessage.text = message.text
-            chatMessage.textColor = UIColor.whiteColor()
+            
             view.layer.cornerRadius = CGFloat(10)
             view.sizeToFit()
         }
