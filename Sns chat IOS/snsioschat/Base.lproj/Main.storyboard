@@ -21,7 +21,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMg-2q-IuU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1320" y="-325"/>
+            <point key="canvasLocation" x="-1456" y="103"/>
         </scene>
         <!--Nieuwe chat-->
         <scene sceneID="s8g-UB-q9b">
@@ -32,7 +32,7 @@
                         <viewControllerLayoutGuide type="bottom" id="XlC-3D-ZpB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HHB-Mf-Mdl">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uw vraag" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8G-CW-ybe">
@@ -42,7 +42,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nPY-If-61C">
-                                <rect key="frame" x="16" y="254" width="288" height="30"/>
+                                <rect key="frame" x="16" y="254" width="568" height="30"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -63,10 +63,10 @@
                                 </variation>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="CbS-Jj-j4J">
-                                <rect key="frame" x="150" y="292" width="20" height="20"/>
+                                <rect key="frame" x="290" y="292" width="20" height="20"/>
                             </activityIndicatorView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nf8-gD-PXj">
-                                <rect key="frame" x="16" y="56" width="288" height="162"/>
+                                <rect key="frame" x="16" y="56" width="568" height="162"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dD-dj-qDb" customClass="ThemeUIButton" customModule="snsioschat" customModuleProvider="target">
                                 <rect key="frame" x="16" y="292" width="71" height="26"/>
@@ -135,7 +135,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jxs-iJ-6TL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1349" y="-28"/>
+            <point key="canvasLocation" x="1677" y="-214"/>
         </scene>
         <!--Chats-->
         <scene sceneID="Lr9-KN-Q6t">
@@ -217,6 +217,61 @@
             </objects>
             <point key="canvasLocation" x="343" y="-12"/>
         </scene>
+        <!--Unlock View Controller-->
+        <scene sceneID="tb5-nQ-82W">
+            <objects>
+                <viewController storyboardIdentifier="Unlock" id="ipZ-OK-Bic" customClass="UnlockViewController" customModule="snsioschat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yq9-8b-zod"/>
+                        <viewControllerLayoutGuide type="bottom" id="U5s-Jf-sFe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DJC-tR-16x">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nvw-nx-Em8">
+                                <rect key="frame" x="16" y="20" width="530" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FJf-rA-phN">
+                                <rect key="frame" x="554" y="20" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="Kb9-sr-cnK"/>
+                                </constraints>
+                                <state key="normal" title="Go">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="unlock:" destination="ipZ-OK-Bic" eventType="touchUpInside" id="YCR-fR-HBa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FJf-rA-phN" firstAttribute="centerY" secondItem="nvw-nx-Em8" secondAttribute="centerY" id="Fzw-bv-caU"/>
+                            <constraint firstItem="nvw-nx-Em8" firstAttribute="leading" secondItem="DJC-tR-16x" secondAttribute="leadingMargin" id="Gea-ny-eav"/>
+                            <constraint firstItem="FJf-rA-phN" firstAttribute="top" secondItem="nvw-nx-Em8" secondAttribute="top" id="KYx-8W-ej4"/>
+                            <constraint firstItem="nvw-nx-Em8" firstAttribute="top" secondItem="yq9-8b-zod" secondAttribute="bottom" id="Mqx-Lb-7tO"/>
+                            <constraint firstItem="FJf-rA-phN" firstAttribute="leading" secondItem="nvw-nx-Em8" secondAttribute="trailing" constant="8" symbolic="YES" id="O3q-KG-qs3"/>
+                            <constraint firstItem="FJf-rA-phN" firstAttribute="trailing" secondItem="DJC-tR-16x" secondAttribute="trailingMargin" id="kSY-PE-bFW"/>
+                            <constraint firstItem="nvw-nx-Em8" firstAttribute="top" secondItem="yq9-8b-zod" secondAttribute="bottom" id="vk9-o9-y8S"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="vk9-o9-y8S"/>
+                                <exclude reference="Fzw-bv-caU"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="text" destination="nvw-nx-Em8" id="VQh-0Y-14F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yxd-36-hH8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-568" y="-669"/>
+        </scene>
         <!--Registreer-->
         <scene sceneID="Ijn-aF-Idq">
             <objects>
@@ -289,7 +344,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRV-Mp-rYO" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-478" y="-333"/>
+            <point key="canvasLocation" x="-584" y="103"/>
         </scene>
         <!--Hoofdmenu-->
         <scene sceneID="mem-j5-O8F">
@@ -441,7 +496,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4J-4Q-d1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-430" y="480"/>
+            <point key="canvasLocation" x="-366" y="722"/>
         </scene>
         <!--Chat Table View Controller-->
         <scene sceneID="pdF-Ic-9Tw">
@@ -452,11 +507,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="WRm-Px-eoB">
-                            <rect key="frame" x="0.0" y="86" width="600" height="54"/>
+                            <rect key="frame" x="0.0" y="86" width="600" height="70"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vcy-WR-vhq">
-                                    <rect key="frame" x="8" y="8" width="507" height="38"/>
+                                    <rect key="frame" x="8" y="32" width="507" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="519" id="kzy-KU-Fq3"/>
                                     </constraints>
@@ -469,7 +524,7 @@
                                     </variation>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZbG-H5-VEp" customClass="ActionThemeUIButton" customModule="snsioschat" customModuleProvider="target">
-                                    <rect key="frame" x="523" y="8" width="57" height="38"/>
+                                    <rect key="frame" x="523" y="32" width="57" height="30"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="66" id="Uxk-WB-V2r"/>
                                     </constraints>
@@ -501,6 +556,7 @@
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
+                                    <exclude reference="2Rd-AD-rwi"/>
                                     <exclude reference="edl-So-Mbu"/>
                                     <exclude reference="Ltf-mk-FwZ"/>
                                     <exclude reference="uzK-Da-3vu"/>
@@ -626,7 +682,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dJg-iw-kht" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="457" y="1055"/>
+            <point key="canvasLocation" x="789" y="1023"/>
         </scene>
         <!--Question View Controller-->
         <scene sceneID="Ew3-TP-sVF">
@@ -706,14 +762,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Nq-2q-6Rh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1363" y="1066"/>
+            <point key="canvasLocation" x="1457" y="1036"/>
         </scene>
     </scenes>
     <resources>
         <image name="logo-new.png" width="171" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6nZ-zb-jNE"/>
-        <segue reference="1BZ-g0-Kk3"/>
+        <segue reference="O99-Hw-5mh"/>
+        <segue reference="bEg-gP-NPF"/>
     </inferredMetricsTieBreakers>
 </document>

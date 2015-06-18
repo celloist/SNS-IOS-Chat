@@ -15,6 +15,32 @@ class Message{
     let isEmployee:Bool
     let system:Bool
     
+    var type:String {
+        get {
+            var concreteType = ""
+            
+            if isEmployee {
+                concreteType = "employee"
+            } else if system {
+                concreteType = "system"
+            } else {
+                concreteType = "user"
+            }
+            
+            return concreteType
+        }
+    }
+    
+    var messageText:String {
+        get {
+            if let concreteUser = user {
+                return "\(concreteUser.name): \(text)"
+            } else {
+                return text
+            }
+        }
+    }
+    
     init(_user:User?, _text:String, _time:String, _isEmployee:Bool, _system:Bool){
         user = _user
         text = _text
@@ -22,4 +48,6 @@ class Message{
         isEmployee = _isEmployee
         system = _system
     }
+    
+    
 }

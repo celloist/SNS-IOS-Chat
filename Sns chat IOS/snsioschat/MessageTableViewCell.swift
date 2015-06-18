@@ -27,18 +27,28 @@ class MessageTableViewCell: UITableViewCell {
             timestamp.text = formattedDate.getFormattedDate()
             chatMessage.textColor = UIColor.whiteColor()
             
-            if message.isEmployee {
-                view.backgroundColor = UIColor.blueColor()
-            } else if message.system  {
-                view.backgroundColor = UIColor.grayColor()
-            } else {
-                view.backgroundColor = UIColor.yellowColor()
-            }
-            
-            chatMessage.text = message.text
-            
+            chatMessage.text = message.messageText
+            setColours()
             view.layer.cornerRadius = CGFloat(10)
             view.sizeToFit()
         }
+    }
+    
+    private func setColours () {
+        let type = message?.type
+        chatMessage.textColor = UIColor.whiteColor()
+        timestamp.textColor = UIColor.whiteColor()
+        timestamp.textAlignment = .Right
+        
+        if type == "employee" {
+            view.backgroundColor = UIColor.blueColor()
+        } else if type == "system"  {
+            view.backgroundColor = UIColor.grayColor()
+            
+        } else {
+            view.backgroundColor = UIColor.purpleColor()
+        }
+        
+
     }
 }

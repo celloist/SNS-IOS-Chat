@@ -15,6 +15,7 @@
 		9E1F3C6D1B15B10B007E4FEF /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F3C6C1B15B10B007E4FEF /* Auth.swift */; };
 		9E1F3C6F1B15B593007E4FEF /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F3C6E1B15B593007E4FEF /* Config.swift */; };
 		9E1F3C761B15E41A007E4FEF /* AuthFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F3C751B15E41A007E4FEF /* AuthFactory.swift */; };
+		9E414F831B337202004DC67E /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E414F821B337202004DC67E /* Employee.swift */; };
 		9E4C16651AC0045C0086A791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E4C16631AC0045C0086A791 /* Main.storyboard */; };
 		9E5515CC1AD6CEA30077BD44 /* CustomerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5515CB1AD6CEA30077BD44 /* CustomerFactory.swift */; };
 		9E55FB891AD6760A004F72EB /* ChatFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E55FB881AD6760A004F72EB /* ChatFactory.swift */; };
@@ -72,6 +73,7 @@
 		9E1F3C6C1B15B10B007E4FEF /* Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Auth.swift; path = Auth/Auth.swift; sourceTree = "<group>"; };
 		9E1F3C6E1B15B593007E4FEF /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		9E1F3C751B15E41A007E4FEF /* AuthFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthFactory.swift; sourceTree = "<group>"; };
+		9E414F821B337202004DC67E /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		9E4C16641AC0045C0086A791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E5515CB1AD6CEA30077BD44 /* CustomerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerFactory.swift; sourceTree = "<group>"; };
 		9E55FB881AD6760A004F72EB /* ChatFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatFactory.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 				CEDEEE991AA9D9A000DB5157 /* Message.swift */,
 				CEDEEE9B1AA9DD9900DB5157 /* User.swift */,
 				9EE0B9B01ACD50AA006CFDBF /* Category.swift */,
+				9E414F821B337202004DC67E /* Employee.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				9EDEE9D01AA4542400500660 /* StartViewController.swift in Sources */,
 				CEDEEE981AA9D6CA00DB5157 /* MainModel.swift in Sources */,
 				9E9BC1021B1BA28900BFA234 /* Restfull.swift in Sources */,
+				9E414F831B337202004DC67E /* Employee.swift in Sources */,
 				9E5515CC1AD6CEA30077BD44 /* CustomerFactory.swift in Sources */,
 				9EDEE9EF1AA454EC00500660 /* BasicRestFull.swift in Sources */,
 				9E55FB8E1AD69D70004F72EB /* UserFactory.swift in Sources */,

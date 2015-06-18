@@ -23,7 +23,16 @@ class StartViewController: UIViewController {
         super.viewDidLoad()
         
         if let customer = ServiceLocator.sharedInstance.getService("customer") as? Customer {
-            segue()
+            //check if pin is enabled an segue to unlock controller
+            var userDefaults = NSUserDefaults.standardUserDefaults()
+            var sequeTo = "menu"
+            if let pincodeEnabled = userDefaults.valueForKey("pincode_enabled") as? Bool {
+                if pincodeEnabled {
+                    sequeTo = "unlock"
+                }
+            }
+            
+            segue(sequeTo)
         }
         
         chatModel = ServiceLocator.sharedInstance.createFactoryService("RestFull") as? RestFull
@@ -58,7 +67,7 @@ class StartViewController: UIViewController {
                     
                     
                     ServiceLocator.sharedInstance.registerService("customer", service: self.customer!)
-                    self.segue()
+                    self.segue("menu")
 
                 }
             }
@@ -67,9 +76,15 @@ class StartViewController: UIViewController {
         
     }
     
-    func segue () {
-        let vc : MenuViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("Menu") as! MenuViewController
-        self.showViewController(vc as MenuViewController, sender: vc)
+    func segue (segueTo: String) {
+
+        if segueTo == "menu" {
+            let vc : MenuViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("Menu") as! MenuViewController
+            self.showViewController(vc, sender: vc)
+        } else if segueTo == "unlock" {
+            
+        }
+        
         self.navigationController?.viewControllers.removeAtIndex((self.navigationController?.viewControllers.count)! - 1)
     }
 }

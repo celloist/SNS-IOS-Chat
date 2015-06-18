@@ -131,5 +131,13 @@ func parseMainConfig (config: NSDictionary, colours: [String:UIColor]) {
                 })
             }
     }
+}
 
+func registerCurrentUser () {
+    var userDefaults = NSUserDefaults.standardUserDefaults()
+    
+    if let Username: String = userDefaults.valueForKey("username") as? String, let Id : String = userDefaults.valueForKey("id") as? String{
+        ServiceLocator.sharedInstance.registerService("customer", service: Customer(_name: Username, _id: Id))
+    }
+    
 }
