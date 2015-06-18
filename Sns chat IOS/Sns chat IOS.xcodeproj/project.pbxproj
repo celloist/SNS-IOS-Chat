@@ -428,6 +428,7 @@
 				CE9CB2701AAB222800FA028D /* ChatsController.swift in Sources */,
 				9D5FE5C01ABC4815008A07CA /* ChatTableViewController.swift in Sources */,
 				9EE0B9B11ACD50AA006CFDBF /* Category.swift in Sources */,
+				CE3FC2E51B2323A800E0E207 /* QuestionViewController.swift in Sources */,
 				9E5A6D5A1B29980D0051E0E9 /* ActionThemeUIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
