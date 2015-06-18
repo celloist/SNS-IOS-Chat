@@ -10,6 +10,8 @@ import UIKit
 
 class SettingsTableViewController: UITableViewController {
 
+    @IBOutlet weak var pincode: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -39,6 +41,19 @@ class SettingsTableViewController: UITableViewController {
         return 0
     }
 
+    
+    
+    @IBAction func Beveiliging(sender: UISwitch) {
+        if sender.on
+        {
+            
+        }
+        else
+        {
+            
+        }
+    }
+   
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell

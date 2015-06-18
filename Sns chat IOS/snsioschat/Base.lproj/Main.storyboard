@@ -379,6 +379,9 @@
                                         <exclude reference="K1K-bP-jLZ"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <segue destination="CgL-N8-0RN" kind="show" id="yUW-3x-WNJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -604,7 +607,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QU0-P2-JiK" id="Gtf-2O-WUS">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="soA-ai-AvG">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Voer hier pincode in" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="soA-ai-AvG">
                                                     <rect key="frame" x="8" y="7" width="584" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -631,6 +634,9 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7x5-Ov-bvV">
                                                     <rect key="frame" x="166" y="8" width="51" height="27"/>
+                                                    <connections>
+                                                        <action selector="Beveiliging:" destination="CgL-N8-0RN" eventType="valueChanged" id="Va7-2e-Nit"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -669,6 +675,10 @@
                             <outlet property="delegate" destination="CgL-N8-0RN" id="kL3-UU-RIC"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="beveliiging" destination="5lC-Pt-YIt" id="QGB-o1-eZq"/>
+                        <outlet property="pincode" destination="soA-ai-AvG" id="fzx-VE-iHc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33o-0l-jUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
