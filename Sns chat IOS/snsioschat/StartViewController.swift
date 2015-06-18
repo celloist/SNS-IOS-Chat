@@ -70,6 +70,7 @@ class StartViewController: UIViewController {
     func segue () {
         let vc : MenuViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("Menu") as! MenuViewController
         self.showViewController(vc as MenuViewController, sender: vc)
+        self.navigationController?.viewControllers.removeAtIndex((self.navigationController?.viewControllers.count)! - 1)
     }
 }
 

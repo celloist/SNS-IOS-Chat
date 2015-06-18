@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2Jw-81-xZ2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2Jw-81-xZ2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -292,10 +291,10 @@
             </objects>
             <point key="canvasLocation" x="-478" y="-333"/>
         </scene>
-        <!--Menu View Controller-->
+        <!--Hoofdmenu-->
         <scene sceneID="mem-j5-O8F">
             <objects>
-                <viewController storyboardIdentifier="Menu" id="8rq-rl-9hx" customClass="MenuViewController" customModule="snsioschat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Menu" title="Hoofdmenu" id="8rq-rl-9hx" customClass="MenuViewController" customModule="snsioschat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Y2e-jR-SBu"/>
                         <viewControllerLayoutGuide type="bottom" id="PhS-0v-cOZ"/>

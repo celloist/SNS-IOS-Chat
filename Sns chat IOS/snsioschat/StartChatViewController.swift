@@ -14,10 +14,11 @@ class StartChatViewController: UIViewController, UIPickerViewDataSource,UIPicker
     @IBOutlet weak var questionTextbox: UITextField!
     @IBOutlet weak var activityIndicator:UIActivityIndicatorView!
     
+    var preselectedCategory:Category?
     private var categories:[String] = []
-    private var categoryKeys:[String] = []
+    private var categoriesSource = [Int:Category]()
     
-    private var selectedCategory:Int = 0
+    private var selectedCategoryIndex = 0
     private var customer = ServiceLocator.sharedInstance.getService("customer") as? Customer
     private let restfull = ServiceLocator.sharedInstance.createFactoryService("RestFull") as! RestFull
     private var chat:Chat?
@@ -38,22 +39,27 @@ class StartChatViewController: UIViewController, UIPickerViewDataSource,UIPicker
                     if let result = data["result"] as? NSDictionary {
                         if let categories = result["data"] as? NSArray {
                             for rawCategory in categories {
-                                
                                 //category
                                 if let category = rawCategory as? NSDictionary {
                                     //name
-                                    if let name = category["name"] as? String {
-                                        //Key
-                                        if let key = category["_id"] as? String {
-                                            self.categories.append(name)
-                                            self.categoryKeys.append(key)
-                                        }
+                                    if let name = category["name"] as? String, let key = category["_id"] as? String {
+                                        self.categories.append(name)
+                                        self.categoriesSource[ self.categories.count - 1] = Category(id: key, name: name)
+                                        
                                     }
                                 }
                             }
                         }
                         //Reload
                         self.categoriesPicker.reloadAllComponents()
+                        //if a category has been set, select the component
+                        if let selectedCategory = self.preselectedCategory {
+                            for (index, categoryAtIndex) in self.categoriesSource {
+                                if selectedCategory.id == categoryAtIndex.id {
+                                    self.categoriesPicker.selectRow(index, inComponent: 0, animated: true)
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -75,7 +81,7 @@ class StartChatViewController: UIViewController, UIPickerViewDataSource,UIPicker
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedCategory = row
+        selectedCategoryIndex = row
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {   //delegate method
@@ -86,37 +92,36 @@ class StartChatViewController: UIViewController, UIPickerViewDataSource,UIPicker
     
     
     @IBAction func startNewChat(sender: UIButton) {
-        let categoryId = categoryKeys[selectedCategory];
-        let categoryName = categories[selectedCategory];
-        var category = Category(id: categoryId , name: categoryName)
-        activityIndicator.hidden = false
-        activityIndicator.startAnimating()
-        let url = BaseRequest.concat("customers/\(customer!.id)/chats")
+        //If the category exists in the array, continue
+        if let category = categoriesSource[selectedCategoryIndex] {
+            activityIndicator.hidden = false
+            activityIndicator.startAnimating()
+            let url = BaseRequest.concat("customers/\(customer!.id)/chats")
 
-        restfull.postData(url, params: ["category" : categoryId, "message" : questionTextbox.text]) {( success, data) in
-            
-            if success {
-                let chatFactory = ChatFactory(customer: self.customer!)
+            restfull.postData(url, params: ["category" : category.name, "message" : questionTextbox.text]) {( success, data) in
                 
-                if let baseData = data["result"] as? NSDictionary {
-                    if let chat = chatFactory.createChatFromJson(baseData["data"]!, category: category) {
-                        dispatch_async(dispatch_get_main_queue()) {
-                            self.activityIndicator.stopAnimating()
-                            self.activityIndicator.hidden = true
-                            
-                            let vc : ChatTableViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("Chat") as! ChatTableViewController
-                            
-                            vc.chat = chat
-                            
-                            self.showViewController(vc as UITableViewController, sender: vc)
-                            self.navigationController?.viewControllers.removeAtIndex((self.navigationController?.viewControllers.count)! - 2)
-                            
+                if success {
+                    let chatFactory = ChatFactory(customer: self.customer!)
+                    
+                    if let baseData = data["result"] as? NSDictionary {
+                        if let chat = chatFactory.createChatFromJson(baseData["data"]!, category: category) {
+                            dispatch_async(dispatch_get_main_queue()) {
+                                self.activityIndicator.stopAnimating()
+                                self.activityIndicator.hidden = true
+                                
+                                let vc : ChatTableViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("Chat") as! ChatTableViewController
+                                
+                                vc.chat = chat
+                                
+                                self.showViewController(vc as UITableViewController, sender: vc)
+                                self.navigationController?.viewControllers.removeAtIndex((self.navigationController?.viewControllers.count)! - 2)
+                                
+                            }
                         }
                     }
                 }
-            }
 
+            }
         }
-        
     }
 }

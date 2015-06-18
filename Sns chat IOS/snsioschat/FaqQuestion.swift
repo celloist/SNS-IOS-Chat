@@ -14,13 +14,10 @@ class FaqQuestion{
     let id: String
     let category: Category
     
-    init(anwser: String,question: String,id: String,category:Category){
+    init(anwser: String, question: String, id: String, category:Category){
         self.answer = anwser
         self.question = question
         self.id = id
         self.category = category;
     }
-    
-    
-    
 }

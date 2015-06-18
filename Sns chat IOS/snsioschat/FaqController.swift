@@ -50,11 +50,12 @@ class FaqController: UIViewController {
 
 
                                             for quest in self.questions!{
-                                               if(quest.category.name == category.name ){
-                                                question.append(quest);
+                                                if quest.category.name == category.name {
+                                                    question.append(quest);
                                                 }
                                             }
-                                             [self.sectionContentDict .setValue(question, forKey:category.name )]
+                                            
+                                            [self.sectionContentDict .setValue(question, forKey:category.name )]
                                         }
                                         
                                         self.tableView.reloadData()
@@ -63,37 +64,13 @@ class FaqController: UIViewController {
                                 }
                             }
                         });
-
-                        
-                        
-                        
-                        
-                        
                     }
                 }
             }
         })
-       
-        
-    //    var tmp1 : NSArray = ["New Zealand","Australia","Bangladesh","Sri Lanka"]
-      //  var string1 = categories[]
-     //   [sectionContentDict .setValue(tmp1, forKey:string1! )]
-     //   var tmp2 : NSArray = ["India","South Africa","UAE","Pakistan"]
-     //   string1 = sectionTitleArray .objectAtIndex(1) as? String
-     //   [sectionContentDict .setValue(tmp2, forKey:string1! )]
-        
-        
-        
+
         self.tableView.reloadData()
 
-        
-        
-      
-        
-        
-        
-        
-        
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
     }
@@ -138,7 +115,7 @@ class FaqController: UIViewController {
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if(arrayForBool .objectAtIndex(indexPath.section).boolValue == true){
+        if arrayForBool .objectAtIndex(indexPath.section).boolValue == true {
             return 100
         }
         
@@ -163,9 +140,6 @@ class FaqController: UIViewController {
     }
     
     func sectionHeaderTapped(recognizer: UITapGestureRecognizer) {
-        println("Tapping working")
-       
-        
         var indexPath : NSIndexPath = NSIndexPath(forRow: 0, inSection:(recognizer.view?.tag as Int!)!)
         if (indexPath.row == 0) {
             
@@ -182,7 +156,7 @@ class FaqController: UIViewController {
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let vc : QuestionViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("QuestionView") as! QuestionViewController
-        println(indexPath.row)
+        
         var key = categories?[indexPath.section].name
         var content = sectionContentDict .valueForKey(key!) as! NSArray
         if let faqQuestion = content .objectAtIndex(indexPath.row) as? FaqQuestion {
@@ -202,11 +176,10 @@ class FaqController: UIViewController {
         var manyCells : Bool = arrayForBool .objectAtIndex(indexPath.section).boolValue
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        if (!manyCells) {
+        
+        if !manyCells {
              cell.textLabel?.text = "click to enlarge";
-        }
-        else
-        {
+        } else {
             var key = categories?[indexPath.section].name
             var content = sectionContentDict .valueForKey(key!) as! NSArray
             if let faqQuestion = content .objectAtIndex(indexPath.row) as? FaqQuestion {
@@ -217,7 +190,5 @@ class FaqController: UIViewController {
         }
         return cell
     }
-    
-    
 }
 
