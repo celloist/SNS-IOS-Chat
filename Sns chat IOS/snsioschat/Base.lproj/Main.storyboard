@@ -32,7 +32,7 @@
                         <viewControllerLayoutGuide type="bottom" id="XlC-3D-ZpB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="HHB-Mf-Mdl">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uw vraag" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q8G-CW-ybe">
@@ -42,7 +42,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nPY-If-61C">
-                                <rect key="frame" x="16" y="254" width="568" height="30"/>
+                                <rect key="frame" x="16" y="254" width="288" height="30"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -63,10 +63,10 @@
                                 </variation>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="CbS-Jj-j4J">
-                                <rect key="frame" x="290" y="292" width="20" height="20"/>
+                                <rect key="frame" x="150" y="292" width="20" height="20"/>
                             </activityIndicatorView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nf8-gD-PXj">
-                                <rect key="frame" x="16" y="56" width="568" height="162"/>
+                                <rect key="frame" x="16" y="56" width="288" height="162"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dD-dj-qDb" customClass="ThemeUIButton" customModule="snsioschat" customModuleProvider="target">
                                 <rect key="frame" x="16" y="292" width="71" height="26"/>
@@ -291,10 +291,10 @@
             </objects>
             <point key="canvasLocation" x="-478" y="-333"/>
         </scene>
-        <!--Menu View Controller-->
+        <!--Hoofdmenu-->
         <scene sceneID="mem-j5-O8F">
             <objects>
-                <viewController storyboardIdentifier="Menu" id="8rq-rl-9hx" customClass="MenuViewController" customModule="snsioschat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Menu" title="Hoofdmenu" id="8rq-rl-9hx" customClass="MenuViewController" customModule="snsioschat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Y2e-jR-SBu"/>
                         <viewControllerLayoutGuide type="bottom" id="PhS-0v-cOZ"/>
@@ -802,7 +802,7 @@
         <image name="logo-new.png" width="171" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="O99-Hw-5mh"/>
         <segue reference="6nZ-zb-jNE"/>
+        <segue reference="1BZ-g0-Kk3"/>
     </inferredMetricsTieBreakers>
 </document>

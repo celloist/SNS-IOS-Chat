@@ -37,8 +37,6 @@ class ChatTableViewController: UITableViewController,UITextFieldDelegate {
         // Scrolls to the bottom of the list
        // tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: chat!.messages.count - 1, inSection: 0), atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
         
-        
-        
         timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("updateUI"), userInfo: nil, repeats: true)
     }
     

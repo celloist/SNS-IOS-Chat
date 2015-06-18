@@ -17,7 +17,7 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         
         //logo.image = UIImage(named: "logo-new.png");
-        navigationItem.setHidesBackButton(true, animated: true)
+        navigationItem.setHidesBackButton(true, animated: false)
     }
     
     @IBAction func moveToOtherScene(sender: UIButton) {
@@ -37,6 +37,7 @@ class MenuViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "Chats"{
             var dest = segue.destinationViewController as! ChatsController
+            navigationItem.setHidesBackButton(false, animated: true)
         }
     }
 
