@@ -20,6 +20,8 @@
 		9E55FB891AD6760A004F72EB /* ChatFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E55FB881AD6760A004F72EB /* ChatFactory.swift */; };
 		9E55FB8B1AD6915D004F72EB /* CategoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E55FB8A1AD6915D004F72EB /* CategoryFactory.swift */; };
 		9E55FB8E1AD69D70004F72EB /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E55FB8D1AD69D70004F72EB /* UserFactory.swift */; };
+		9E5A6D5A1B29980D0051E0E9 /* ActionThemeUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A6D591B29980D0051E0E9 /* ActionThemeUIButton.swift */; };
+		9E5ADE951B26E6000041854D /* configParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5ADE941B26E6000041854D /* configParser.swift */; };
 		9E66BFE91B0241A100D90AD5 /* MenuThemeUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66BFE81B0241A100D90AD5 /* MenuThemeUIButton.swift */; };
 		9E7CCAFB1B034CD60047435C /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CCAFA1B034CD60047435C /* ServiceLocator.swift */; };
 		9E8AC09E1ABF6C15001635C1 /* StartChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8AC09D1ABF6C15001635C1 /* StartChatViewController.swift */; };
@@ -29,6 +31,8 @@
 		9EA6CC2A1B013477006EAD24 /* ThemeUINavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA6CC291B013477006EAD24 /* ThemeUINavigationViewController.swift */; };
 		9EA6CC2C1B014ABC006EAD24 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA6CC2B1B014ABC006EAD24 /* MenuViewController.swift */; };
 		9EA6CC2F1B015112006EAD24 /* logo-new.png in Resources */ = {isa = PBXBuildFile; fileRef = 9EA6CC2E1B015112006EAD24 /* logo-new.png */; };
+		9ED5AB911B1DD7D800799A6E /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED5AB901B1DD7D800799A6E /* Styles.swift */; };
+		9ED5AB951B1DD93900799A6E /* colours.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9ED5AB941B1DD93900799A6E /* colours.plist */; };
 		9EDEE9CE1AA4542400500660 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEE9CD1AA4542400500660 /* AppDelegate.swift */; };
 		9EDEE9D01AA4542400500660 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEE9CF1AA4542400500660 /* StartViewController.swift */; };
 		9EDEE9D51AA4542400500660 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EDEE9D41AA4542400500660 /* Images.xcassets */; };
@@ -37,10 +41,10 @@
 		9EDEE9EF1AA454EC00500660 /* BasicRestFull.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EDEE9EE1AA454EC00500660 /* BasicRestFull.swift */; };
 		9EE0B9B11ACD50AA006CFDBF /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EE0B9B01ACD50AA006CFDBF /* Category.swift */; };
 		CE3411431B1DC0550062FEFA /* FaqController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3411421B1DC0550062FEFA /* FaqController.swift */; };
-		CE3411451B1DC4970062FEFA /* FaqFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3411441B1DC4970062FEFA /* FaqFactory.swift */; };
-		CE3411471B1DC5180062FEFA /* FaqQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3411461B1DC5180062FEFA /* FaqQuestion.swift */; };
 		CE3FC2E51B2323A800E0E207 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3FC2E41B2323A700E0E207 /* QuestionViewController.swift */; };
 		CE9CB2701AAB222800FA028D /* ChatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9CB26F1AAB222800FA028D /* ChatsController.swift */; };
+		CEAD52301B270BA000DD6254 /* FaqFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD522E1B270BA000DD6254 /* FaqFactory.swift */; };
+		CEAD52311B270BA000DD6254 /* FaqQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAD522F1B270BA000DD6254 /* FaqQuestion.swift */; };
 		CEDEEE941AA9D4E900DB5157 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE931AA9D4E900DB5157 /* Customer.swift */; };
 		CEDEEE961AA9D65400DB5157 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE951AA9D65400DB5157 /* Chat.swift */; };
 		CEDEEE981AA9D6CA00DB5157 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE971AA9D6CA00DB5157 /* MainModel.swift */; };
@@ -73,6 +77,8 @@
 		9E55FB881AD6760A004F72EB /* ChatFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatFactory.swift; sourceTree = "<group>"; };
 		9E55FB8A1AD6915D004F72EB /* CategoryFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryFactory.swift; sourceTree = "<group>"; };
 		9E55FB8D1AD69D70004F72EB /* UserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
+		9E5A6D591B29980D0051E0E9 /* ActionThemeUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionThemeUIButton.swift; sourceTree = "<group>"; };
+		9E5ADE941B26E6000041854D /* configParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = configParser.swift; sourceTree = "<group>"; };
 		9E66BFE81B0241A100D90AD5 /* MenuThemeUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuThemeUIButton.swift; sourceTree = "<group>"; };
 		9E7CCAFA1B034CD60047435C /* ServiceLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		9E8AC09D1ABF6C15001635C1 /* StartChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartChatViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +90,8 @@
 		9EA6CC291B013477006EAD24 /* ThemeUINavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemeUINavigationViewController.swift; sourceTree = "<group>"; };
 		9EA6CC2B1B014ABC006EAD24 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		9EA6CC2E1B015112006EAD24 /* logo-new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-new.png"; sourceTree = "<group>"; };
+		9ED5AB901B1DD7D800799A6E /* Styles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		9ED5AB941B1DD93900799A6E /* colours.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = colours.plist; sourceTree = "<group>"; };
 		9EDEE9CC1AA4542400500660 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EDEE9CD1AA4542400500660 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9EDEE9CF1AA4542400500660 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
@@ -94,10 +102,10 @@
 		9EDEE9EE1AA454EC00500660 /* BasicRestFull.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicRestFull.swift; sourceTree = "<group>"; };
 		9EE0B9B01ACD50AA006CFDBF /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		CE3411421B1DC0550062FEFA /* FaqController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqController.swift; sourceTree = "<group>"; };
-		CE3411441B1DC4970062FEFA /* FaqFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaqFactory.swift; path = ../../../../Documents/FaqFactory.swift; sourceTree = "<group>"; };
-		CE3411461B1DC5180062FEFA /* FaqQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FaqQuestion.swift; path = ../../../../Documents/FaqQuestion.swift; sourceTree = "<group>"; };
 		CE3FC2E41B2323A700E0E207 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		CE9CB26F1AAB222800FA028D /* ChatsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatsController.swift; sourceTree = "<group>"; };
+		CEAD522E1B270BA000DD6254 /* FaqFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqFactory.swift; sourceTree = "<group>"; };
+		CEAD522F1B270BA000DD6254 /* FaqQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqQuestion.swift; sourceTree = "<group>"; };
 		CEDEEE931AA9D4E900DB5157 /* Customer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
 		CEDEEE951AA9D65400DB5157 /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		CEDEEE971AA9D6CA00DB5157 /* MainModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
@@ -166,12 +174,12 @@
 		9E55FB8C1AD691B2004F72EB /* Factories */ = {
 			isa = PBXGroup;
 			children = (
+				CEAD522E1B270BA000DD6254 /* FaqFactory.swift */,
 				9E55FB8A1AD6915D004F72EB /* CategoryFactory.swift */,
 				9E55FB881AD6760A004F72EB /* ChatFactory.swift */,
 				9E55FB8D1AD69D70004F72EB /* UserFactory.swift */,
 				9E5515CB1AD6CEA30077BD44 /* CustomerFactory.swift */,
 				9E1F3C751B15E41A007E4FEF /* AuthFactory.swift */,
-				CE3411441B1DC4970062FEFA /* FaqFactory.swift */,
 			);
 			name = Factories;
 			sourceTree = "<group>";
@@ -197,6 +205,8 @@
 				9EA6CC271B013455006EAD24 /* ThemeUIButton.swift */,
 				9D5FE5C11ABC4925008A07CA /* MessageTableViewCell.swift */,
 				9E66BFE81B0241A100D90AD5 /* MenuThemeUIButton.swift */,
+				9ED5AB901B1DD7D800799A6E /* Styles.swift */,
+				9E5A6D591B29980D0051E0E9 /* ActionThemeUIButton.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -242,6 +252,8 @@
 				9EA6CC2D1B0150FE006EAD24 /* images */,
 				9EA6CC231B0133E2006EAD24 /* mainconfig.plist */,
 				9EDEE9CC1AA4542400500660 /* Info.plist */,
+				9ED5AB941B1DD93900799A6E /* colours.plist */,
+				9E5ADE941B26E6000041854D /* configParser.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -268,12 +280,12 @@
 			children = (
 				9E55FB8C1AD691B2004F72EB /* Factories */,
 				CEDEEE931AA9D4E900DB5157 /* Customer.swift */,
+				CEAD522F1B270BA000DD6254 /* FaqQuestion.swift */,
 				CEDEEE951AA9D65400DB5157 /* Chat.swift */,
 				CEDEEE971AA9D6CA00DB5157 /* MainModel.swift */,
 				CEDEEE991AA9D9A000DB5157 /* Message.swift */,
 				CEDEEE9B1AA9DD9900DB5157 /* User.swift */,
 				9EE0B9B01ACD50AA006CFDBF /* Category.swift */,
-				CE3411461B1DC5180062FEFA /* FaqQuestion.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -358,6 +370,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9ED5AB951B1DD93900799A6E /* colours.plist in Resources */,
 				9E1CE9BB1B0A19140069C476 /* nl_nl.plist in Resources */,
 				9E4C16651AC0045C0086A791 /* Main.storyboard in Resources */,
 				9EA6CC2F1B015112006EAD24 /* logo-new.png in Resources */,
@@ -381,13 +394,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE3411451B1DC4970062FEFA /* FaqFactory.swift in Sources */,
 				CE3411431B1DC0550062FEFA /* FaqController.swift in Sources */,
 				9E1F3C761B15E41A007E4FEF /* AuthFactory.swift in Sources */,
 				9D5FE5C21ABC4925008A07CA /* MessageTableViewCell.swift in Sources */,
 				9E1CE9B81B0A166C0069C476 /* DateText.swift in Sources */,
 				9E1F3C6F1B15B593007E4FEF /* Config.swift in Sources */,
 				9E66BFE91B0241A100D90AD5 /* MenuThemeUIButton.swift in Sources */,
+				9E5ADE951B26E6000041854D /* configParser.swift in Sources */,
 				CEDEEE961AA9D65400DB5157 /* Chat.swift in Sources */,
 				9EA6CC2A1B013477006EAD24 /* ThemeUINavigationViewController.swift in Sources */,
 				9E1F3C6A1B15B07F007E4FEF /* BasicAuth.swift in Sources */,
@@ -403,17 +416,20 @@
 				9E7CCAFB1B034CD60047435C /* ServiceLocator.swift in Sources */,
 				9E55FB8B1AD6915D004F72EB /* CategoryFactory.swift in Sources */,
 				9E8AC09E1ABF6C15001635C1 /* StartChatViewController.swift in Sources */,
+				CEAD52311B270BA000DD6254 /* FaqQuestion.swift in Sources */,
 				9EDEE9CE1AA4542400500660 /* AppDelegate.swift in Sources */,
+				9ED5AB911B1DD7D800799A6E /* Styles.swift in Sources */,
 				CEDEEE941AA9D4E900DB5157 /* Customer.swift in Sources */,
 				9EA6CC2C1B014ABC006EAD24 /* MenuViewController.swift in Sources */,
 				CEDEEE9E1AA9E15A00DB5157 /* Request.swift in Sources */,
 				9E55FB891AD6760A004F72EB /* ChatFactory.swift in Sources */,
 				CEDEEE9A1AA9D9A000DB5157 /* Message.swift in Sources */,
-				CE3411471B1DC5180062FEFA /* FaqQuestion.swift in Sources */,
+				CEAD52301B270BA000DD6254 /* FaqFactory.swift in Sources */,
 				CE9CB2701AAB222800FA028D /* ChatsController.swift in Sources */,
 				9D5FE5C01ABC4815008A07CA /* ChatTableViewController.swift in Sources */,
 				9EE0B9B11ACD50AA006CFDBF /* Category.swift in Sources */,
 				CE3FC2E51B2323A800E0E207 /* QuestionViewController.swift in Sources */,
+				9E5A6D5A1B29980D0051E0E9 /* ActionThemeUIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -40,7 +40,7 @@ class ChatFactory: NSObject {
                     
                     return chat
                 }
-
+                
             }
         }
         
@@ -88,8 +88,10 @@ class ChatMessageFactory {
         var user:User?
         var isEmployee:Bool! = data["isEmployee"] as? Bool
         
-        if var text = data["text"] as? String {
-            if let employee = data["isEmployee"] as? Bool {
+        if var text = data["text"] as? String,
+            let employee = data["isEmployee"] as? Bool,
+            let time = data["timeStamp"] as? String,
+            let system = data["system"] as? Bool {
                 if !employee  {
                     text = "\(customer.name) : \(text)"
                     user = customer
@@ -99,10 +101,8 @@ class ChatMessageFactory {
                     text = "employee : \(text)"
                 }
                 
-                if let time = data["timeStamp"] as? String{
-                    return Message(_user: user,_text: text,_time: time, _isEmployee: isEmployee)
-                }
-            }
+                return Message(_user: user,_text: text, _time: time, _isEmployee: isEmployee, _system: system)
+                
         }
         
         return nil

@@ -13,16 +13,13 @@ class Message{
     let time:String
     let text:String
     let isEmployee:Bool
+    let system:Bool
     
-    init(_user:User?,_text:String,_time:String, _isEmployee:Bool){
-        if let unwrappedUser = _user {
-            user = unwrappedUser
-        } else {
-            user = nil
-        }
+    init(_user:User?, _text:String, _time:String, _isEmployee:Bool, _system:Bool){
+        user = _user
         text = _text
         time = _time
         isEmployee = _isEmployee
-        
+        system = _system
     }
 }

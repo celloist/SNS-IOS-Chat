@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>SNS_PAARS</key>
+        <dict>
+            <key>r</key>
+            <integer>86</integer>
+            <key>g</key>
+            <integer>39</integer>
+            <key>b</key>
+            <integer>114</integer>
+        </dict>
+        
+        <key>SNS_ORANJE</key>
+        <dict>
+            <key>r</key>
+            <integer>245</integer>
+            <key>g</key>
+            <integer>156</integer>
+            <key>b</key>
+            <integer>0</integer>
+        </dict>
+    </dict>
+</plist>

@@ -2,47 +2,26 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>BUTTON</key>
+	<key>DEFAULT_BUTTON</key>
 	<dict>
 		<key>BACKGROUND</key>
-		<dict>
-			<key>b</key>
-			<integer>87</integer>
-			<key>g</key>
-			<integer>26</integer>
-			<key>r</key>
-			<integer>63</integer>
-		</dict>
+		<string>SNS_PAARS</string>
 		<key>TEXT_COLOUR</key>
-		<dict>
-			<key>b</key>
-			<integer>255</integer>
-			<key>g</key>
-			<integer>255</integer>
-			<key>r</key>
-			<integer>255</integer>
-		</dict>
+		<string>DEFAULTS_WHITE</string>
+	</dict>
+	<key>ACTION_BUTTON</key>
+	<dict>
+		<key>BACKGROUND</key>
+		<string>SNS_ORANJE</string>
+		<key>TEXT_COLOUR</key>
+		<string>DEFAULTS_WHITE</string>
 	</dict>
 	<key>NAVIGATION_BAR</key>
 	<dict>
 		<key>BACKGROUND</key>
-		<dict>
-			<key>b</key>
-			<integer>0</integer>
-			<key>g</key>
-			<integer>0</integer>
-			<key>r</key>
-			<integer>0</integer>
-		</dict>
+		<string>SNS_PAARS</string>
 		<key>TEXT_COLOUR</key>
-		<dict>
-			<key>b</key>
-			<integer>255</integer>
-			<key>g</key>
-			<integer>255</integer>
-			<key>r</key>
-			<integer>255</integer>
-		</dict>
+		<string>DEFAULTS_WHITE</string>
 		<key>THEME</key>
 		<integer>1</integer>
 	</dict>
