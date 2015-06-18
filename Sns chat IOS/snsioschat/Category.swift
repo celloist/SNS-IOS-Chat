@@ -9,8 +9,8 @@
 import Foundation
 
 class Category: RestFull {
-    private var id:String
-    private var name:String
+     let id:String
+     let name:String
     
     var data:Dictionary<String, String> {
         return [
@@ -23,4 +23,5 @@ class Category: RestFull {
         self.id = id
         self.name = name
     }
+ 
 }
