@@ -379,9 +379,6 @@
                                         <exclude reference="K1K-bP-jLZ"/>
                                     </mask>
                                 </variation>
-                                <connections>
-                                    <segue destination="CgL-N8-0RN" kind="show" id="90D-FH-PLm"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -445,6 +442,151 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4J-4Q-d1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-430" y="480"/>
+        </scene>
+        <!--Pincode View Controller-->
+        <scene sceneID="kpX-ET-eDG">
+            <objects>
+                <viewController id="T8j-Vh-CB1" customClass="PincodeViewController" customModule="snsioschat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="59O-2J-xUw"/>
+                        <viewControllerLayoutGuide type="bottom" id="nFh-gE-CxX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9cr-gQ-3hj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1gW-3e-q0m" customClass="ThemeUIButton" customModule="snsioschat" customModuleProvider="target">
+                                <rect key="frame" x="16" y="225" width="68" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="7">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="digit:" destination="T8j-Vh-CB1" eventType="touchUpInside" id="vhM-Tk-6sm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8LF-nC-EwQ" customClass="ThemeUIButton" customModule="snsioschat" customModuleProvider="target">
+                                <rect key="frame" x="92" y="225" width="68" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="8">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="digit:" destination="T8j-Vh-CB1" eventType="touchUpInside" id="dUa-Cx-WT7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dK-zW-OWv" customClass="ThemeUIButton" customModule="snsioschat" customModuleProvider="target">
+                                <rect key="frame" x="168" y="225" width="68" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="9">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="digit:" destination="T8j-Vh-CB1" eventType="touchUpInside" id="heC-D5-Q4k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iAD-CO-0My" customClass="ThemeUIButton" customModule="snsioschat" customModuleProvider="target">
+                                <rect key="frame" x="16" y="301" width="68" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="4">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="digit:" destination="T8j-Vh-CB1" eventType="touchUpInside" id="LJz-yd-8Uo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bhT-W2-IaA" customClass="ThemeUIButton" customModule="snsioschat" customModuleProvider="target">
+                                <rect key="frame" x="92" y="301" width="68" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="5">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="digit:" destination="T8j-Vh-CB1" eventType="touchUpInside" id="hLd-NW-QiD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sUe-iW-pv8" customClass="ThemeUIButton" customModule="snsioschat" customModuleProvider="target">
+                                <rect key="frame" x="168" y="301" width="68" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="6">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="digit:" destination="T8j-Vh-CB1" eventType="touchUpInside" id="OyW-pf-tLX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rFn-kq-H5f" customClass="ThemeUIButton" customModule="snsioschat" customModuleProvider="target">
+                                <rect key="frame" x="16" y="377" width="68" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="1">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="digit:" destination="T8j-Vh-CB1" eventType="touchUpInside" id="8g5-th-IGc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0fB-JC-wuz" customClass="ThemeUIButton" customModule="snsioschat" customModuleProvider="target">
+                                <rect key="frame" x="92" y="453" width="68" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="0">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="digit:" destination="T8j-Vh-CB1" eventType="touchUpInside" id="i3b-Wu-ZfO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dfI-tb-AkZ" customClass="ThemeUIButton" customModule="snsioschat" customModuleProvider="target">
+                                <rect key="frame" x="92" y="377" width="68" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="2">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="digit:" destination="T8j-Vh-CB1" eventType="touchUpInside" id="cvc-JI-47l"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zZ-sF-PJ5" customClass="ThemeUIButton" customModule="snsioschat" customModuleProvider="target">
+                                <rect key="frame" x="168" y="377" width="68" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="3">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="digit:" destination="T8j-Vh-CB1" eventType="touchUpInside" id="iB6-8m-jr6"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pincode Invoeren" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDZ-rA-mgE">
+                                <rect key="frame" x="16" y="20" width="568" height="260"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jhj-lh-s1c" customClass="ThemeUIButton" customModule="snsioschat" customModuleProvider="target">
+                                <rect key="frame" x="244" y="453" width="68" height="68"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="&lt;">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="enter:" destination="T8j-Vh-CB1" eventType="touchUpInside" id="sSO-e7-kR4"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="EDZ-rA-mgE" firstAttribute="top" secondItem="59O-2J-xUw" secondAttribute="bottom" id="EmL-6R-xfV"/>
+                            <constraint firstAttribute="centerY" secondItem="EDZ-rA-mgE" secondAttribute="centerY" constant="150" id="VTa-64-5Rs"/>
+                            <constraint firstItem="EDZ-rA-mgE" firstAttribute="leading" secondItem="9cr-gQ-3hj" secondAttribute="leadingMargin" id="iP2-HH-VCu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EDZ-rA-mgE" secondAttribute="trailing" id="uMT-lw-sTJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pincodeLabel" destination="EDZ-rA-mgE" id="L11-cx-ht0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I0b-ar-qWt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1004" y="1263"/>
         </scene>
         <!--Settings Table View Controller-->
         <scene sceneID="vE4-JQ-YEG">
