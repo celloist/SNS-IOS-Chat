@@ -11,10 +11,13 @@ import UIKit
 class ThemeUIButton: UIButton {
     required init(coder decoder: NSCoder) {
         super.init(coder: decoder)
-        
+        setCustomColour()
+        setCustomPadding()
+    }
+    
+    func setCustomColour() {
         self.backgroundColor = Styles.DefaultTheme["backgroundColour"]
         self.tintColor = Styles.DefaultTheme["textColour"]
-        setCustomPadding()
     }
     
     func setCustomPadding () {

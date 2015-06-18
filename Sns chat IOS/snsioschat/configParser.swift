@@ -81,6 +81,20 @@ func parseMainConfig (config: NSDictionary, colours: [String:UIColor]) {
                         Styles.DefaultTheme["textColour"] = buttonTextColour
                     }
             }
+
+            //Button props
+            if let actionButtonBackground = action_button["BACKGROUND"] as? String,
+                let actionButtonText = action_button["TEXT_COLOUR"] as? String {
+                    //Default button style
+                    if let actionButtonBackgroundStyle = colours[actionButtonBackground] {
+                        Styles.ActionTheme["backgroundColour"] = actionButtonBackgroundStyle
+                    }
+                    
+                    //Default button style
+                    if let actionButtonTextColour = colours[actionButtonText] {
+                        Styles.ActionTheme["textColour"] = actionButtonTextColour
+                    }
+            }
             //API
             var restfullFactorySet = false
             if let apiUrl = api["URL"] as? String,
