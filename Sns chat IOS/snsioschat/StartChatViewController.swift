@@ -98,7 +98,7 @@ class StartChatViewController: UIViewController, UIPickerViewDataSource,UIPicker
             activityIndicator.startAnimating()
             let url = BaseRequest.concat("customers/\(customer!.id)/chats")
 
-            restfull.postData(url, params: ["category" : category.name, "message" : questionTextbox.text]) {( success, data) in
+            restfull.postData(url, params: ["category" : category.id, "message" : questionTextbox.text]) {( success, data) in
                 
                 if success {
                     let chatFactory = ChatFactory(customer: self.customer!)
@@ -112,6 +112,7 @@ class StartChatViewController: UIViewController, UIPickerViewDataSource,UIPicker
                                 let vc : ChatTableViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("Chat") as! ChatTableViewController
                                 
                                 vc.chat = chat
+                                vc.title = self.questionTextbox.text
                                 
                                 self.showViewController(vc as UITableViewController, sender: vc)
                                 self.navigationController?.viewControllers.removeAtIndex((self.navigationController?.viewControllers.count)! - 2)
