@@ -51,6 +51,7 @@
 		CEDEEE9A1AA9D9A000DB5157 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE991AA9D9A000DB5157 /* Message.swift */; };
 		CEDEEE9C1AA9DD9900DB5157 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE9B1AA9DD9900DB5157 /* User.swift */; };
 		CEDEEE9E1AA9E15A00DB5157 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDEEE9D1AA9E15A00DB5157 /* Request.swift */; };
+		CEEB04931B32DDD700ED3EF3 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB04921B32DDD700ED3EF3 /* SettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		CEDEEE991AA9D9A000DB5157 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		CEDEEE9B1AA9DD9900DB5157 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CEDEEE9D1AA9E15A00DB5157 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		CEEB04921B32DDD700ED3EF3 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +197,7 @@
 				9D5FE5BF1ABC4815008A07CA /* ChatTableViewController.swift */,
 				CE9CB26F1AAB222800FA028D /* ChatsController.swift */,
 				CE3FC2E41B2323A700E0E207 /* QuestionViewController.swift */,
+				CEEB04921B32DDD700ED3EF3 /* SettingsTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -399,6 +402,7 @@
 				9D5FE5C21ABC4925008A07CA /* MessageTableViewCell.swift in Sources */,
 				9E1CE9B81B0A166C0069C476 /* DateText.swift in Sources */,
 				9E1F3C6F1B15B593007E4FEF /* Config.swift in Sources */,
+				CEEB04931B32DDD700ED3EF3 /* SettingsTableViewController.swift in Sources */,
 				9E66BFE91B0241A100D90AD5 /* MenuThemeUIButton.swift in Sources */,
 				9E5ADE951B26E6000041854D /* configParser.swift in Sources */,
 				CEDEEE961AA9D65400DB5157 /* Chat.swift in Sources */,
