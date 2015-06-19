@@ -16,6 +16,14 @@ class Chat : RestFull {
     //  let employees:[Employees]; TODO
     var messages = [Message]()
     
+    var subject: String {
+        if messages.count >= 1 {
+            return messages[1].messageText
+        }
+        
+        return ""
+    }
+    
     init(id:String, customer: Customer, category : Category){
         self.id = id
         self.customer = customer

@@ -32,7 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let coloursConfig = NSDictionary(contentsOfFile: coloursConfigPath) {
                
                     let parsedColoursConfig = parseColoursConfig(coloursConfig)
-                    
                     parseMainConfig(config, parsedColoursConfig)
             }
         }
@@ -47,11 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData){
-        
-        
-        
-        // default value is not set or not an NSDate
-        
         let tokenChars = UnsafePointer<CChar>(deviceToken.bytes)
         var tokenString = ""
         
@@ -60,14 +54,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var deviceTokenString: String = ( deviceToken.description as NSString )
             .stringByTrimmingCharactersInSet( characterSet )
             .stringByReplacingOccurrencesOfString( " ", withString: "" ) as String
-        
-
-        
-        //for var i = 0; i < deviceToken.length; i++ {
-         //   tokenString += String(format: "%02.2hhx", arguments: [tokenChars[i]])
-        //}
-        
-        println("tokenString: \(deviceTokenString)");
         
         var userDefaults = NSUserDefaults.standardUserDefaults()
         userDefaults.setValue(deviceTokenString, forKey: "deviceToken")
@@ -129,56 +115,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
                 
         } else if let customer = ServiceLocator.sharedInstance.getService("customer") as? Customer {
-                    var dict:NSDictionary = didReceiveRemoteNotification;
-                // make sure this is not called when localnotifation is recieved but when tapped
-             
-                    if let chatId = dict["ChatId"] as? String {
-                        var url = BaseRequest.concat("customers/\(customer.id)/chats/\(chatId)/messages")
-                        let chatModel = RestFull()
-                        
-                        chatModel.getData(url) {(success, data) in
-                            dispatch_async(dispatch_get_main_queue()){
-                                if success {
-                                    let chatFactory = ChatFactory(customer: customer)
+            var dict:NSDictionary = didReceiveRemoteNotification;
+            // make sure this is not called when localnotifation is recieved but when tapped
+     
+            if let chatId = dict["ChatId"] as? String {
+                var url = BaseRequest.concat("customers/\(customer.id)/chats/\(chatId)/messages")
+                let chatModel = RestFull()
+                
+                chatModel.getData(url) {(success, data) in
+                    dispatch_async(dispatch_get_main_queue()){
+                        if success {
+                            let chatFactory = ChatFactory(customer: customer)
+                            
+                            if let result = data["result"] as? NSDictionary {
+                                if let chat = chatFactory.createChatFromJson(result["data"]!,category:nil) {
+                                    var vs:UIViewController = self.window!.rootViewController!
                                     
-                                    if let result = data["result"] as? NSDictionary {
-                                        if let chat = chatFactory.createChatFromJson(result["data"]!,category:nil) {
-                                            var vs:UIViewController = self.window!.rootViewController!
-                                            
-                                            let vc : ChatTableViewController! = vs.storyboard?.instantiateViewControllerWithIdentifier("Chat") as! ChatTableViewController
-                                            var userDefaults = NSUserDefaults.standardUserDefaults()
-                                            
-                                            vc.chat = chat
-                                            
-                                            //TODO change to use nsobject
-                                            vs.showViewController(vc as UITableViewController, sender: vc)
-                                            
-                                        }
-                                        
-                                    }
+                                    let vc : ChatTableViewController! = vs.storyboard?.instantiateViewControllerWithIdentifier("Chat") as! ChatTableViewController
+                                    var userDefaults = NSUserDefaults.standardUserDefaults()
+                                    
+                                    vc.chat = chat
+                                    
+                                    //TODO change to use nsobject
+                                    vs.showViewController(vc as UITableViewController, sender: vc)
+                                    
                                 }
+                                
                             }
                         }
                     }
-                
-                //TODO update Model
+                }
             }
         
-    }
-    
-    private func registerCurrentUser () {
-        var userDefaults = NSUserDefaults.standardUserDefaults()
-        
-        
-        if let Username: String = userDefaults.valueForKey("username") as? String, let Id : String = userDefaults.valueForKey("id") as? String{
-            ServiceLocator.sharedInstance.registerService("customer", service: Customer(_name: Username, _id: Id))
+            //TODO update Model
         }
-
     }
-
     
-
-
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

@@ -92,13 +92,8 @@ class ChatMessageFactory {
             let employee = data["isEmployee"] as? Bool,
             let time = data["timeStamp"] as? String,
             let system = data["system"] as? Bool {
-                if !employee  {
-                    text = "\(customer.name) : \(text)"
+                if !employee && !system  {
                     user = customer
-                } else {
-                    //TODO get medewerker
-                    
-                    text = "employee : \(text)"
                 }
                 
                 return Message(_user: user,_text: text, _time: time, _isEmployee: isEmployee, _system: system)

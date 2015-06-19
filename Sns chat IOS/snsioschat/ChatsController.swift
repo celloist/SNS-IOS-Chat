@@ -78,7 +78,7 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
         var cell = self.tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
         if  var chat = self.chats{
             // Configure the cell
-            cell.textLabel!.text = chat[indexPath.row].messages[0].text
+            cell.textLabel!.text = chat[indexPath.row].subject
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }
         

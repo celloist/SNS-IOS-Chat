@@ -8,7 +8,7 @@
 
 import Foundation
 
-class User: RestFull {
+class User {
     let id:String
     let name:String
     

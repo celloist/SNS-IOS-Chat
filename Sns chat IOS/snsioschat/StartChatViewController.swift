@@ -45,7 +45,6 @@ class StartChatViewController: UIViewController, UIPickerViewDataSource,UIPicker
                                     if let name = category["name"] as? String, let key = category["_id"] as? String {
                                         self.categories.append(name)
                                         self.categoriesSource[ self.categories.count - 1] = Category(id: key, name: name)
-                                        
                                     }
                                 }
                             }
