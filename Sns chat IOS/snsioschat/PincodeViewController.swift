@@ -32,6 +32,10 @@ class PincodeViewController: UIViewController {
         inputs[2] = thirdInput
         inputs[3] = fourthInput
         inputs[4] = fifthInput
+        
+        for (index, item) in inputs {
+            item.enabled = false
+        }
         // Do any additional setup after loading the view.
     }
 
