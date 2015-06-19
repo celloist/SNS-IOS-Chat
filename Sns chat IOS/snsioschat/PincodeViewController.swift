@@ -11,6 +11,14 @@ import UIKit
 class PincodeViewController: UIViewController {
     private var pincode = [String]()
     private let savedPincode = NSUserDefaults.standardUserDefaults().valueForKey("pincode") as! Int
+    @IBOutlet weak var firstInput: UITextField!
+    @IBOutlet weak var secondInput: UITextField!
+    @IBOutlet weak var thirdInput: UITextField!
+    @IBOutlet weak var fourthInput: UITextField!
+    @IBOutlet weak var fifthInput: UITextField!
+    
+    private var inputs = [Int:UITextField]()
+    
     @IBOutlet weak var code: UILabel!
     var canAddDigit:Bool {
         return pincode.count < 5
@@ -19,6 +27,11 @@ class PincodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        inputs[0] = firstInput
+        inputs[1] = secondInput
+        inputs[2] = thirdInput
+        inputs[3] = fourthInput
+        inputs[4] = fifthInput
         // Do any additional setup after loading the view.
     }
 
@@ -34,16 +47,13 @@ class PincodeViewController: UIViewController {
         if canAddDigit {
             let digit = sender.currentTitle!
             
-            code.text! += digit
             addDigit(digit)
         }
     }
     
     @IBAction func backspace(sender: AnyObject) {
         if pincode.count > 0 {
-            let str = code.text!
-            code.text! = code.text!.substringWithRange(Range<String.Index>(start: str.startIndex, end: advance(str.endIndex, -1)))
-            
+            inputs[pincode.count - 1]?.text = ""
             pincode.removeLast()
         }
     }
@@ -51,6 +61,7 @@ class PincodeViewController: UIViewController {
     func addDigit (digit:String) {
         if canAddDigit {
             pincode.append(digit)
+            inputs[pincode.count - 1]?.text = "*"
             if pincode.count == 5 {
                 var hashedpincode = ""
                 hashedpincode = hashedpincode.join(pincode)
