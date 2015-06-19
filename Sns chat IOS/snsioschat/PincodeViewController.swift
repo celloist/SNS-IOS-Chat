@@ -9,7 +9,12 @@
 import UIKit
 
 class PincodeViewController: UIViewController {
-
+    private var pincode = [String]()
+    private let savedPincode = NSUserDefaults.standardUserDefaults().valueForKey("pincode") as! Int
+    @IBOutlet weak var code: UILabel!
+    var canAddDigit:Bool {
+        return pincode.count < 5
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,35 +29,54 @@ class PincodeViewController: UIViewController {
     
 
     @IBOutlet weak var pincodeLabel: UILabel!
-    var first: Bool! = true
     
     @IBAction func digit(sender: ThemeUIButton) {
-        if(first == true)
-        {
-            first = false
-            pincodeLabel.text = "";
+        if canAddDigit {
+            let digit = sender.currentTitle!
+            
+            code.text! += digit
+            addDigit(digit)
         }
-   
-        let digit = sender.currentTitle!
-        pincodeLabel.text = pincodeLabel.text! + digit
- 
     }
     
-    @IBAction func enter(sender: AnyObject) {
-        first = true
-        
-        //insert segue and pincheck code here
-        
-        pincodeLabel.text = "";
+    @IBAction func backspace(sender: AnyObject) {
+        if pincode.count > 0 {
+            let str = code.text!
+            code.text! = code.text!.substringWithRange(Range<String.Index>(start: str.startIndex, end: advance(str.endIndex, -1)))
+            
+            pincode.removeLast()
+        }
     }
-    /*
+    
+    func addDigit (digit:String) {
+        if canAddDigit {
+            pincode.append(digit)
+            if pincode.count == 5 {
+                var hashedpincode = ""
+                hashedpincode = hashedpincode.join(pincode)
+                
+                enterPin(hashedpincode)
+            }
+        }
+    }
+    
+    func enterPin (pin:String) -> Bool {
+        if count(pin) == 5 {
+            if pin.hashValue == savedPincode {
+                segue()
+                
+                return true
+            }
+        }
+        
+        return false
+    }
+    
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    private func segue () {
+        let vc : MenuViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("Menu") as! MenuViewController
+        self.showViewController(vc, sender: vc)
+        self.navigationController?.viewControllers.removeAtIndex((self.navigationController?.viewControllers.count)! - 2)
     }
-    */
-
 }

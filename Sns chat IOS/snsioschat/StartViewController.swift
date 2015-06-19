@@ -79,10 +79,11 @@ class StartViewController: UIViewController {
     func segue (segueTo: String) {
 
         if segueTo == "menu" {
-            let vc : MenuViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("Menu") as! MenuViewController
+            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("Menu") as! MenuViewController
             self.showViewController(vc, sender: vc)
         } else if segueTo == "unlock" {
-            
+            let vc = self.storyboard?.instantiateViewControllerWithIdentifier("Unlock") as! PincodeViewController
+            self.showViewController(vc, sender: vc)
         }
         
         self.navigationController?.viewControllers.removeAtIndex((self.navigationController?.viewControllers.count)! - 1)

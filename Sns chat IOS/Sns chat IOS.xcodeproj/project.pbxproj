@@ -15,6 +15,7 @@
 		9E1F3C6D1B15B10B007E4FEF /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F3C6C1B15B10B007E4FEF /* Auth.swift */; };
 		9E1F3C6F1B15B593007E4FEF /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F3C6E1B15B593007E4FEF /* Config.swift */; };
 		9E1F3C761B15E41A007E4FEF /* AuthFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E1F3C751B15E41A007E4FEF /* AuthFactory.swift */; };
+		9E2EC8C01B342E580058886A /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2EC8BF1B342E580058886A /* utils.swift */; };
 		9E414F831B337202004DC67E /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E414F821B337202004DC67E /* Employee.swift */; };
 		9E4C16651AC0045C0086A791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E4C16631AC0045C0086A791 /* Main.storyboard */; };
 		9E5515CC1AD6CEA30077BD44 /* CustomerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5515CB1AD6CEA30077BD44 /* CustomerFactory.swift */; };
@@ -22,7 +23,7 @@
 		9E55FB8B1AD6915D004F72EB /* CategoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E55FB8A1AD6915D004F72EB /* CategoryFactory.swift */; };
 		9E55FB8E1AD69D70004F72EB /* UserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E55FB8D1AD69D70004F72EB /* UserFactory.swift */; };
 		9E5A6D5A1B29980D0051E0E9 /* ActionThemeUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5A6D591B29980D0051E0E9 /* ActionThemeUIButton.swift */; };
-		9E5ADE951B26E6000041854D /* configParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5ADE941B26E6000041854D /* configParser.swift */; };
+		9E5ADE951B26E6000041854D /* init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5ADE941B26E6000041854D /* init.swift */; };
 		9E66BFE91B0241A100D90AD5 /* MenuThemeUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66BFE81B0241A100D90AD5 /* MenuThemeUIButton.swift */; };
 		9E7CCAFB1B034CD60047435C /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E7CCAFA1B034CD60047435C /* ServiceLocator.swift */; };
 		9E8AC09E1ABF6C15001635C1 /* StartChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8AC09D1ABF6C15001635C1 /* StartChatViewController.swift */; };
@@ -75,6 +76,7 @@
 		9E1F3C6C1B15B10B007E4FEF /* Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Auth.swift; path = Auth/Auth.swift; sourceTree = "<group>"; };
 		9E1F3C6E1B15B593007E4FEF /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		9E1F3C751B15E41A007E4FEF /* AuthFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthFactory.swift; sourceTree = "<group>"; };
+		9E2EC8BF1B342E580058886A /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		9E414F821B337202004DC67E /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		9E4C16641AC0045C0086A791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E5515CB1AD6CEA30077BD44 /* CustomerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerFactory.swift; sourceTree = "<group>"; };
@@ -82,7 +84,7 @@
 		9E55FB8A1AD6915D004F72EB /* CategoryFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryFactory.swift; sourceTree = "<group>"; };
 		9E55FB8D1AD69D70004F72EB /* UserFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFactory.swift; sourceTree = "<group>"; };
 		9E5A6D591B29980D0051E0E9 /* ActionThemeUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionThemeUIButton.swift; sourceTree = "<group>"; };
-		9E5ADE941B26E6000041854D /* configParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = configParser.swift; sourceTree = "<group>"; };
+		9E5ADE941B26E6000041854D /* init.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = init.swift; sourceTree = "<group>"; };
 		9E66BFE81B0241A100D90AD5 /* MenuThemeUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuThemeUIButton.swift; sourceTree = "<group>"; };
 		9E7CCAFA1B034CD60047435C /* ServiceLocator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		9E8AC09D1ABF6C15001635C1 /* StartChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartChatViewController.swift; sourceTree = "<group>"; };
@@ -261,7 +263,8 @@
 				9EA6CC231B0133E2006EAD24 /* mainconfig.plist */,
 				9EDEE9CC1AA4542400500660 /* Info.plist */,
 				9ED5AB941B1DD93900799A6E /* colours.plist */,
-				9E5ADE941B26E6000041854D /* configParser.swift */,
+				9E5ADE941B26E6000041854D /* init.swift */,
+				9E2EC8BF1B342E580058886A /* utils.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -411,13 +414,14 @@
 				CEF7876B1B335110007A9EF0 /* PincodeViewController.swift in Sources */,
 				CEEB04931B32DDD700ED3EF3 /* SettingsTableViewController.swift in Sources */,
 				9E66BFE91B0241A100D90AD5 /* MenuThemeUIButton.swift in Sources */,
-				9E5ADE951B26E6000041854D /* configParser.swift in Sources */,
+				9E5ADE951B26E6000041854D /* init.swift in Sources */,
 				CEDEEE961AA9D65400DB5157 /* Chat.swift in Sources */,
 				9EA6CC2A1B013477006EAD24 /* ThemeUINavigationViewController.swift in Sources */,
 				9E1F3C6A1B15B07F007E4FEF /* BasicAuth.swift in Sources */,
 				9EA6CC281B013455006EAD24 /* ThemeUIButton.swift in Sources */,
 				9EDEE9D01AA4542400500660 /* StartViewController.swift in Sources */,
 				CEDEEE981AA9D6CA00DB5157 /* MainModel.swift in Sources */,
+				9E2EC8C01B342E580058886A /* utils.swift in Sources */,
 				9E9BC1021B1BA28900BFA234 /* Restfull.swift in Sources */,
 				9E414F831B337202004DC67E /* Employee.swift in Sources */,
 				9E5515CC1AD6CEA30077BD44 /* CustomerFactory.swift in Sources */,
