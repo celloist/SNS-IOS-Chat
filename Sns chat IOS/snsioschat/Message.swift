@@ -31,16 +31,6 @@ class Message{
         }
     }
     
-    var messageText:String {
-        get {
-            if let concreteUser = user {
-                return "\(concreteUser.name): \(text)"
-            } else {
-                return text
-            }
-        }
-    }
-    
     init(_user:User?, _text:String, _time:String, _isEmployee:Bool, _system:Bool){
         user = _user
         text = _text

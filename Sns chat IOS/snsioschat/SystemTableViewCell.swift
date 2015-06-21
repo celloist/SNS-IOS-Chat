@@ -11,6 +11,7 @@ import UIKit
 class SystemTableViewCell: MessageTableViewCell {
     override func setColours() {
         super.setColours()
+        user.text = "System"
         view.backgroundColor = UIColor.blueColor()
     }
 }

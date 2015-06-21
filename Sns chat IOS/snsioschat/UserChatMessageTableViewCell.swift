@@ -12,5 +12,6 @@ class UserChatMessageTableViewCell: MessageTableViewCell {
     override func setColours() {
         super.setColours()
         view.backgroundColor = UIColor.purpleColor()
+        user.text = "u"
     }
 }

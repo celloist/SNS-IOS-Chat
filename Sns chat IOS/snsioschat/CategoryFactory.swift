@@ -12,7 +12,7 @@ class CategoryFactory: NSObject {
     func createCategoryFromJson (data: AnyObject) -> Category? {
         if let id = data["_id"] as? String {
             if let name = data["name"] as? String {
-                println(id + " name " + name)
+                //println(id + " name " + name)
                 return Category(id: id, name: name)
             }
         }

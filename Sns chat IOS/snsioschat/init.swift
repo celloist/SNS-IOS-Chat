@@ -180,6 +180,8 @@ func setUsersDefaults (defaults:[String:[String:AnyObject]], reset:Bool) {
             }
         }
     }
+    
+    userDefaults.synchronize()
 }
 
 func registerCurrentUser () {

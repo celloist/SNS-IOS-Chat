@@ -43,10 +43,18 @@ class ChatTableViewController: UIViewController, UITableViewDataSource, UITableV
             self.title = concreteChat.subject
         }
         
+        startTimer()
+    }
+    
+    private func startTimer () {
         timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("updateUI"), userInfo: nil, repeats: true)
     }
     
-
+    override func viewWillDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        self.timer.invalidate()
+    }
     
     @IBAction func sendMessage(sender: UIButton?) {
         if sendMessageContent.text != "" {
@@ -67,6 +75,7 @@ class ChatTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func getData(){
+        //println("Called: customers/\(self.customer!.id)/chats/\(chat!.id)/messages")
         var url = BaseRequest.concat("customers/\(self.customer!.id)/chats/\(chat!.id)/messages")
         //Lazy init. 
         if chatFactory == nil {
@@ -78,9 +87,9 @@ class ChatTableViewController: UIViewController, UITableViewDataSource, UITableV
                 if success {
                     if let result = data["result"] as? NSDictionary {
                         self.chat = self.chatFactory!.createChatFromJson(result["data"]!, category: nil)
-                        self.tableView.reloadData()
                         
-                        if prevoiusNumSections != self.tableView.numberOfRowsInSection(0) {
+                        if prevoiusNumSections != self.chat?.messages.count {
+                            self.tableView.reloadData()
                             self.scrolToBottom()
                         }
                     }
@@ -90,7 +99,7 @@ class ChatTableViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     private func scrolToBottom () {
-        let delay = 0.4 * Double(NSEC_PER_SEC)
+        let delay = 0.5 * Double(NSEC_PER_SEC)
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         //Work around, table scroll after customheigts calc
         dispatch_after(delayTime, dispatch_get_main_queue(), {
@@ -128,7 +137,7 @@ class ChatTableViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if  let chat = self.chat {
             let message = chat.messages[indexPath.row]
-            println(message.sender)
+            //println(message.sender)
             let cell = tableView.dequeueReusableCellWithIdentifier(identifierFromType(message.sender), forIndexPath: indexPath) as! MessageTableViewCell
            cell.message = message
                         // Configure the cell

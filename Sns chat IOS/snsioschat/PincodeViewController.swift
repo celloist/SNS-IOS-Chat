@@ -81,6 +81,8 @@ class PincodeViewController: UIViewController {
                 segue()
                 
                 return true
+            } else {
+                JLToast.makeText("Onjuiste pincode!").show()
             }
         }
         

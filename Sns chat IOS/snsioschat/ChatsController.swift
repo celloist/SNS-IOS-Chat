@@ -19,7 +19,9 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         //Restfull model
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Storyboard.CellReuseIdentifier)
+        //self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Storyboard.CellReuseIdentifier)
+        self.tableView.tableFooterView = UIView()
+
         self.tableView.reloadData()
         self.tableView.dataSource = self
       
@@ -67,10 +69,12 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell = self.tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
-        if  var chat = self.chats{
+        var cell = self.tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! ChatTableViewCell
+        if  let chats = self.chats{
             // Configure the cell
-            cell.textLabel!.text = chat[indexPath.row].subject
+            let chat = chats[indexPath.row]
+            cell.chat = chat
+                        
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         }
         

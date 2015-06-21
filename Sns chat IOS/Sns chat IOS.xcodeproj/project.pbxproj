@@ -19,6 +19,11 @@
 		9E2EC8C41B35C6410058886A /* ChatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2EC8C31B35C6410058886A /* ChatTableViewController.swift */; };
 		9E2EC8C61B35E98B0058886A /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2EC8C51B35E98B0058886A /* EmployeeTableViewCell.swift */; };
 		9E2EC8C81B35E9EC0058886A /* SystemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2EC8C71B35E9EC0058886A /* SystemTableViewCell.swift */; };
+		9E2EC8CA1B36D69F0058886A /* EmployeeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2EC8C91B36D69F0058886A /* EmployeeFactory.swift */; };
+		9E2EC8CC1B36E04E0058886A /* ChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2EC8CB1B36E04E0058886A /* ChatTableViewCell.swift */; };
+		9E2EC8D51B37119F0058886A /* JLToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2EC8D21B37119F0058886A /* JLToast.swift */; };
+		9E2EC8D61B37119F0058886A /* JLToastCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2EC8D31B37119F0058886A /* JLToastCenter.swift */; };
+		9E2EC8D71B37119F0058886A /* JLToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2EC8D41B37119F0058886A /* JLToastView.swift */; };
 		9E414F831B337202004DC67E /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E414F821B337202004DC67E /* Employee.swift */; };
 		9E4C16651AC0045C0086A791 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E4C16631AC0045C0086A791 /* Main.storyboard */; };
 		9E5515CC1AD6CEA30077BD44 /* CustomerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5515CB1AD6CEA30077BD44 /* CustomerFactory.swift */; };
@@ -83,6 +88,11 @@
 		9E2EC8C31B35C6410058886A /* ChatTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewController.swift; sourceTree = "<group>"; };
 		9E2EC8C51B35E98B0058886A /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
 		9E2EC8C71B35E9EC0058886A /* SystemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemTableViewCell.swift; sourceTree = "<group>"; };
+		9E2EC8C91B36D69F0058886A /* EmployeeFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmployeeFactory.swift; sourceTree = "<group>"; };
+		9E2EC8CB1B36E04E0058886A /* ChatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatTableViewCell.swift; sourceTree = "<group>"; };
+		9E2EC8D21B37119F0058886A /* JLToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLToast.swift; sourceTree = "<group>"; };
+		9E2EC8D31B37119F0058886A /* JLToastCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLToastCenter.swift; sourceTree = "<group>"; };
+		9E2EC8D41B37119F0058886A /* JLToastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLToastView.swift; sourceTree = "<group>"; };
 		9E414F821B337202004DC67E /* Employee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		9E4C16641AC0045C0086A791 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E5515CB1AD6CEA30077BD44 /* CustomerFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerFactory.swift; sourceTree = "<group>"; };
@@ -185,6 +195,24 @@
 			name = Http;
 			sourceTree = "<group>";
 		};
+		9E2EC8CF1B3711600058886A /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				9E2EC8D01B37119F0058886A /* JLToast */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
+		9E2EC8D01B37119F0058886A /* JLToast */ = {
+			isa = PBXGroup;
+			children = (
+				9E2EC8D21B37119F0058886A /* JLToast.swift */,
+				9E2EC8D31B37119F0058886A /* JLToastCenter.swift */,
+				9E2EC8D41B37119F0058886A /* JLToastView.swift */,
+			);
+			path = JLToast;
+			sourceTree = "<group>";
+		};
 		9E55FB8C1AD691B2004F72EB /* Factories */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,6 +221,7 @@
 				9E55FB881AD6760A004F72EB /* ChatFactory.swift */,
 				9E55FB8D1AD69D70004F72EB /* UserFactory.swift */,
 				9E5515CB1AD6CEA30077BD44 /* CustomerFactory.swift */,
+				9E2EC8C91B36D69F0058886A /* EmployeeFactory.swift */,
 				9E1F3C751B15E41A007E4FEF /* AuthFactory.swift */,
 			);
 			name = Factories;
@@ -226,6 +255,7 @@
 				9E5A6D591B29980D0051E0E9 /* ActionThemeUIButton.swift */,
 				9E2EC8C51B35E98B0058886A /* EmployeeTableViewCell.swift */,
 				9E2EC8C71B35E9EC0058886A /* SystemTableViewCell.swift */,
+				9E2EC8CB1B36E04E0058886A /* ChatTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -251,6 +281,7 @@
 		9EDEE9CA1AA4542400500660 /* snsioschat */ = {
 			isa = PBXGroup;
 			children = (
+				9E2EC8CF1B3711600058886A /* Libs */,
 				9E1CE9B61B0A15C90069C476 /* Helpers */,
 				9EDEE9CD1AA4542400500660 /* AppDelegate.swift */,
 				9E4C16631AC0045C0086A791 /* Main.storyboard */,
@@ -423,9 +454,11 @@
 				CEF7876B1B335110007A9EF0 /* PincodeViewController.swift in Sources */,
 				9E2EC8C21B35BD0A0058886A /* UserChatMessageTableViewCell.swift in Sources */,
 				CEEB04931B32DDD700ED3EF3 /* SettingsTableViewController.swift in Sources */,
+				9E2EC8CA1B36D69F0058886A /* EmployeeFactory.swift in Sources */,
 				9E66BFE91B0241A100D90AD5 /* MenuThemeUIButton.swift in Sources */,
 				9E5ADE951B26E6000041854D /* init.swift in Sources */,
 				CEDEEE961AA9D65400DB5157 /* Chat.swift in Sources */,
+				9E2EC8CC1B36E04E0058886A /* ChatTableViewCell.swift in Sources */,
 				9EA6CC2A1B013477006EAD24 /* ThemeUINavigationViewController.swift in Sources */,
 				9E1F3C6A1B15B07F007E4FEF /* BasicAuth.swift in Sources */,
 				9EA6CC281B013455006EAD24 /* ThemeUIButton.swift in Sources */,
@@ -436,6 +469,7 @@
 				9E414F831B337202004DC67E /* Employee.swift in Sources */,
 				9E5515CC1AD6CEA30077BD44 /* CustomerFactory.swift in Sources */,
 				9EDEE9EF1AA454EC00500660 /* BasicRestFull.swift in Sources */,
+				9E2EC8D51B37119F0058886A /* JLToast.swift in Sources */,
 				9E55FB8E1AD69D70004F72EB /* UserFactory.swift in Sources */,
 				CEDEEE9C1AA9DD9900DB5157 /* User.swift in Sources */,
 				9E1F3C6D1B15B10B007E4FEF /* Auth.swift in Sources */,
@@ -452,11 +486,13 @@
 				9E55FB891AD6760A004F72EB /* ChatFactory.swift in Sources */,
 				CEDEEE9A1AA9D9A000DB5157 /* Message.swift in Sources */,
 				CEAD52301B270BA000DD6254 /* FaqFactory.swift in Sources */,
+				9E2EC8D71B37119F0058886A /* JLToastView.swift in Sources */,
 				CE9CB2701AAB222800FA028D /* ChatsController.swift in Sources */,
 				9EE0B9B11ACD50AA006CFDBF /* Category.swift in Sources */,
 				9E2EC8C81B35E9EC0058886A /* SystemTableViewCell.swift in Sources */,
 				9E2EC8C61B35E98B0058886A /* EmployeeTableViewCell.swift in Sources */,
 				CE3FC2E51B2323A800E0E207 /* QuestionViewController.swift in Sources */,
+				9E2EC8D61B37119F0058886A /* JLToastCenter.swift in Sources */,
 				9E5A6D5A1B29980D0051E0E9 /* ActionThemeUIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

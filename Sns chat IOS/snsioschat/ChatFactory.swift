@@ -19,29 +19,31 @@ class ChatFactory: NSObject {
     }
     
     func createChatFromJson (data: AnyObject, category: Category?) -> Chat? {
-        if let result = data as? NSDictionary {
-            if let id = result["_id"] as? String {
-                //Default to the passed category
-                var parsedCategory = category
-                //if any rawjson category is found, use this as the new category
-                if let rawCategory = result["category"] as? NSDictionary {
-                    parsedCategory = categoryFactory.createCategoryFromJson(rawCategory)
-                }
-                //if parsedCategory
-                if let category = parsedCategory {
-                    let chat =  Chat(id: id, customer: customer, category: category)
-                    
-                    if result["messages"] != nil {
-                        //Parse the messages from the data object
-                        let parsedMessages = chatMessageFactory.createMessagesFromJson(result["messages"]!)
-                        //return the chat object
-                        chat.appendMessages( parsedMessages )
-                    }
-                    
-                    return chat
+        if let result = data as? NSDictionary,
+            let id = result["_id"] as? String,
+            let updatedAt = result["updated_at"] as? String,
+            let employees = result["employees"] as? NSArray {
+            //Default to the passed category
+            var parsedCategory = category
+            //if any rawjson category is found, use this as the new category
+            if let rawCategory = result["category"] as? NSDictionary {
+                parsedCategory = categoryFactory.createCategoryFromJson(rawCategory)
+            }
+            //if parsedCategory
+            if let category = parsedCategory {
+                let parsedEmployees = EmployeeFactory.createEmployeesFromJson(employees)
+                let chat =  Chat(id: id, customer: customer, category: category, employees: parsedEmployees, lastUpdate: updatedAt )
+                
+                if result["messages"] != nil {
+                    //Parse the messages from the data object
+                    let parsedMessages = chatMessageFactory.createMessagesFromJson(result["messages"]!)
+                    //return the chat object
+                    chat.appendMessages( parsedMessages )
                 }
                 
+                return chat
             }
+            
         }
         
         return nil
@@ -86,14 +88,16 @@ class ChatMessageFactory {
     
     func createMessageFromJson (data: AnyObject) -> Message? {
         var user:User?
-        var isEmployee:Bool! = data["isEmployee"] as? Bool
+        var isEmployee = data["isEmployee"] as! Bool
         
         if var text = data["text"] as? String,
             let employee = data["isEmployee"] as? Bool,
             let time = data["timeStamp"] as? String,
             let system = data["system"] as? Bool {
-                if !employee && !system  {
+                if !employee && !system {
                     user = customer
+                } else if employee {
+                    user = EmployeeFactory.createEmployeeFromJson(data["employee"] as! NSDictionary)
                 }
                 
                 return Message(_user: user,_text: text, _time: time, _isEmployee: isEmployee, _system: system)

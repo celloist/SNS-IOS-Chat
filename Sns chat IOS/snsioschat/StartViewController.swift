@@ -70,10 +70,10 @@ class StartViewController: UIViewController {
                     self.segue("menu")
 
                 }
+            } else {
+                JLToast.makeText("Er is een fout opgetreden tijdens het registreren").show()
             }
         }
-        userDefaults.synchronize()
-        
     }
     
     func segue (segueTo: String) {

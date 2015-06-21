@@ -11,6 +11,13 @@ import UIKit
 class EmployeeTableViewCell: MessageTableViewCell {
     override func setColours() {
         super.setColours()
+        user.text = "onbekend"
+        if let concreteMessage = message {
+            if let employee = concreteMessage.user {
+                user.text = employee.name
+            }
+        }
+        
         view.backgroundColor = UIColor.greenColor()
     }
 }

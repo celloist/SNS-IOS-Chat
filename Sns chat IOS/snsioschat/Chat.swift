@@ -8,26 +8,35 @@
 
 import Foundation
 
-class Chat : RestFull {
+class Chat {
     let id:String
     //   let category:String
     let customer:Customer
     let category:Category
-    //  let employees:[Employees]; TODO
+    let lastUpdate:String
+    var employees = [Employee]()
+    var currentEmployee:Employee? {
+        if employees.count > 0 {
+            return employees.last
+        }
+        
+        return nil
+    }
     var messages = [Message]()
-    
     var subject: String {
         if messages.count >= 1 {
-            return messages[1].messageText
+            return messages[1].text
         }
         
         return ""
     }
     
-    init(id:String, customer: Customer, category : Category){
+    init(id:String, customer: Customer, category : Category, employees: [Employee], lastUpdate: String){
         self.id = id
         self.customer = customer
         self.category = category
+        self.employees = employees
+        self.lastUpdate = lastUpdate
     }
 
     func appendMessages (messages: [Message]) {

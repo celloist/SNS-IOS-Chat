@@ -9,5 +9,7 @@
 import Foundation
 
 class Employee: User {
-   
+    init(_name:String, _id:String){
+        super.init(id:_id,name:_name)
+    }
 }

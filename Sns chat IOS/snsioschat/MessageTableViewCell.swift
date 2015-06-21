@@ -16,6 +16,7 @@ class MessageTableViewCell: UITableViewCell {
         }
     }
     
+    @IBOutlet weak var user: UILabel!
     @IBOutlet weak var chatMessage: UILabel!
     @IBOutlet weak var timestamp: UILabel!
     @IBOutlet weak var view: UIView!
@@ -27,9 +28,10 @@ class MessageTableViewCell: UITableViewCell {
             timestamp.text = formattedDate.getFormattedDate()
             chatMessage.textColor = UIColor.whiteColor()
             
-            chatMessage.text = message.messageText
+            chatMessage.text = message.text
+
             setColours()
-            view.layer.cornerRadius = CGFloat(10)
+            view.layer.cornerRadius = CGFloat(6)
             view.sizeToFit()
         }
     }
@@ -37,5 +39,6 @@ class MessageTableViewCell: UITableViewCell {
     func setColours () {
         chatMessage.textColor = UIColor.whiteColor()
         timestamp.textColor = UIColor.whiteColor()
+        user.textColor = UIColor.whiteColor()
     }
 }

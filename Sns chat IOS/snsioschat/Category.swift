@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Category: RestFull {
+class Category {
      let id:String
      let name:String
     
