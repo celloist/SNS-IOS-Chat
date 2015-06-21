@@ -18,14 +18,15 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.tableFooterView = UIView()
+        tableView.tableFooterView = UIView()        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        pincodeEnabled.on = (userDefaults.valueForKey("pincode_enabled") as? Bool)!
+        pincode.keyboardType = .NumberPad
+        pincodeEnabled.setOn((userDefaults.valueForKey("pincode_enabled") as? Bool)!, animated:true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,12 +47,14 @@ class SettingsTableViewController: UITableViewController {
                 if  validPin {
                     userDefaults.setBool(true, forKey: "pincode_enabled")
                     userDefaults.synchronize()
-                } else {
-                    pincodeEnabled.on = false
+                }
+                else{
+                    pincodeEnabled.setOn(false, animated: true)
                 }
             } else {
                 userDefaults.setBool(false, forKey: "pincode_enabled")
                 userDefaults.synchronize()
+                
             }
         }
     }
