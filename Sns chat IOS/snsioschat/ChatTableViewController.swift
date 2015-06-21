@@ -15,8 +15,11 @@ class ChatTableViewController: UIViewController, UITableViewDataSource, UITableV
     private var customer = ServiceLocator.sharedInstance.getService("customer") as? Customer
     private var chatFactory:ChatFactory?
     
+    
+    
     var chat:Chat?
     
+    @IBOutlet weak var textViewBottomConstaint: NSLayoutConstraint!
     @IBOutlet weak var sendMessageContent: UITextField!
     @IBOutlet weak var tableView: UITableView!
 
@@ -44,6 +47,22 @@ class ChatTableViewController: UIViewController, UITableViewDataSource, UITableV
         }
         
         startTimer()
+        
+        //
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        textViewBottomConstaint.constant = 0.0
+    }
+    
+    //Autoadjust the view to make the keypad fit the screen
+    func keyboardWillShow(sender: NSNotification) {
+        if let userInfo = sender.userInfo {
+            if let keyboardHeight = userInfo[UIKeyboardFrameEndUserInfoKey]?.CGRectValue().size.height {
+                textViewBottomConstaint.constant = keyboardHeight
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    self.view.layoutIfNeeded()
+                })
+            }
+        }
     }
     
     private func startTimer () {
