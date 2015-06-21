@@ -28,7 +28,8 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        pincodeEnabled.on = (userDefaults.valueForKey("pincode_enabled") as? Bool)!
+        pincode.keyboardType = .NumberPad
+        pincodeEnabled.setOn((userDefaults.valueForKey("pincode_enabled") as? Bool)!, animated:true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,6 +54,7 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
                 userDefaults.setBool(false, forKey: "pincode_enabled")
                 userDefaults.setInteger(0, forKey: "pincode")
                 userDefaults.synchronize()
+                
             }
         }
     }
