@@ -65,9 +65,6 @@
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="CbS-Jj-j4J">
                                 <rect key="frame" x="290" y="292" width="20" height="20"/>
                             </activityIndicatorView>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nf8-gD-PXj">
-                                <rect key="frame" x="16" y="56" width="568" height="162"/>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dD-dj-qDb" customClass="ThemeUIButton" customModule="snsioschat" customModuleProvider="target">
                                 <rect key="frame" x="16" y="292" width="71" height="26"/>
                                 <color key="backgroundColor" red="0.2627450980392157" green="0.090196078431372548" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
@@ -78,6 +75,9 @@
                                     <action selector="startNewChat:" destination="sZa-MA-urg" eventType="touchUpInside" id="aqy-IY-PMj"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nf8-gD-PXj">
+                                <rect key="frame" x="16" y="56" width="568" height="162"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -388,7 +388,7 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logo-new.png" translatesAutoresizingMaskIntoConstraints="NO" id="VaN-Pl-JZu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-new.png" translatesAutoresizingMaskIntoConstraints="NO" id="VaN-Pl-JZu">
                                 <rect key="frame" x="215" y="203" width="171" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="qlr-b1-cAB"/>
@@ -930,6 +930,22 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qPn-FG-prg">
                                 <rect key="frame" x="0.0" y="553" width="600" height="39"/>
                                 <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TAN-kx-aWr">
+                                        <rect key="frame" x="20" y="6" width="495" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Lzm-xa-Ymp"/>
+                                            <constraint firstAttribute="width" constant="519" id="Qtm-sW-0Yf"/>
+                                            <constraint firstAttribute="width" constant="507" id="fAX-XD-vw1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Qtm-sW-0Yf"/>
+                                                <exclude reference="fAX-XD-vw1"/>
+                                            </mask>
+                                        </variation>
+                                    </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nC1-jy-sfW" customClass="ActionThemeUIButton" customModule="snsioschat" customModuleProvider="target">
                                         <rect key="frame" x="523" y="5" width="57" height="30"/>
                                         <constraints>
@@ -947,22 +963,6 @@
                                             <action selector="sendMessage:" destination="V2c-pV-rKd" eventType="touchDown" id="YEn-Th-PwO"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TAN-kx-aWr">
-                                        <rect key="frame" x="20" y="6" width="495" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="Lzm-xa-Ymp"/>
-                                            <constraint firstAttribute="width" constant="519" id="Qtm-sW-0Yf"/>
-                                            <constraint firstAttribute="width" constant="507" id="fAX-XD-vw1"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="Qtm-sW-0Yf"/>
-                                                <exclude reference="fAX-XD-vw1"/>
-                                            </mask>
-                                        </variation>
-                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1147,10 +1147,10 @@
                                                     </constraints>
                                                     <variation key="default">
                                                         <mask key="constraints">
-                                                            <exclude reference="rRQ-Np-KkQ"/>
                                                             <exclude reference="M9B-kz-CeS"/>
-                                                            <exclude reference="6t3-uu-HGk"/>
+                                                            <exclude reference="rRQ-Np-KkQ"/>
                                                             <exclude reference="0QI-fW-yVh"/>
+                                                            <exclude reference="6t3-uu-HGk"/>
                                                         </mask>
                                                     </variation>
                                                 </view>
@@ -1187,6 +1187,20 @@
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Time" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dET-UD-i3k">
+                                                            <rect key="frame" x="20" y="59" width="544" height="15"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="15" id="YdV-yQ-LCj"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                            <variation key="default">
+                                                                <mask key="constraints">
+                                                                    <exclude reference="YdV-yQ-LCj"/>
+                                                                </mask>
+                                                            </variation>
+                                                        </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Main text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9WA-dw-6U0">
                                                             <rect key="frame" x="20" y="31" width="544" height="20"/>
                                                             <constraints>
@@ -1199,20 +1213,6 @@
                                                             <variation key="default">
                                                                 <mask key="constraints">
                                                                     <exclude reference="VV1-DI-C3o"/>
-                                                                </mask>
-                                                            </variation>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Time" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dET-UD-i3k">
-                                                            <rect key="frame" x="20" y="59" width="544" height="15"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="15" id="YdV-yQ-LCj"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <nil key="highlightedColor"/>
-                                                            <variation key="default">
-                                                                <mask key="constraints">
-                                                                    <exclude reference="YdV-yQ-LCj"/>
                                                                 </mask>
                                                             </variation>
                                                         </label>
@@ -1237,8 +1237,8 @@
                                                         <mask key="constraints">
                                                             <exclude reference="Dis-KT-dVx"/>
                                                             <exclude reference="b2W-3v-juc"/>
-                                                            <exclude reference="aUN-hG-vO0"/>
                                                             <exclude reference="9bf-H7-5Gf"/>
+                                                            <exclude reference="aUN-hG-vO0"/>
                                                         </mask>
                                                     </variation>
                                                 </view>
@@ -1304,6 +1304,7 @@
                     <connections>
                         <outlet property="sendMessageContent" destination="TAN-kx-aWr" id="pMg-1a-VJF"/>
                         <outlet property="tableView" destination="IR8-Q5-Zk4" id="BIy-S7-cpi"/>
+                        <outlet property="textViewBottomConstaint" destination="qMy-vM-Nsj" id="blz-Pu-hk2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwi-wB-wgS" userLabel="First Responder" sceneMemberID="firstResponder"/>
