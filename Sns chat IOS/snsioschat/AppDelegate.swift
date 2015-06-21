@@ -21,20 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let notificationSetting:UIUserNotificationSettings = UIUserNotificationSettings(forTypes: notificationTypes, categories: nil)
         
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSetting)
-        //Register current user to the shared instance object
-        registerCurrentUser()
         
-        //Read the main config file
-        if let mainConfigPath = NSBundle.mainBundle().pathForResource("mainconfig", ofType: "plist"),
-            let coloursConfigPath = NSBundle.mainBundle().pathForResource("colours", ofType: "plist") {
-                
-            if let config = NSDictionary(contentsOfFile: mainConfigPath),
-                let coloursConfig = NSDictionary(contentsOfFile: coloursConfigPath) {
-               
-                    let parsedColoursConfig = parseColoursConfig(coloursConfig)
-                    parseMainConfig(config, parsedColoursConfig)
-            }
-        }
+        
+        setup()
         
         return true
     
@@ -66,37 +55,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // make sure this is not called when localnotifation is recieved but when tapped
             if notification.fireDate?.timeIntervalSinceNow < -1{
                 if let chatId = dict["ChatId"] as? String{
-                    var url = BaseRequest.concat("customers/\(customer.id)/chats/\(chatId)/messages")
-                    let chatModel = RestFull()
-                    chatModel.getData(url) {(success, data) in
-                        dispatch_async(dispatch_get_main_queue()){
-                                if success{
-                                    let chatFactory = ChatFactory(customer: customer)
-                                    
-                                    if let result = data["result"] as? NSDictionary{
-                                        if let chat = chatFactory.createChatFromJson(result["data"]!,category:nil) {
-                                            var vs:UIViewController = self.window!.rootViewController!
-                                            let vc : ChatTableViewController! = vs.storyboard?.instantiateViewControllerWithIdentifier("Chat") as! ChatTableViewController
-                                            var userDefaults = NSUserDefaults.standardUserDefaults()
-                                            
-                                            vc.chat = chat
-                                            
-                                            
-                                            //TODO change to use nsobject
-                                            vs.showViewController(vc as UITableViewController, sender: vc)
-                                            
-                                        }
-                                        
-                                    }
-                                }
-                            }
-                    }
+                    openChat(customer, chatId: chatId)
                 }
             }
         }//opened from a push notification when the app was on background
         
     }
- 
     
     func application(application: UIApplication, didReceiveRemoteNotification: [NSObject : AnyObject]){
         registerCurrentUser();
@@ -119,35 +83,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // make sure this is not called when localnotifation is recieved but when tapped
      
             if let chatId = dict["ChatId"] as? String {
-                var url = BaseRequest.concat("customers/\(customer.id)/chats/\(chatId)/messages")
-                let chatModel = RestFull()
-                
-                chatModel.getData(url) {(success, data) in
-                    dispatch_async(dispatch_get_main_queue()){
-                        if success {
-                            let chatFactory = ChatFactory(customer: customer)
-                            
-                            if let result = data["result"] as? NSDictionary {
-                                if let chat = chatFactory.createChatFromJson(result["data"]!,category:nil) {
-                                    var vs:UIViewController = self.window!.rootViewController!
-                                    
-                                    let vc : ChatTableViewController! = vs.storyboard?.instantiateViewControllerWithIdentifier("Chat") as! ChatTableViewController
-                                    var userDefaults = NSUserDefaults.standardUserDefaults()
-                                    
-                                    vc.chat = chat
-                                    
-                                    //TODO change to use nsobject
-                                    vs.showViewController(vc as UITableViewController, sender: vc)
-                                    
-                                }
+                openChat(customer, chatId: chatId)
+            }
+        
+            //TODO update Model
+        }
+    }
+    
+    private func openChat (customer: Customer, chatId: String) {
+        if let chatModel = ServiceLocator.sharedInstance.createFactoryService("RestFull") as? RestFull {
+            
+            var url = BaseRequest.concat("customers/\(customer.id)/chats/\(chatId)/messages")
+            
+            chatModel.getData(url) {(success, data) in
+                dispatch_async(dispatch_get_main_queue()){
+                    if success {
+                        let chatFactory = ChatFactory(customer: customer)
+                        
+                        if let result = data["result"] as? NSDictionary {
+                            if let chat = chatFactory.createChatFromJson(result["data"]!,category:nil) {
+                                var vs:UIViewController = self.window!.rootViewController!
                                 
+                                let vc = vs.storyboard?.instantiateViewControllerWithIdentifier("Chat") as! ChatTableViewController
+                                var userDefaults = NSUserDefaults.standardUserDefaults()
+                                
+                                vc.chat = chat
+                                
+                                //TODO change to use nsobject
+                                vs.showViewController(vc, sender: vc)
                             }
                         }
                     }
                 }
             }
-        
-            //TODO update Model
         }
     }
     
@@ -162,6 +130,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
+        
+        
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
 
@@ -175,4 +145,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 }
-

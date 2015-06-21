@@ -108,12 +108,12 @@ class StartChatViewController: UIViewController, UIPickerViewDataSource,UIPicker
                                 self.activityIndicator.stopAnimating()
                                 self.activityIndicator.hidden = true
                                 
-                                let vc : ChatTableViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("Chat") as! ChatTableViewController
+                                let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ChatItem") as! ChatTableViewController
                                 
                                 vc.chat = chat
                                 vc.title = self.questionTextbox.text
                                 
-                                self.showViewController(vc as UITableViewController, sender: vc)
+                                self.showViewController(vc, sender: vc)
                                 self.navigationController?.viewControllers.removeAtIndex((self.navigationController?.viewControllers.count)! - 2)
                                 
                             }

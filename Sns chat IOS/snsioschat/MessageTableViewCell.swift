@@ -16,9 +16,9 @@ class MessageTableViewCell: UITableViewCell {
         }
     }
     
-    @IBOutlet weak var view: UIView!
     @IBOutlet weak var chatMessage: UILabel!
     @IBOutlet weak var timestamp: UILabel!
+    @IBOutlet weak var view: UIView!
     
     func updateUI() {
         if let message = self.message {
@@ -34,21 +34,8 @@ class MessageTableViewCell: UITableViewCell {
         }
     }
     
-    private func setColours () {
-        let type = message?.type
+    func setColours () {
         chatMessage.textColor = UIColor.whiteColor()
         timestamp.textColor = UIColor.whiteColor()
-        timestamp.textAlignment = .Right
-        
-        if type == "employee" {
-            view.backgroundColor = UIColor.blueColor()
-        } else if type == "system"  {
-            view.backgroundColor = UIColor.grayColor()
-            
-        } else {
-            view.backgroundColor = UIColor.purpleColor()
-        }
-        
-
     }
 }

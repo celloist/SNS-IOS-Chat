@@ -15,7 +15,7 @@ class Message{
     let isEmployee:Bool
     let system:Bool
     
-    var type:String {
+    var sender:String {
         get {
             var concreteType = ""
             

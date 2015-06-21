@@ -20,13 +20,6 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
         super.viewDidLoad()
         //Restfull model
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: Storyboard.CellReuseIdentifier)
-        
-     
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.tableView.reloadData()
         self.tableView.dataSource = self
       
@@ -61,11 +54,10 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let vc : ChatTableViewController! = self.storyboard?.instantiateViewControllerWithIdentifier("Chat") as! ChatTableViewController
-        
+        let vc = self.storyboard?.instantiateViewControllerWithIdentifier("ChatItem") as! ChatTableViewController
         vc.chat = self.chats?[indexPath.row]
         
-        self.showViewController(vc as UITableViewController, sender: vc)
+        self.showViewController(vc, sender: vc)
         
     }
     

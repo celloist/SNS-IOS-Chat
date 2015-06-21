@@ -29,6 +29,24 @@ func parseColoursConfig (coloursConfig: NSDictionary) -> [String:UIColor] {
     return colours
 }
 
+func setup () {
+    //Register current user to the shared instance object
+    registerCurrentUser()
+
+    //Read the main config file
+    if let mainConfigPath = NSBundle.mainBundle().pathForResource("mainconfig", ofType: "plist"),
+        let coloursConfigPath = NSBundle.mainBundle().pathForResource("colours", ofType: "plist") {
+            
+            if let config = NSDictionary(contentsOfFile: mainConfigPath),
+                let coloursConfig = NSDictionary(contentsOfFile: coloursConfigPath) {
+                    
+                    let parsedColoursConfig = parseColoursConfig(coloursConfig)
+                    parseMainConfig(config, parsedColoursConfig)
+            }
+    }
+}
+
+
 func parseMainConfig (config: NSDictionary, colours: [String:UIColor]) {
     //Extract some key config settings
     if  let nav = config["NAVIGATION_BAR"] as? NSDictionary,

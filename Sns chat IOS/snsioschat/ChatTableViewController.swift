@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ChatTableViewController: UITableViewController,UITextFieldDelegate {
+class ChatTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
     var timer = NSTimer()
     private let chatModel = ServiceLocator.sharedInstance.createFactoryService("RestFull") as! RestFull
     private var customer = ServiceLocator.sharedInstance.getService("customer") as? Customer
@@ -17,12 +17,15 @@ class ChatTableViewController: UITableViewController,UITextFieldDelegate {
     
     var chat:Chat?
     
-    
     @IBOutlet weak var sendMessageContent: UITextField!
+    @IBOutlet weak var tableView: UITableView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.tableView.registerClass(MessageTableViewCell.self, forCellReuseIdentifier: Storyboard.CellReuseIdentifier)
         self.sendMessageContent.delegate = self
+        self.tableView.dataSource = self
         
         tableView.estimatedRowHeight = tableView.rowHeight
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -33,11 +36,11 @@ class ChatTableViewController: UITableViewController,UITextFieldDelegate {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.tableView.reloadData()
-        
+        scrolToBottom()
         // Scrolls to the bottom of the list
        // tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: chat!.messages.count - 1, inSection: 0), atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
         if let concreteChat = chat {
-            self.title = concreteChat.messages[1].text
+            self.title = concreteChat.subject
         }
         
         timer = NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: Selector("updateUI"), userInfo: nil, repeats: true)
@@ -57,7 +60,6 @@ class ChatTableViewController: UITableViewController,UITextFieldDelegate {
                 dispatch_async(dispatch_get_main_queue()) {
                     if success {
                         self.getData()
-                        self.tableView.scrollToRowAtIndexPath(NSIndexPath(forRow: self.chat!.messages.count - 1, inSection: 0), atScrollPosition: UITableViewScrollPosition.Bottom, animated: true)
                     }
                 }
             });
@@ -70,17 +72,32 @@ class ChatTableViewController: UITableViewController,UITextFieldDelegate {
         if chatFactory == nil {
             chatFactory = ChatFactory(customer: customer!)
         }
-        
+        let prevoiusNumSections = self.tableView.numberOfRowsInSection(0)
         chatModel.getData(url) { (success, data) in
             dispatch_async(dispatch_get_main_queue()) {
                 if success {
                     if let result = data["result"] as? NSDictionary {
                         self.chat = self.chatFactory!.createChatFromJson(result["data"]!, category: nil)
                         self.tableView.reloadData()
+                        
+                        if prevoiusNumSections != self.tableView.numberOfRowsInSection(0) {
+                            self.scrolToBottom()
+                        }
                     }
                 }
             }
         }
+    }
+    
+    private func scrolToBottom () {
+        let delay = 0.4 * Double(NSEC_PER_SEC)
+        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+        //Work around, table scroll after customheigts calc
+        dispatch_after(delayTime, dispatch_get_main_queue(), {
+            var iPath = NSIndexPath(forRow: self.tableView.numberOfRowsInSection(0)-1,
+                inSection: self.tableView.numberOfSections()-1)
+            self.tableView.scrollToRowAtIndexPath(iPath, atScrollPosition: UITableViewScrollPosition.Bottom, animated: false)
+        })
     }
     
     func updateUI () {
@@ -89,10 +106,18 @@ class ChatTableViewController: UITableViewController,UITextFieldDelegate {
     }
     // MARK: - Table view data source
     private struct Storyboard {
-        static let CellReuseIdentifier = "Message"
+        static let SystemCellReuseIdentifier = "SystemMessage"
+        static let UserCellReuseIdentifier = "UserMessage"
+        static let EmployeeCellReuseIdentifier = "EmployeeMessage"
+        
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         if let count = chat?.messages.count {
             return count
         } else {
@@ -100,61 +125,42 @@ class ChatTableViewController: UITableViewController,UITextFieldDelegate {
         }
     }
     
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> MessageTableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! MessageTableViewCell
-        
-        
-        if  var chat = self.chat{
-            // Configure the cell
-            cell.message = chat.messages[indexPath.row]
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        if  let chat = self.chat {
+            let message = chat.messages[indexPath.row]
+            println(message.sender)
+            let cell = tableView.dequeueReusableCellWithIdentifier(identifierFromType(message.sender), forIndexPath: indexPath) as! MessageTableViewCell
+           cell.message = message
+                        // Configure the cell
+           
+           return cell
+        } else {
+            return UITableViewCell()
         }
-        
-        return cell
     }
+    
+    private  func identifierFromType (id: String) -> String {
+        switch id {
+        case "employee":
+            return Storyboard.EmployeeCellReuseIdentifier
+            
+        case "user":
+            return Storyboard.UserCellReuseIdentifier
+            
+        case "system":
+            return Storyboard.SystemCellReuseIdentifier
+            
+        default:
+            return Storyboard.UserCellReuseIdentifier
+        }
+    }
+
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         sendMessage(nil)
         return true
     }
     
-    /*
-    */
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return NO if you do not want the specified item to be editable.
-    return true
-    }
-    */
-    
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
-    // Delete the row from the data source
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    } else if editingStyle == .Insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
-    }
-    */
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
-    }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return NO if you do not want the item to be re-orderable.
-    return true
-    }
-    */
     
     
     // MARK: - Navigation

@@ -32,6 +32,13 @@ class SettingsTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func textEnterd(sender: UITextField) {
+        if count(sender.text) == 5 {
+            userDefaults.setInteger(sender.text.hashValue, forKey: "pincode")
+        }
+
+    }
 
     @IBAction func pincodeEnabled(sender: UISwitch) {
         if sender.on != userDefaults.valueForKey("pincode_enabled") as? Bool {
@@ -46,13 +53,6 @@ class SettingsTableViewController: UITableViewController {
                 userDefaults.setBool(false, forKey: "pincode_enabled")
                 userDefaults.synchronize()
             }
-        }
-    }
-
-    @IBAction func textEnterd(sender: UITextField) {
-        if count(sender.text) == 5 {
-            userDefaults.setInteger(sender.text.hashValue, forKey: "pincode")
-            println("Pincode set to: \(sender.text.hashValue)")
         }
     }
     /*
