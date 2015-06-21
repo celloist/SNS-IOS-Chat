@@ -127,11 +127,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
     }
 
     func applicationWillEnterForeground(application: UIApplication) {
         
-        
+        if let customer = ServiceLocator.sharedInstance.getService("customer") as? Customer {
+            //check if pin is enabled an segue to unlock controller
+            var userDefaults = NSUserDefaults.standardUserDefaults()
+            if let pincodeEnabled = userDefaults.valueForKey("pincode_enabled") as? Bool {
+                var vs:UIViewController = self.window!.rootViewController!
+                let vc = vs.storyboard?.instantiateViewControllerWithIdentifier("Unlock") as! PincodeViewController
+                vs.showViewController(vc, sender: vc)
+            }
+            
+        }
+
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
     }
 

@@ -13,6 +13,7 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
     private var chatModel = ServiceLocator.sharedInstance.createFactoryService("RestFull") as! RestFull
     private var customer  = ServiceLocator.sharedInstance.getService("customer") as? Customer
     private var chats:[Chat]?
+    private var isRetreivingData = false
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,23 +25,35 @@ class ChatsController : UIViewController , UITableViewDataSource , UITableViewDe
 
         self.tableView.reloadData()
         self.tableView.dataSource = self
-      
-        if let id = customer?.id {        
-            var url = BaseRequest.concat("customers/" + id + "/chats")
-            
-            chatModel.getData(url, callback: {(success : Bool, data: [String:AnyObject]) in
-                dispatch_async(dispatch_get_main_queue()) {
-                    if success {
-                        let chatFactory = ChatFactory(customer: self.customer!)
-                        
-                        if let result = data["result"] as? NSDictionary {
-                            let chats = chatFactory.createChatsFromJson(result["data"]!)
-                            self.chats = chats
-                            self.tableView.reloadData()
+        getData()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        getData()
+    }
+    
+    private func getData () {
+        if !self.isRetreivingData {
+            if let id = customer?.id {
+                var url = BaseRequest.concat("customers/" + id + "/chats")
+                self.isRetreivingData = true
+                
+                chatModel.getData(url, callback: {(success : Bool, data: [String:AnyObject]) in
+                    dispatch_async(dispatch_get_main_queue()) {
+                        self.isRetreivingData = false
+                        if success {
+                            let chatFactory = ChatFactory(customer: self.customer!)
+                            
+                            if let result = data["result"] as? NSDictionary {
+                                let chats = chatFactory.createChatsFromJson(result["data"]!)
+                                self.chats = chats
+                                self.tableView.reloadData()
+                            }
                         }
                     }
-                }
-            });
+                });
+            }
         }
     }
     

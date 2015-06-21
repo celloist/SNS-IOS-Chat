@@ -15,9 +15,21 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //self.navigationController?.viewControllers.removeAtIndex((self.navigationController?.viewControllers.count)! - 2)
+        let backButton = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: navigationController, action: nil)
+        navigationItem.leftBarButtonItem = backButton
         //logo.image = UIImage(named: "logo-new.png");
-        navigationItem.setHidesBackButton(true, animated: false)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        println("Hide nav")
+        //navigationItem.setHidesBackButton(true, animated: false)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationItem.setHidesBackButton(false, animated: false)
     }
     
     @IBAction func moveToOtherScene(sender: UIButton) {
@@ -37,7 +49,7 @@ class MenuViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "Chats"{
             var dest = segue.destinationViewController as! ChatsController
-            navigationItem.setHidesBackButton(false, animated: true)
+            
         }
     }
 

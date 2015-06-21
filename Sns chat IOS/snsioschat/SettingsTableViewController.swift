@@ -48,6 +48,7 @@ class SettingsTableViewController: UITableViewController, UITextFieldDelegate {
                 } else {
                     pincodeEnabled.on = false
                     JLToast.makeText("Voer eerst een vijfcijferige pincode in!").show()
+                    pincodeEnabled.setOn(false, animated: false)
                 }
             } else {
                 JLToast.makeText("Pincode uitgeschakeld!").show()

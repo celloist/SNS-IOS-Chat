@@ -24,6 +24,8 @@ class FaqController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "FAQ"
         // Do any additional setup after loading the view, typically from a nib.
         
         restFull.getData(BaseRequest.concat("categories"), callback: {( success : Bool, data: [String:AnyObject]) in

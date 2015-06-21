@@ -17,11 +17,28 @@ class StartViewController: UIViewController {
     @IBOutlet weak var MainButton: UIButton!
     @IBOutlet weak var label: UILabel!
     private var customer: Customer?
+    private var initialized = false
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initialize()
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if !initialized {
+            initialize()
+        }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.initialized = false
+    }
+    
+    private func initialize () {
         if let customer = ServiceLocator.sharedInstance.getService("customer") as? Customer {
             //check if pin is enabled an segue to unlock controller
             var userDefaults = NSUserDefaults.standardUserDefaults()
@@ -36,6 +53,8 @@ class StartViewController: UIViewController {
         }
         
         chatModel = ServiceLocator.sharedInstance.createFactoryService("RestFull") as? RestFull
+        
+        initialized = true
     }
     
     @IBAction func ButtonOnPressed(sender: UIButton) {
@@ -45,7 +64,7 @@ class StartViewController: UIViewController {
         
         
         userDefaults.setValue(Username.text, forKey: "username")
-        
+        userDefaults.synchronize()
         
         if let deviceToken: String = userDefaults.valueForKey("deviceToken") as? String  {
             params["registrationId"] = deviceToken
@@ -85,8 +104,8 @@ class StartViewController: UIViewController {
             let vc = self.storyboard?.instantiateViewControllerWithIdentifier("Unlock") as! PincodeViewController
             self.showViewController(vc, sender: vc)
         }
-        
-        self.navigationController?.viewControllers.removeAtIndex((self.navigationController?.viewControllers.count)! - 1)
+
+        //
     }
 }
 
