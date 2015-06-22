@@ -18,6 +18,11 @@ class EmployeeTableViewCell: MessageTableViewCell {
             }
         }
         
-        view.backgroundColor = UIColor.greenColor()
+        if let colour = createUiColour(["r" : 29, "g" : 157, "b": 232]) {
+            view.backgroundColor = colour
+        } else {
+            view.backgroundColor = UIColor.blueColor()
+        }
+
     }
 }

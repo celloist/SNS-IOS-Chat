@@ -12,6 +12,10 @@ class SystemTableViewCell: MessageTableViewCell {
     override func setColours() {
         super.setColours()
         user.text = "System"
-        view.backgroundColor = UIColor.blueColor()
+        if let colour = createUiColour(["r" : 95, "g" : 204, "b": 247]) {
+            view.backgroundColor = colour
+        } else {
+            view.backgroundColor = UIColor.blueColor()
+        }
     }
 }

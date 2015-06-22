@@ -29,7 +29,7 @@ class EmployeeFactory: NSObject {
         var newEmployee:Employee?
         
         if let employee = data as? NSDictionary {
-            if let name = employee["name"] as? String, let id = employee["_id"] as? String {
+            if let name = employee["username"] as? String, let id = employee["_id"] as? String {
                 newEmployee = Employee(_name:name,_id:id)
             }
         }
