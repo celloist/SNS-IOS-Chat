@@ -58,8 +58,24 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func ButtonOnPressed(sender: UIButton) {
+        if validate() {
+            register()
+        }
+    }
+    
+    private func validate () -> Bool {
+        if count(Username.text) >= 10 {
+            return true
+        } else {
+            JLToast.makeText("Uw gebruikersnaam moet minimaal 10 tekens lang zijn!").show()
+            
+            return false
+        }
+    }
+    
+    private func register () {
         var params = [String:String]()
-        params["name"] = Username.text;
+        params["name"] = Username.text
         var userDefaults = NSUserDefaults.standardUserDefaults()
         
         
@@ -87,7 +103,7 @@ class StartViewController: UIViewController {
                     
                     ServiceLocator.sharedInstance.registerService("customer", service: self.customer!)
                     self.segue("menu")
-
+                    
                 }
             } else {
                 JLToast.makeText("Er is een fout opgetreden tijdens het registreren").show()
